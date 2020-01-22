@@ -16,6 +16,7 @@ public class Health_Pickup : MonoBehaviour
         
     }
 
+    /*
     private void OnTriggerEnter(Collider other)
     {
         if (collided.transform.name == ("player"))
@@ -24,5 +25,5 @@ public class Health_Pickup : MonoBehaviour
             destroy(GameObject);
         }
     }
-   
+   */
 }
