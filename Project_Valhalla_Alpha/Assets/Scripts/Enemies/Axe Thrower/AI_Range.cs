@@ -22,15 +22,17 @@ public class AI_Range : MonoBehaviour
     {
         transform.LookAt(Player);
 
-        if(Vector3.Distance(transform.position, Player.position) > minDist)
+        //if further than minDist come towards
+        if(Vector3.Distance(transform.position, Player.position) > maxDist)
         {
             transform.position += transform.forward * moveSpeed * Time.fixedDeltaTime;
         }
-        else if (Vector3.Distance(transform.position, Player.position) < maxDist)
+        //if too close move back.
+        else if (Vector3.Distance(transform.position, Player.position) < minDist)
         {
             transform.position -= transform.forward * moveSpeed * Time.fixedDeltaTime;
         }
-
+        
         //TODO make it so that enemy isnt jagged when at minDist.
     }
 }
