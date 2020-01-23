@@ -241,7 +241,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 647761411}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.01, y: 3.12, z: -1.13}
+  m_LocalPosition: {x: 0, y: 0, z: -1}
   m_LocalScale: {x: 1, y: 2, z: 1}
   m_Children: []
   m_Father: {fileID: 730483103}
@@ -286,8 +286,8 @@ MonoBehaviour:
   axeObject: {fileID: 8291421867862500384, guid: e339c2193c5c34f45b5a355b52dd4d1b,
     type: 3}
   axeSpawn: {fileID: 647761412}
-  throwSpeed: 1000
-  throw_every: 5
+  throwSpeed: 2
+  start_time_between_shots: 2
 --- !u!136 &730483100
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -608,6 +608,11 @@ PrefabInstance:
     - target: {fileID: 5502612627495450634, guid: 7a26c654fbecc4a45b91ee57258a2bbb,
         type: 3}
       propertyPath: m_Name
+      value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 5502612627495450634, guid: 7a26c654fbecc4a45b91ee57258a2bbb,
+        type: 3}
+      propertyPath: m_TagString
       value: Player
       objectReference: {fileID: 0}
     - target: {fileID: 6603581415996861976, guid: 7a26c654fbecc4a45b91ee57258a2bbb,

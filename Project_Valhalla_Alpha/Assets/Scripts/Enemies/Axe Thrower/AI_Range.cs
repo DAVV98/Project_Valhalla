@@ -15,28 +15,29 @@ public class AI_Range : MonoBehaviour
     [Header("Axe Throw")]
     public GameObject axeObject;
     public Transform axeSpawn;
-    float throwTimer;
     public float throwSpeed;
-    public float throw_every;
+    private float time_between_shots;
+    public float start_time_between_shots;
 
-    void Start()
-    {
-        throwTimer = 0;
-    }
-
-    // Update is called once per frame
-    void FixedUpdate()
-    {
-        throwTimer += Time.deltaTime;
-        Range_AI();
-        
-    }
 
     /// <summary>
     /// - Makes enemy look at player.
     /// - Creates the movement AI for axeThrower. 
     /// - TODO: make axe throw ability.
     /// </summary>
+  
+    void Start()
+    {
+        time_between_shots = start_time_between_shots;
+    }
+
+    // Update is called once per frame
+    void FixedUpdate()
+    {
+        Range_AI();
+        Attack_Timer();
+    }
+
     void Range_AI()
     {
         transform.LookAt(Player);
@@ -51,31 +52,23 @@ public class AI_Range : MonoBehaviour
         {
             transform.position -= transform.forward * moveSpeed * Time.fixedDeltaTime;
         }
-
-        if (Vector3.Distance(transform.position, Player.position) < maxDist)
-        {
-            AttackTimer();
-        }
     }
-
-    void AttackTimer()
+    
+    void Attack_Timer()
     {
-        //Timer x time.
-        if (throwTimer == throw_every)
+
+        if (time_between_shots <= 0)
         {
-            Debug.Log("shoot");
+            Instantiate(axeObject, axeSpawn.position, axeSpawn.rotation);
+            time_between_shots = start_time_between_shots;
         }
-    }
-
-    void Attack()
-    {
-        //instantiate new axe.
-        GameObject newAxe = Instantiate(axeObject, axeSpawn.position, axeSpawn.rotation);
-
-        //throw axe
-        newAxe.GetComponent<Rigidbody>().velocity = axeSpawn.forward * throwSpeed;
+        else
+        {
+            time_between_shots -= Time.deltaTime;
+        }
 
     }
+    
 }
 
 //call attack once every 5 seconds.
