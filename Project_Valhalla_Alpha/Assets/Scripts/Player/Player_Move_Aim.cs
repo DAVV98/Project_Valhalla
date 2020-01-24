@@ -23,14 +23,19 @@ public class Player_Move_Aim : MonoBehaviour
 
     void movePlayer()
     {
+        //Get Axis
         float input_horizontal = Input.GetAxisRaw("Horizontal");
         float input_vertical = Input.GetAxisRaw("Vertical");
 
+        //Create x,y,z movement.
         float x = input_horizontal * moveSpeed * Time.fixedDeltaTime;
         float y = 0.0f;
         float z = input_vertical * moveSpeed * Time.fixedDeltaTime;
 
+        // use movement to create a new vector.
         Vector3 newPosition = new Vector3(x, y, z);
+
+        //use vector to move player.
         transform.position = transform.position + newPosition;
     }
 

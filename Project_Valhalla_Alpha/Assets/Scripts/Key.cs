@@ -15,14 +15,14 @@ public class Key : MonoBehaviour
     {
 
     }
-    /*
-    private void OnTriggerEnter(Collider other)
+    
+    void OnTriggerEnter(Collider other)
     {
-        if (collided.transform.name == ("player"))
+        if (other.transform.name == ("player"))
         {
             GMaster.Keys = +1;
-            destroy(GameObject);
+            destroy(this.gameObject);
         }
     }
-    */
+    
 }
