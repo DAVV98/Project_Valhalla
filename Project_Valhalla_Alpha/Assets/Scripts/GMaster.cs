@@ -7,13 +7,13 @@ public class GMaster : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        int health = 4;
+        int Health = 4;
     }
 
     // Update is called once per frame
     void Update()
     {
-        int keys = 0;
+        int Keys = 0;
         
 
         
