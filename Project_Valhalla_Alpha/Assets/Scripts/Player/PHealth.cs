@@ -4,12 +4,14 @@ using UnityEngine;
 
 public class NewBehaviourScript : MonoBehaviour
 {
+    int Health;
+
     // Start is called before the first frame update
     void Start()
     {
-        //Health = GMaster.Health;
+        Health = GMaster.Health;
 
-        int Health;
+        
     }
 
     // Update is called once per frame
