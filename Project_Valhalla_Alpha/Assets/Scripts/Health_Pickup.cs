@@ -21,7 +21,7 @@ public class Health_Pickup : MonoBehaviour
     {
         if (collided.transform.name == ("player"))
         {
-            GMaster.Health = +1;
+            player.Health = +1;
             destroy(GameObject);
         }
     }
