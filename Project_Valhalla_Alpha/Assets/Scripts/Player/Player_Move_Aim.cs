@@ -7,11 +7,6 @@ public class Player_Move_Aim : MonoBehaviour
     [Header("Movement")]
     public float moveSpeed;
 
-    /*
-    [Header("Aiming")]
-    //public float moveSpeed;
-    */
-
     // Start is called before the first frame update
     void Start()
     {
