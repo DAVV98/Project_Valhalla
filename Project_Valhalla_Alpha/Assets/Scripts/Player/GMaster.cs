@@ -4,16 +4,19 @@ using UnityEngine;
 
 public class GMaster : MonoBehaviour
 {
+    int Keys;
+    int Health;
+
     // Start is called before the first frame update
     void Start()
     {
-        int Health = 4;
+        Health = 4;
     }
 
     // Update is called once per frame
     void Update()
     {
-        int Keys = 0;
+        Keys = 0;
         
 
         
