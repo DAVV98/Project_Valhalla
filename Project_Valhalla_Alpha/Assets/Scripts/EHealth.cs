@@ -4,32 +4,38 @@ using UnityEngine;
 
 public class EHealth : MonoBehaviour
 {
+    private int health;
+    
     // Start is called before the first frame update
     void Start()
     {
         //enemy health
-        //int Ehealth = 1;
+
+        health = 0;
     }
 
     // Update is called once per frame
     void Update()
     {
-        /*
-        // collide with death wall 
-        void OnTriggerEnter(Collider other)
+        
+        //kill enemy
+        
+        if (health <= 0)
         {
-            if (collided.transform.tag == ("Death"))
-            {
-                EHealth = -999;
-                
-            }
+            Destroy(this.gameObject);
         }
-        */
 
-        //if health = 0 
-        //if (Ehealth = 0)
+
+
+    }
+
+    // collide with death wall 
+    void OnTriggerEnter(Collider other)
+    {
+        if (other.transform.tag == ("Death"))
         {
-            //Destroy(GameObject);
+            health += -999;
+
         }
     }
 }
