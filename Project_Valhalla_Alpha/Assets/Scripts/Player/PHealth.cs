@@ -17,7 +17,7 @@ public class NewBehaviourScript : MonoBehaviour
 
 
     }
-
+    
     // Update is called once per frame
     void Update()
     {
@@ -29,14 +29,14 @@ public class NewBehaviourScript : MonoBehaviour
     //enemy dmg
     void OnTriggerEnter(Collider other)
     {
-        if (other.transform.tag == ("Enemy"))
+        if (other.CompareTag == ("Enemy"))
         {
             Health = -1;
 
         }
 
         //prog dmg
-        if (other.transform.tag == ("Progectile"))
+        if (other.CompareTag == ("Progectile"))
         {
             Health = -1;
 
@@ -44,5 +44,3 @@ public class NewBehaviourScript : MonoBehaviour
     }
 
 }
-        
-    
