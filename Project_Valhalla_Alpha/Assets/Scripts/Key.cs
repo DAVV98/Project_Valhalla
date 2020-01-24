@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class Key : MonoBehaviour
 {
+    public GMaster GMaster;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -18,10 +20,11 @@ public class Key : MonoBehaviour
     
     void OnTriggerEnter(Collider other)
     {
-        if (other.transform.name == ("player"))
+        //if (other.transform.name == "player")
+        if (other.CompareTag("Player"))
         {
             GMaster.Keys = +1;
-            destroy(this.gameObject);
+            Destroy(this.gameObject);
         }
     }
     

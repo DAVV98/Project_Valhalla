@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class GMaster : MonoBehaviour
 {
-    int Keys;
-    int Health;
+    public int Keys;
+    public int Health;
 
     // Start is called before the first frame update
     void Start()

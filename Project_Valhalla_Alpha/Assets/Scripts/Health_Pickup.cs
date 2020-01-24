@@ -17,12 +17,12 @@ public class Health_Pickup : MonoBehaviour
     }
 
     /*
-    private void OnTriggerEnter(Collider other)
+    void OnTriggerEnter(Collider other)
     {
-        if (collided.transform.name == ("player"))
+        if (other.transform.tag == ("Player"))
         {
             player.Health = +1;
-            destroy(GameObject);
+            Destroy(this.gameObject);
         }
     }
    */
