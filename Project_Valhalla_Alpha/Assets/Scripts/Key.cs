@@ -16,6 +16,7 @@ public class Key : MonoBehaviour
 
     }
     
+    /*
     void OnTriggerEnter(Collider other)
     {
         if (other.transform.name == ("player"))
@@ -24,5 +25,5 @@ public class Key : MonoBehaviour
             destroy(this.gameObject);
         }
     }
-    
+    */
 }

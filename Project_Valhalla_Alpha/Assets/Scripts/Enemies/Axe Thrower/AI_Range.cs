@@ -61,7 +61,7 @@ public class AI_Range : MonoBehaviour
     /// - every x seconds instantiate new Axe.
     /// </summary>
 
-    void Attack_Timer()
+    void Attack_Timer() 
     {
         if (time_between_shots <= 0)
         {
