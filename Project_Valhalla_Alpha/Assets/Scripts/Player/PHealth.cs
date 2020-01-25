@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class NewBehaviourScript : MonoBehaviour
+public class PHealth : MonoBehaviour
 {
 
     int Health;
@@ -11,10 +11,11 @@ public class NewBehaviourScript : MonoBehaviour
 
 
     // Start is called before the first frame update
-    public void Start()
+    void Start()
     {
         Health = GMaster.Health;
 
+        Health += 4;
 
     }
     
@@ -29,14 +30,14 @@ public class NewBehaviourScript : MonoBehaviour
     //enemy dmg
     void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag == ("Enemy"))
+        if (other.CompareTag("Enemy"))
         {
             Health = -1;
 
         }
 
         //prog dmg
-        if (other.CompareTag == ("Progectile"))
+        if (other.CompareTag("Progectile"))
         {
             Health = -1;
 
