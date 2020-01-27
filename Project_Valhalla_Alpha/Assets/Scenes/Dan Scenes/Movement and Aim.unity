@@ -610,6 +610,26 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 6990268981297852543, guid: c103ce7843ca28b4a86803736014bf0b,
+        type: 3}
+      propertyPath: target
+      value: 
+      objectReference: {fileID: 191775258}
+    - target: {fileID: 6990268981297852543, guid: c103ce7843ca28b4a86803736014bf0b,
+        type: 3}
+      propertyPath: MovmentSpeed
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6990268981297852543, guid: c103ce7843ca28b4a86803736014bf0b,
+        type: 3}
+      propertyPath: rotationalDamp
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6990268981297852543, guid: c103ce7843ca28b4a86803736014bf0b,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7668238222978296293, guid: c103ce7843ca28b4a86803736014bf0b,
         type: 3}
       propertyPath: m_Constraints
@@ -628,7 +648,7 @@ PrefabInstance:
     - target: {fileID: 8925573386346086747, guid: c103ce7843ca28b4a86803736014bf0b,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 2.95
+      value: 7.39
       objectReference: {fileID: 0}
     - target: {fileID: 8925573386346086747, guid: c103ce7843ca28b4a86803736014bf0b,
         type: 3}
@@ -685,5 +705,11 @@ PrefabInstance:
       propertyPath: Player
       value: 
       objectReference: {fileID: 191775258}
-    m_RemovedComponents: []
+    - target: {fileID: 8925573386346086751, guid: c103ce7843ca28b4a86803736014bf0b,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 6990268981297852543, guid: c103ce7843ca28b4a86803736014bf0b, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: c103ce7843ca28b4a86803736014bf0b, type: 3}
