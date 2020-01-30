@@ -230,7 +230,7 @@ GameObject:
   m_Component:
   - component: {fileID: 180786770}
   m_Layer: 0
-  m_Name: LaserTrap 2
+  m_Name: LaserTrap R
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -253,6 +253,12 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &629080060 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 9041769637383319818, guid: 348a7e7711942a54d8948f4784240e68,
+    type: 3}
+  m_PrefabInstance: {fileID: 9041769636167994955}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &981655394
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -767,6 +773,80 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
+--- !u!1001 &1557077470
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4413072523353769092, guid: 32a1ce61ac8f1054fa30e302649c1e65,
+        type: 3}
+      propertyPath: hiddenObject
+      value: 
+      objectReference: {fileID: 1783062193}
+    - target: {fileID: 4413072523603185521, guid: 32a1ce61ac8f1054fa30e302649c1e65,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 3.54
+      objectReference: {fileID: 0}
+    - target: {fileID: 4413072523603185521, guid: 32a1ce61ac8f1054fa30e302649c1e65,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.28591323
+      objectReference: {fileID: 0}
+    - target: {fileID: 4413072523603185521, guid: 32a1ce61ac8f1054fa30e302649c1e65,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0.8547971
+      objectReference: {fileID: 0}
+    - target: {fileID: 4413072523603185521, guid: 32a1ce61ac8f1054fa30e302649c1e65,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4413072523603185521, guid: 32a1ce61ac8f1054fa30e302649c1e65,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4413072523603185521, guid: 32a1ce61ac8f1054fa30e302649c1e65,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4413072523603185521, guid: 32a1ce61ac8f1054fa30e302649c1e65,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4413072523603185521, guid: 32a1ce61ac8f1054fa30e302649c1e65,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 4413072523603185521, guid: 32a1ce61ac8f1054fa30e302649c1e65,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4413072523603185521, guid: 32a1ce61ac8f1054fa30e302649c1e65,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4413072523603185521, guid: 32a1ce61ac8f1054fa30e302649c1e65,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4413072523603185526, guid: 32a1ce61ac8f1054fa30e302649c1e65,
+        type: 3}
+      propertyPath: m_Name
+      value: Pressure Pad R
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 32a1ce61ac8f1054fa30e302649c1e65, type: 3}
 --- !u!1 &1783062193
 GameObject:
   m_ObjectHideFlags: 0
@@ -933,6 +1013,80 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 151634929}
   m_PrefabAsset: {fileID: 0}
+--- !u!1001 &4413072523671610029
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4413072523353769092, guid: 32a1ce61ac8f1054fa30e302649c1e65,
+        type: 3}
+      propertyPath: hiddenObject
+      value: 
+      objectReference: {fileID: 629080060}
+    - target: {fileID: 4413072523603185521, guid: 32a1ce61ac8f1054fa30e302649c1e65,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -2.0352488
+      objectReference: {fileID: 0}
+    - target: {fileID: 4413072523603185521, guid: 32a1ce61ac8f1054fa30e302649c1e65,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.28591323
+      objectReference: {fileID: 0}
+    - target: {fileID: 4413072523603185521, guid: 32a1ce61ac8f1054fa30e302649c1e65,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0.8547971
+      objectReference: {fileID: 0}
+    - target: {fileID: 4413072523603185521, guid: 32a1ce61ac8f1054fa30e302649c1e65,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4413072523603185521, guid: 32a1ce61ac8f1054fa30e302649c1e65,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4413072523603185521, guid: 32a1ce61ac8f1054fa30e302649c1e65,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4413072523603185521, guid: 32a1ce61ac8f1054fa30e302649c1e65,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4413072523603185521, guid: 32a1ce61ac8f1054fa30e302649c1e65,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 4413072523603185521, guid: 32a1ce61ac8f1054fa30e302649c1e65,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4413072523603185521, guid: 32a1ce61ac8f1054fa30e302649c1e65,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4413072523603185521, guid: 32a1ce61ac8f1054fa30e302649c1e65,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4413072523603185526, guid: 32a1ce61ac8f1054fa30e302649c1e65,
+        type: 3}
+      propertyPath: m_Name
+      value: Pressure Pad L
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 32a1ce61ac8f1054fa30e302649c1e65, type: 3}
 --- !u!1001 &9041769636167994955
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -943,7 +1097,7 @@ PrefabInstance:
     - target: {fileID: 9041769635973444040, guid: 348a7e7711942a54d8948f4784240e68,
         type: 3}
       propertyPath: m_Name
-      value: LaserTrap
+      value: LaserTrap L
       objectReference: {fileID: 0}
     - target: {fileID: 9041769635973444047, guid: 348a7e7711942a54d8948f4784240e68,
         type: 3}
