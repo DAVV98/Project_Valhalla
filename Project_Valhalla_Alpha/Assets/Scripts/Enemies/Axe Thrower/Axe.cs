@@ -69,7 +69,7 @@ public class Axe : MonoBehaviour
        
         if (killCollision.gameObject.tag == "Player")
         {
-            Destroy(killCollision.gameObject);
+            //Destroy(killCollision.gameObject);
             Destroy(this.gameObject);
         }
        

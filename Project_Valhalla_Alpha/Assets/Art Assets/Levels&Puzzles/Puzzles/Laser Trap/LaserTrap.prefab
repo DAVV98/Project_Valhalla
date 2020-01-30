@@ -1,5 +1,49 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &207809684
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 207809685}
+  - component: {fileID: 7123311624878127593}
+  m_Layer: 0
+  m_Name: Death Collider
+  m_TagString: Enemy
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &207809685
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 207809684}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -6, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 9041769635973444047}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &7123311624878127593
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 207809684}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.5, y: 0, z: 5}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &9041769635973444040
 GameObject:
   m_ObjectHideFlags: 0
@@ -30,6 +74,7 @@ Transform:
   - {fileID: 9041769637383319823}
   - {fileID: 2238705575906439681}
   - {fileID: 2238705576858877432}
+  - {fileID: 207809685}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -185,12 +230,12 @@ PrefabInstance:
     - target: {fileID: 4972071635876987573, guid: 390c7beabc9a70e4c901ab7f390709f9,
         type: 3}
       propertyPath: m_Name
-      value: LaserHolder (1)
+      value: LaserHolderStart
       objectReference: {fileID: 0}
     - target: {fileID: 7091950364122675827, guid: 390c7beabc9a70e4c901ab7f390709f9,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -5.82
+      value: -6
       objectReference: {fileID: 0}
     - target: {fileID: 7091950364122675827, guid: 390c7beabc9a70e4c901ab7f390709f9,
         type: 3}
@@ -200,7 +245,7 @@ PrefabInstance:
     - target: {fileID: 7091950364122675827, guid: 390c7beabc9a70e4c901ab7f390709f9,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 3.62
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 7091950364122675827, guid: 390c7beabc9a70e4c901ab7f390709f9,
         type: 3}
@@ -260,12 +305,12 @@ PrefabInstance:
     - target: {fileID: 4972071635876987573, guid: 390c7beabc9a70e4c901ab7f390709f9,
         type: 3}
       propertyPath: m_Name
-      value: LaserHolder
+      value: LaserHolderEnd
       objectReference: {fileID: 0}
     - target: {fileID: 7091950364122675827, guid: 390c7beabc9a70e4c901ab7f390709f9,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -5.82
+      value: -6
       objectReference: {fileID: 0}
     - target: {fileID: 7091950364122675827, guid: 390c7beabc9a70e4c901ab7f390709f9,
         type: 3}
@@ -275,7 +320,7 @@ PrefabInstance:
     - target: {fileID: 7091950364122675827, guid: 390c7beabc9a70e4c901ab7f390709f9,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -4.02
+      value: -3
       objectReference: {fileID: 0}
     - target: {fileID: 7091950364122675827, guid: 390c7beabc9a70e4c901ab7f390709f9,
         type: 3}
