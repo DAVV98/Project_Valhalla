@@ -10,7 +10,6 @@ public class Player_Death : MonoBehaviour
 
         if (killCollision.gameObject.tag == "Enemy")
         {
-            Destroy(killCollision.gameObject);
             Destroy(this.gameObject);
         }
 

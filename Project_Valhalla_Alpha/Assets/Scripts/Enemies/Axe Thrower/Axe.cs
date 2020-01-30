@@ -60,7 +60,7 @@ public class Axe : MonoBehaviour
 
     /// <summary>
     /// OnCollisionEnter:
-    /// - Kills player and destroy this.gameObject on collision.
+    /// - destroy this.gameObject on collision.
     /// </summary>
     /// <param name="killCollision"> creates collider instance </param>
   
@@ -69,7 +69,6 @@ public class Axe : MonoBehaviour
        
         if (killCollision.gameObject.tag == "Player")
         {
-            //Destroy(killCollision.gameObject);
             Destroy(this.gameObject);
         }
        
