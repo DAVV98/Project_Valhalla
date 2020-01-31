@@ -426,13 +426,21 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1322552712, guid: 7a26c654fbecc4a45b91ee57258a2bbb, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -0.01
+    - target: {fileID: 1322552711, guid: 7a26c654fbecc4a45b91ee57258a2bbb, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 1322552711, guid: 7a26c654fbecc4a45b91ee57258a2bbb, type: 3}
+      propertyPath: m_TagString
+      value: Player
       objectReference: {fileID: 0}
     - target: {fileID: 1322552712, guid: 7a26c654fbecc4a45b91ee57258a2bbb, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.89
+      value: 1.23
+      objectReference: {fileID: 0}
+    - target: {fileID: 1322552712, guid: 7a26c654fbecc4a45b91ee57258a2bbb, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.01
       objectReference: {fileID: 0}
     - target: {fileID: 3427976435234208561, guid: 7a26c654fbecc4a45b91ee57258a2bbb,
         type: 3}
@@ -493,6 +501,21 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 6603581415996861976, guid: 7a26c654fbecc4a45b91ee57258a2bbb,
+        type: 3}
+      propertyPath: m_UseGravity
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6603581415996861976, guid: 7a26c654fbecc4a45b91ee57258a2bbb,
+        type: 3}
+      propertyPath: m_Constraints
+      value: 84
+      objectReference: {fileID: 0}
+    - target: {fileID: 6973472846151977333, guid: 7a26c654fbecc4a45b91ee57258a2bbb,
+        type: 3}
+      propertyPath: rotateSpeed
+      value: 150
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7a26c654fbecc4a45b91ee57258a2bbb, type: 3}
