@@ -11,26 +11,22 @@ public class Player_Move_Aim : MonoBehaviour
     public float rotateSpeed;
 
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
     // Update is called once per frame
     void FixedUpdate()
     {
         movePlayer();
-        mouseAim();
+        //mouseAim();
+        arrowsAim();
+        move_aim_Player();
         //arrowsAim();
     }
 
 
-    void movePlayer()
+    void move_aim_Player()
     {
         //Get Axis
-        float input_horizontal = Input.GetAxisRaw("Horizontal_WASD");
-        float input_vertical = Input.GetAxisRaw("Vertical_WASD");
+        float input_horizontal = Input.GetAxisRaw("Horizontal");
+        float input_vertical = Input.GetAxisRaw("Vertical");
 
         //Create x,y,z movement.
         float x = input_horizontal * moveSpeed * Time.fixedDeltaTime;
@@ -39,6 +35,13 @@ public class Player_Move_Aim : MonoBehaviour
 
         // use movement to create a new vector.
         Vector3 newPosition = new Vector3(x, y, z);
+
+        // Look at move direction, and stay looking when not pressing.
+        if (input_horizontal == -1 || input_horizontal == 1 || input_vertical == -1 || input_vertical == 1)
+        {
+            Vector3 movement = new Vector3(input_horizontal, 0.0f, input_vertical);
+            transform.rotation = Quaternion.LookRotation(movement);
+        }
 
         //use vector to move player.
         transform.position = transform.position + newPosition;
@@ -62,41 +65,7 @@ public class Player_Move_Aim : MonoBehaviour
             transform.LookAt(new Vector3(pointToLook.x, this.transform.position.y, pointToLook.z));
         }
         
-
       
     }
-
-    void arrowsAim()
-    {
-        /*
-        //get Axis
-    
-        float yRotation = Input.GetAxisRaw("Horizontal_Arrows");
-
-        //create x,y,z rotation
-        float yRotate = yRotation * rotateSpeed * Time.fixedDeltaTime;
-
-        //rotate vector
-        Vector3 rotate_player = new Vector3(0, yRotate, 0);
-
-        //aim player
-        transform.Rotate(rotate_player);
-        */
-
-        /*
-        Vector3 movementDirection = new Vector3(Input.GetAxis("Horizontal_Arrows"), 0, Input.GetAxis("Vertical_Arrows"));
-        Vector3 realDirection = Camera.main.transform.TransformDirection(movementDirection);
-        // this line checks whether the player is making inputs.
-        if (realDirection.magnitude > 0.1f)
-        {
-            Quaternion newRotation = Quaternion.LookRotation(realDirection);
-            transform.rotation = newRotation;
-        }
-        */
-    }
-
-    float AngleBetweenTwoPoints(Vector3 a, Vector3 b)
-    {
-        return Mathf.Atan2(a.y- b.y, a.x - b.x) * Mathf.Rad2Deg;
-    }
+     
 }

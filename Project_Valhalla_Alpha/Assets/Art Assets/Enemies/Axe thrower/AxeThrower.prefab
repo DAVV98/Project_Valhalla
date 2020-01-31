@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 7668238222978296293}
   m_Layer: 0
   m_Name: AxeThrower
-  m_TagString: Untagged
+  m_TagString: Pushable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -109,14 +109,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e589b033f0a304b4487b8e8034ac734c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Player: {fileID: 0}
   moveSpeed: 5
   maxDist: 7
   minDist: 5
   axeObject: {fileID: 8291421867862500384, guid: e339c2193c5c34f45b5a355b52dd4d1b,
     type: 3}
   axeSpawn: {fileID: 8925573386394961600}
-  start_time_between_shots: 1.5
+  start_time_between_shots: 2
 --- !u!54 &7668238222978296293
 Rigidbody:
   m_ObjectHideFlags: 0

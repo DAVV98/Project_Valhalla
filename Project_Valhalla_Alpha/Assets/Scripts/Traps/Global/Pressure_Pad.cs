@@ -17,12 +17,6 @@ public class Pressure_Pad : MonoBehaviour
        hider = this.gameObject.GetComponent<MeshRenderer>();
     }
 
-    // Update is called once per frame
-    void FixedUpdate()
-    {
-        
-    }
-
     /// <summary>
     /// OnTriggerEnter:
     ///     - disables mesh renderer of this gameobject.
