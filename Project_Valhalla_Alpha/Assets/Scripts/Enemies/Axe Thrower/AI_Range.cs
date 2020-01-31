@@ -4,8 +4,9 @@ using UnityEngine;
 
 public class AI_Range : MonoBehaviour
 {
-    [Header("Target")]
-    public Transform Player;
+    //Target Player
+    private GameObject Player;
+    private Transform Player_Vec3;
 
     [Header("Characteristics")]
     public int moveSpeed;
@@ -23,6 +24,14 @@ public class AI_Range : MonoBehaviour
   
     void Start()
     {
+    
+        //Find player.
+        Player = GameObject.FindGameObjectWithTag("Player");
+
+        //Get Player transform
+        Player_Vec3 = Player.transform;
+
+        //Set up timer.
         time_between_shots = start_time_between_shots;
     }
 
@@ -41,15 +50,15 @@ public class AI_Range : MonoBehaviour
  
     void Range_AI()
     {
-        transform.LookAt(Player);
+        transform.LookAt(Player_Vec3);
 
         //if further than minDist come towards
-        if(Vector3.Distance(transform.position, Player.position) > maxDist)
+        if(Vector3.Distance(transform.position, Player_Vec3.position) > maxDist)
         {
             transform.position += transform.forward * moveSpeed * Time.fixedDeltaTime;
         }
         //if too close move back.
-        else if (Vector3.Distance(transform.position, Player.position) < minDist)
+        else if (Vector3.Distance(transform.position, Player_Vec3.position) < minDist)
         {
             transform.position -= transform.forward * moveSpeed * Time.fixedDeltaTime;
         }

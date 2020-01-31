@@ -7,6 +7,9 @@ public class Shield_Push : MonoBehaviour
     [Header("Shield_Push")]
     public float SP_Range;
     public float SP_Force;
+    public float hit_radius;
+
+    
 
     // Start is called before the first frame update
     void Start()
@@ -25,6 +28,7 @@ public class Shield_Push : MonoBehaviour
 
     void ShieldPush()
     {
+        
         //creates layermask to ignore player objects.
         int layerMask = 1 << 8;
         layerMask = ~layerMask;
@@ -40,6 +44,7 @@ public class Shield_Push : MonoBehaviour
                 //Destroy(shield_hit.rigidbody.gameObject);
 
                 shield_hit.rigidbody.AddForceAtPosition(SP_Force * fwd, shield_hit.point);
+
             }
         }
 
