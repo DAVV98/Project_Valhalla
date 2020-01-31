@@ -14,9 +14,9 @@ public class Player_Move_Aim : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        movePlayer();
+        //movePlayer();
         //mouseAim();
-        arrowsAim();
+        //arrowsAim();
         move_aim_Player();
         //arrowsAim();
     }
