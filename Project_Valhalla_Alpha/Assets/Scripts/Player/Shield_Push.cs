@@ -51,7 +51,7 @@ public class Shield_Push : MonoBehaviour
         }
         */
 
-        if (Physics.SphereCast(transform.position, 10.0f, fwd, out shield_hit, SP_Range, layerMask))
+        if (Physics.SphereCast(transform.position,hit_radius, fwd, out shield_hit, SP_Range, layerMask))
         {
             if (shield_hit.collider.tag == "Enemy" || shield_hit.collider.tag == "Pushable")
             {
