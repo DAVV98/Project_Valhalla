@@ -37,6 +37,8 @@ public class Shield_Push : MonoBehaviour
         Vector3 fwd = transform.TransformDirection(Vector3.forward);
 
         RaycastHit shield_hit;
+
+        /*
         if (Physics.Raycast(transform.position, fwd, out shield_hit, SP_Range, layerMask))
         {
             if (shield_hit.collider.tag == "Enemy" || shield_hit.collider.tag == "Pushable")
@@ -47,6 +49,17 @@ public class Shield_Push : MonoBehaviour
 
             }
         }
+        */
 
+        if (Physics.SphereCast(transform.position, 10.0f, fwd, out shield_hit, SP_Range, layerMask))
+        {
+            if (shield_hit.collider.tag == "Enemy" || shield_hit.collider.tag == "Pushable")
+            {
+                //Destroy(shield_hit.rigidbody.gameObject);
+
+                shield_hit.rigidbody.AddForceAtPosition(SP_Force * fwd, shield_hit.point);
+
+            }
+        }
     }
 }
