@@ -112,11 +112,11 @@ public class Player : MonoBehaviour
 
     private void MoveAndRotatePlayer()
     {
-        //Get Axis
+        // get input
         float input_horizontal = Input.GetAxisRaw("Horizontal");
         float input_vertical = Input.GetAxisRaw("Vertical");
 
-        //Create x,y,z movement.
+        // create x,y,z movement.
         float x = input_horizontal * moveSpeed * Time.fixedDeltaTime;
         float y = 0.0f;
         float z = input_vertical * moveSpeed * Time.fixedDeltaTime;
@@ -129,11 +129,13 @@ public class Player : MonoBehaviour
         //if (Mathf.Abs(input_horizontal + input_vertical) > 0)
         {
             Vector3 movement = new Vector3(input_horizontal, 0.0f, input_vertical);
-            transform.rotation = Quaternion.LookRotation(movement);
+            //transform.rotation = Quaternion.LookRotation(movement);
+            rb.MoveRotation(Quaternion.LookRotation(movement));
         }
 
-        //use vector to move player.
-        transform.position = transform.position + newPosition;
+        // use vector to move player.
+        //transform.position = transform.position + newPosition;
+        rb.MovePosition(transform.position + newPosition);
     }
 
     //void MovePlayer()
