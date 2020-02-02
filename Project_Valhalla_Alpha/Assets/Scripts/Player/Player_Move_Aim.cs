@@ -38,6 +38,7 @@ public class Player_Move_Aim : MonoBehaviour
 
         // Look at move direction, and stay looking when not pressing.
         if (input_horizontal == -1 || input_horizontal == 1 || input_vertical == -1 || input_vertical == 1)
+        //if (Mathf.Abs(input_horizontal + input_vertical) > 0)
         {
             Vector3 movement = new Vector3(input_horizontal, 0.0f, input_vertical);
             transform.rotation = Quaternion.LookRotation(movement);
