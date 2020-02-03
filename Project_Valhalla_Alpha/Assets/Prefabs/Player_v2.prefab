@@ -118,7 +118,7 @@ BoxCollider:
   m_GameObject: {fileID: 2562210581520716507}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
@@ -248,10 +248,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bPlayerFalling: 0
   moveSpeed: 4
+  playerMinHeight: -5.5
   playerSpawn: {fileID: 0}
   shieldSpeed: 10
-  shieldSpawn: {fileID: 0}
-  shieldPrefab: {fileID: 0}
+  shieldSpawn: {fileID: 2562210580808254944}
+  shieldPrefab: {fileID: 8360783977189383089, guid: 2b53cd994d1137e41b05c2e2de716b6b,
+    type: 3}
   shieldPushRange: 10
   shieldPushForce: 1000
   shieldPushRadius: 0

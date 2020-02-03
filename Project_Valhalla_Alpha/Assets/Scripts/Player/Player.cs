@@ -8,23 +8,23 @@ public class Player : MonoBehaviour
     [Header("State")]
     public bool bPlayerFalling = false;
     public float moveSpeed = 5.0f;
-    private float playerMinHeight = -4.0f;
+    public float playerMinHeight = -4.0f;
     private int lookDirection = 0;
     public Transform playerSpawn;
 
     [Header("Shield Throw")]
-    bool bShieldThrowing = false;
-    private float shieldThrowTimer;
     public float shieldSpeed = 10.0f;
     public Transform shieldSpawn;
     public GameObject shieldPrefab;
+    bool bShieldThrowing = false;
+    private float shieldThrowTimer;
 
     [Header("Shield Push")]
-    bool bShieldPushing = false;
-    private float shieldPushTimer;
     public float shieldPushRange = 10.0f;
     public float shieldPushForce = 1000.0f;
     public float shieldPushRadius = 0.0f;
+    bool bShieldPushing = false;
+    private float shieldPushTimer;
 
     private Rigidbody rb;
 
