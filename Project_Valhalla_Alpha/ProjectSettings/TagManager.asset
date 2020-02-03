@@ -10,6 +10,7 @@ TagManager:
   - Pitfall
   - Projectile
   - Shield
+  - WindPush
   layers:
   - Default
   - TransparentFX
