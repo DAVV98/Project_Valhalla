@@ -533,7 +533,7 @@ GameObject:
   - component: {fileID: 1240701620}
   m_Layer: 0
   m_Name: PitfallTrigger
-  m_TagString: Untagged
+  m_TagString: Pitfall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -925,7 +925,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!65 &1776965144
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1030,7 +1030,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1973837887
 Transform:
   m_ObjectHideFlags: 0
@@ -1112,6 +1112,17 @@ PrefabInstance:
       propertyPath: playerSpawn
       value: 
       objectReference: {fileID: 1973837887}
+    - target: {fileID: 8058058989800333719, guid: 9cbc84b72e46ab44bae424f91d54471c,
+        type: 3}
+      propertyPath: shieldSpawn
+      value: 
+      objectReference: {fileID: 2562210582067168632}
+    - target: {fileID: 8058058989800333719, guid: 9cbc84b72e46ab44bae424f91d54471c,
+        type: 3}
+      propertyPath: shieldPrefab
+      value: 
+      objectReference: {fileID: 8360783977189383089, guid: 2b53cd994d1137e41b05c2e2de716b6b,
+        type: 3}
     - target: {fileID: 8058058989800333736, guid: 9cbc84b72e46ab44bae424f91d54471c,
         type: 3}
       propertyPath: m_Name
@@ -1119,6 +1130,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9cbc84b72e46ab44bae424f91d54471c, type: 3}
+--- !u!4 &2562210582067168632 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2562210580808254944, guid: 9cbc84b72e46ab44bae424f91d54471c,
+    type: 3}
+  m_PrefabInstance: {fileID: 2562210582067168631}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &5502612627352544479 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8058058989800333736, guid: 9cbc84b72e46ab44bae424f91d54471c,

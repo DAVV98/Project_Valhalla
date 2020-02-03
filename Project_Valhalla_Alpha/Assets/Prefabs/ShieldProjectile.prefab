@@ -107,7 +107,7 @@ GameObject:
   - component: {fileID: 8360783977189383095}
   m_Layer: 8
   m_Name: ShieldProjectile
-  m_TagString: Untagged
+  m_TagString: Shield
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
