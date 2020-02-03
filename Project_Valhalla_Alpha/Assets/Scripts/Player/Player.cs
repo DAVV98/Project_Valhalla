@@ -8,23 +8,23 @@ public class Player : MonoBehaviour
     [Header("State")]
     public bool bPlayerFalling = false;
     public float moveSpeed = 5.0f;
-    private float playerMinHeight = -4.0f;
+    public float playerMinHeight = -4.0f;
     private int lookDirection = 0;
     public Transform playerSpawn;
 
     [Header("Shield Throw")]
-    bool bShieldThrowing = false;
-    private float shieldThrowTimer;
     public float shieldSpeed = 10.0f;
     public Transform shieldSpawn;
     public GameObject shieldPrefab;
+    bool bShieldThrowing = false;
+    private float shieldThrowTimer;
 
     [Header("Shield Push")]
-    bool bShieldPushing = false;
-    private float shieldPushTimer;
     public float shieldPushRange = 10.0f;
     public float shieldPushForce = 1000.0f;
     public float shieldPushRadius = 0.0f;
+    bool bShieldPushing = false;
+    private float shieldPushTimer;
 
     private Rigidbody rb;
 
@@ -51,13 +51,13 @@ public class Player : MonoBehaviour
     {
         MoveAndRotatePlayer();
 
+        bShieldThrowing = bCanThrow();
+        bShieldPushing = bCanPush();
+
         if (bPlayerFalling)
         {
             PlayerFall();
         }
-
-        bShieldThrowing = bCanThrow();
-        bShieldPushing = bCanPush();
 
         if (bShieldThrowing)
         {
@@ -78,7 +78,7 @@ public class Player : MonoBehaviour
     {
         float fallSpeed = 4.0f;
         // decrease transform's y-component
-        transform.Translate((Vector3.up * -1.0f) * Time.deltaTime * fallSpeed);
+        transform.Translate(Vector3.down * Time.deltaTime * fallSpeed);
 
         if (gameObject.transform.position.y <= playerMinHeight)
         {
@@ -99,14 +99,6 @@ public class Player : MonoBehaviour
         // destroy shield after amount of time
         Destroy(newShield, 3.0f);
     }
-
-    //private void OnTriggerStay(Collider other)
-    //{
-    //    if (other.CompareTag("Pitfall"))
-    //    {
-    //        bPlayerFalling = true;
-    //    }
-    //}
 
     private void OnTriggerEnter(Collider other)
     {
@@ -184,37 +176,16 @@ public class Player : MonoBehaviour
 
             }
         }
+
+        //if (Physics.Raycast(transform.position, fwd, out shield_hit, shieldPushRange, layerMask))
+        //{
+        //    if (shield_hit.collider.tag == "Enemy" || shield_hit.collider.tag == "Pushable")
+        //    {
+        //        //Destroy(shield_hit.rigidbody.gameObject);
+
+        //        shield_hit.rigidbody.AddForceAtPosition(shieldPushForce * fwd, shield_hit.point);
+
+        //    }
+        //}
     }
-
-    //void MovePlayer()
-    //{
-    //    float input_horizontal = Input.GetAxisRaw("Horizontal");
-    //    float input_vertical = Input.GetAxisRaw("Vertical");
-
-    //    // force movement to four directions
-    //    if (input_horizontal != 0)
-    //    {
-    //        input_vertical = 0;
-    //    }
-    //    if (input_vertical != 0)
-    //    {
-    //        input_horizontal = 0;
-    //    }
-
-    //    float x = input_horizontal * moveSpeed * Time.fixedDeltaTime;
-    //    float y = 0.0f;
-    //    float z = input_vertical * moveSpeed * Time.fixedDeltaTime;
-
-    //    Vector3 newPosition = new Vector3(x, y, z);
-    //    //transform.position = transform.position + newPosition;
-
-    //    //rb.velocity = newPosition;
-
-    //    rb.MovePosition(transform.position + newPosition);
-    //}
-
-    //void RotatePlayer()
-    //{
-
-    //}
 }
