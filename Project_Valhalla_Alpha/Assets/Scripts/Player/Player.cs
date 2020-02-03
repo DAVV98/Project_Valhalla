@@ -177,15 +177,5 @@ public class Player : MonoBehaviour
             }
         }
 
-        //if (Physics.Raycast(transform.position, fwd, out shield_hit, shieldPushRange, layerMask))
-        //{
-        //    if (shield_hit.collider.tag == "Enemy" || shield_hit.collider.tag == "Pushable")
-        //    {
-        //        //Destroy(shield_hit.rigidbody.gameObject);
-
-        //        shield_hit.rigidbody.AddForceAtPosition(shieldPushForce * fwd, shield_hit.point);
-
-        //    }
-        //}
     }
 }

@@ -29,6 +29,8 @@ public class Pressure_Pad : MonoBehaviour
         {
             hider.enabled = false;
             hiddenObject.SetActive(false);
+          
+
         }
         
     }
@@ -45,6 +47,7 @@ public class Pressure_Pad : MonoBehaviour
         {
             hider.enabled = true;
             hiddenObject.SetActive(true);
+           
         }
 
     }
