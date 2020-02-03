@@ -9,7 +9,7 @@ TagManager:
   - Pushable
   - Pitfall
   - Projectile
-  - Sheild
+  - Shield
   layers:
   - Default
   - TransparentFX
