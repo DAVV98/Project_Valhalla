@@ -7,6 +7,9 @@ TagManager:
   - Ground
   - Enemy
   - Pushable
+  - Pitfall
+  - Projectile
+  - Sheild
   layers:
   - Default
   - TransparentFX
