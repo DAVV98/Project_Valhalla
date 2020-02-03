@@ -4,20 +4,27 @@ using UnityEngine;
 
 public class CameraController : MonoBehaviour
 {
-
-    // camera tracking with offset borrow from: https://learn.unity.com/tutorial/movement-basics?projectId=5c514956edbc2a002069467c#5c7f8528edbc2a002053b711
-    public GameObject player;
+    public GameObject player; // GameObject so we can access player.bPlayerFalling
     private Vector3 offset;
+    public float smoothSpeed = 10.0f;
 
-    void Start()
+    private void Awake()
     {
-
+        // offset borrowed from: https://learn.unity.com/tutorial/movement-basics?projectId=5c514956edbc2a002069467c#5c7f8528edbc2a002053b711
         offset = transform.position - player.transform.position;
     }
 
-    private void LateUpdate()
+    private void LateUpdate() // LateUpdate() or FixedUpdate()
     {
         if (!player.GetComponent<Player>().bPlayerFalling)
-            transform.position = player.transform.position + offset;
+        {
+            Vector3 desiredPosition = player.transform.position + offset;
+            // Vector3.Lerp() from borrowed from: https://www.youtube.com/watch?v=MFQhpwc6cKE
+            Vector3 smoothedPosition = Vector3.Lerp(transform.position, desiredPosition, smoothSpeed * Time.deltaTime);
+            transform.position = smoothedPosition;
+
+            // make the camera fixed on the player
+            //transform.LookAt(player.transform);
+        }
     }
 }

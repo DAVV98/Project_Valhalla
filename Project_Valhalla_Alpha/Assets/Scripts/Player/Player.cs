@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
+
     [Header("State")]
     public bool bPlayerFalling = false;
     public float moveSpeed = 5.0f;
@@ -11,14 +12,19 @@ public class Player : MonoBehaviour
     private int lookDirection = 0;
     public Transform playerSpawn;
 
-    [Header("Shield")]
+    [Header("Shield Throw")]
     bool bShieldThrowing = false;
     private float shieldThrowTimer;
     public float shieldSpeed = 10.0f;
-    bool bShieldPushing = false;
     public Transform shieldSpawn;
     public GameObject shieldPrefab;
 
+    [Header("Shield Push")]
+    bool bShieldPushing = false;
+    private float shieldPushTimer;
+    public float shieldPushRange = 10.0f;
+    public float shieldPushForce = 1000.0f;
+    public float shieldPushRadius = 0.0f;
 
     private Rigidbody rb;
 
@@ -34,6 +40,11 @@ public class Player : MonoBehaviour
         {
             shieldThrowTimer -= 0.1f;
         }
+
+        if (shieldPushTimer > 0)
+        {
+            shieldPushTimer -= 0.1f;
+        }
     }
 
     private void FixedUpdate()
@@ -45,11 +56,17 @@ public class Player : MonoBehaviour
             PlayerFall();
         }
 
-        bShieldThrowing = spacePressed();
+        bShieldThrowing = bCanThrow();
+        bShieldPushing = bCanPush();
 
         if (bShieldThrowing)
         {
             ShieldThrow();
+        }
+
+        if (bShieldPushing)
+        {
+            ShieldPush();
         }
     }
 
@@ -105,9 +122,14 @@ public class Player : MonoBehaviour
         }
     }
 
-    bool spacePressed()
+    bool bCanThrow()
     {
-        return Input.GetKey("space") && shieldThrowTimer <= 0;
+        return Input.GetKey(KeyCode.Space) && shieldThrowTimer <= 0;
+    }
+
+    bool bCanPush()
+    {
+        return Input.GetKey(KeyCode.LeftShift) && shieldPushTimer <= 0;
     }
 
     private void MoveAndRotatePlayer()
@@ -136,6 +158,32 @@ public class Player : MonoBehaviour
         // use vector to move player.
         //transform.position = transform.position + newPosition;
         rb.MovePosition(transform.position + newPosition);
+    }
+
+    private void ShieldPush()
+    {
+        // reset timer
+        shieldPushTimer = 2.0f;
+
+        //creates layermask to ignore player objects.
+        int layerMask = 1 << 8;
+        layerMask = ~layerMask;
+
+        //sends ray forward.
+        Vector3 fwd = transform.TransformDirection(Vector3.forward);
+
+        RaycastHit shield_hit;
+
+        if (Physics.SphereCast(transform.position, shieldPushRadius, fwd, out shield_hit, shieldPushRange, layerMask))
+        {
+            if (shield_hit.collider.tag == "Enemy" || shield_hit.collider.tag == "Pushable")
+            {
+                //Destroy(shield_hit.rigidbody.gameObject);
+
+                shield_hit.rigidbody.AddForceAtPosition(shieldPushForce * fwd, shield_hit.point);
+
+            }
+        }
     }
 
     //void MovePlayer()
