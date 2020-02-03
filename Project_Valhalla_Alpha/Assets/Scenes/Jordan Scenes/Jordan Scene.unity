@@ -492,6 +492,7 @@ GameObject:
   - component: {fileID: 1958093454}
   - component: {fileID: 1958093453}
   - component: {fileID: 1958093452}
+  - component: {fileID: 1958093457}
   m_Layer: 0
   m_Name: 'stone block '
   m_TagString: Untagged
@@ -506,12 +507,12 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1958093451}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c42956da35f3b9d40a97e42b93abff0b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fixedRotation: 5
+  fixedRotation: 6
 --- !u!65 &1958093453
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -585,6 +586,22 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!54 &1958093457
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1958093451}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1001 &2491806192855480177
 PrefabInstance:
   m_ObjectHideFlags: 0
