@@ -248,12 +248,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bPlayerFalling: 0
   moveSpeed: 4
-  playerMinHeight: -5.5
+  playerMinHeight: -4
   playerSpawn: {fileID: 0}
   shieldSpeed: 10
   shieldSpawn: {fileID: 2562210580808254944}
   shieldPrefab: {fileID: 8360783977189383089, guid: 2b53cd994d1137e41b05c2e2de716b6b,
     type: 3}
   shieldPushRange: 10
-  shieldPushForce: 1000
+  shieldPushForce: 400
   shieldPushRadius: 0
