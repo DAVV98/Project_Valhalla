@@ -29,6 +29,8 @@ public class Arrow : MonoBehaviour
     {
         // look in direction of movement
         transform.LookAt(transform.position + rb.velocity);
+
+        //ReflectArrowByConstantRaycast();
     }
 
     private void OnTriggerEnter(Collider other)
@@ -37,16 +39,15 @@ public class Arrow : MonoBehaviour
         {
             ReflectArrowByRaycast(other);
         }
-
     }
 
-    private void OnCollisionEnter(Collision collision)
-    {
-        if (collision.collider.CompareTag("Shield"))
-        {
-            ReflectArrowByCollision(collision);
-        }
-    }
+    //private void OnCollisionEnter(Collision collision)
+    //{
+    //    if (collision.collider.CompareTag("Shield"))
+    //    {
+    //        ReflectArrowByCollision(collision);
+    //    }
+    //}
 
     private void ReflectArrowByCollision(Collision collision)
     {
@@ -61,12 +62,38 @@ public class Arrow : MonoBehaviour
         // end of code block
     }
 
+    private void ReflectArrowByConstantRaycast()
+    {
+        //int layerMask = 1 << 8;
+        //layerMask = ~layerMask;
+
+        Debug.Log("ReflectArrowByConstantRaycast() called");
+
+        // reset age so arrow persists longer
+        age = 0.0f;
+
+        // user raycast to access vector normal for reflection
+        RaycastHit hit;
+        Ray ray = new Ray(transform.position, rb.velocity);
+
+        if (Physics.Raycast(ray, out hit))
+        {
+            Vector3 direction = Vector3.Reflect(rb.velocity, hit.normal);
+            rb.velocity = direction.normalized * arrowSpeed;
+
+            Debug.Log("ReflectArrow() direction = " + direction);
+        }
+    }
+
     private void ReflectArrowByRaycast(Collider other)
     {
-        Debug.Log("ReflectArrow() called");
+        Debug.Log("ReflectArrowByRaycast() called");
 
         // stop shield in place
         other.attachedRigidbody.velocity = Vector3.zero;
+
+        // stop arrow in place
+        rb.velocity = Vector3.zero;
 
         // reset age so arrow persists longer
         age = 0.0f;
@@ -82,5 +109,8 @@ public class Arrow : MonoBehaviour
             
             Debug.Log("ReflectArrow() direction = " + direction);
         }
+
+        // destroy shield
+        Destroy(other);
     }
 }

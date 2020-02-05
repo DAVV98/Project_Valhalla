@@ -11,8 +11,13 @@ public class ShieldProjectile : MonoBehaviour
         rb = GetComponent<Rigidbody>();
     }
 
-    private void OnCollisionEnter(Collision collision)
-    {
-        Destroy(gameObject);
-    }
+    //private void OnCollisionEnter(Collision collision)
+    //{
+    //    Destroy(gameObject);
+    //}
+
+    //private void OnTriggerEnter(Collider other)
+    //{
+    //    Destroy(gameObject);
+    //}
 }

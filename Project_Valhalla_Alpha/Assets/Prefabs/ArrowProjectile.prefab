@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 6143703689584354104}
   - component: {fileID: 6143703689584354109}
   m_Layer: 0
-  m_Name: Arrow
+  m_Name: ArrowProjectile
   m_TagString: Projectile
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -108,7 +108,7 @@ SphereCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.5
+  m_Radius: 1
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &6143703689584354109
 MonoBehaviour:
