@@ -70,6 +70,25 @@ public class Player : MonoBehaviour
         }
     }
 
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("Projectile"))
+        {
+            // hp -1
+            Destroy(other.gameObject);
+        }
+
+        if (other.CompareTag("Pitfall"))
+        {
+            bPlayerFalling = true;
+        }
+
+        if (other.CompareTag("Projectile"))
+        {
+            gameObject.transform.position = playerSpawn.position;
+        }
+    }
+
     // falling could be improved:
     //  1. detect pitfall with a raycast pointing downwards
     //  2. the fallspeed could increase as player transform height decreases (to simulate acceleration)
@@ -98,20 +117,6 @@ public class Player : MonoBehaviour
 
         // destroy shield after amount of time
         Destroy(newShield, 3.0f);
-    }
-
-    private void OnTriggerEnter(Collider other)
-    {
-        if (other.CompareTag("Projectile"))
-        {
-            // hp -1
-            Destroy(other.gameObject);
-        }
-
-        if (other.CompareTag("Pitfall"))
-        {
-            bPlayerFalling = true;
-        }
     }
 
     bool bCanThrow()
