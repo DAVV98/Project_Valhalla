@@ -130,14 +130,13 @@ public class Player : MonoBehaviour
         float input_horizontal = Input.GetAxisRaw("Horizontal");
         float input_vertical = Input.GetAxisRaw("Vertical");
 
-        // create x,y,z movement.
-        float x = input_horizontal * moveSpeed * Time.fixedDeltaTime;
-        float y = 0.0f;
-        float z = input_vertical * moveSpeed * Time.fixedDeltaTime;
-
-        // use movement to create a new vector.
-        Vector3 newPosition = new Vector3(x, y, z);
-
+        // use movement to create a new vector
+        Vector3 newPosition = new Vector3(input_horizontal, 0.0f, input_vertical);
+        // normalize
+        newPosition.Normalize();
+        // scale
+        newPosition = newPosition * moveSpeed * Time.fixedDeltaTime;
+        
         // Look at move direction, and stay looking when not pressing.
         if (input_horizontal == -1 || input_horizontal == 1 || input_vertical == -1 || input_vertical == 1)
         //if (Mathf.Abs(input_horizontal + input_vertical) > 0)
@@ -150,6 +149,12 @@ public class Player : MonoBehaviour
         // use vector to move player.
         //transform.position = transform.position + newPosition;
         rb.MovePosition(transform.position + newPosition);
+
+        // fix player spinning
+        //if (input_horizontal + input_horizontal + 2 > 2)
+        //{
+        //    rb.velocity = Vector3.zero;
+        //}
     }
 
     private void ShieldPush()
