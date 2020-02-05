@@ -5,6 +5,7 @@ using UnityEngine;
 public class Checkpoint : MonoBehaviour
 {
     public Transform newPlayerSpawn;
+    public GameObject activeDisplay;
 
     private void OnTriggerEnter(Collider other)
     {
@@ -12,6 +13,7 @@ public class Checkpoint : MonoBehaviour
         {
             Debug.Log("Player reached checkpoint");
 
+            activeDisplay.SetActive(true);
             other.GetComponent<Player>().playerSpawn = this.newPlayerSpawn;
         }
     }
