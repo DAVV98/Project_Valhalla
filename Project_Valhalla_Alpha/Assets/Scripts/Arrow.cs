@@ -93,7 +93,7 @@ public class Arrow : MonoBehaviour
         other.attachedRigidbody.velocity = Vector3.zero;
 
         // stop arrow in place
-        rb.velocity = Vector3.zero;
+        //rb.velocity = Vector3.zero;
 
         // reset age so arrow persists longer
         age = 0.0f;
@@ -111,6 +111,6 @@ public class Arrow : MonoBehaviour
         }
 
         // destroy shield
-        Destroy(other);
+        //Destroy(other);
     }
 }
