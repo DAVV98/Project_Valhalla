@@ -124,7 +124,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bDidHit: 0
   lifetime: 300
-  shieldSlowThreshold: 50
+  shieldSlowThreshold: 20
   age: 0
-  shieldSpeed: 5
+  shieldSpeed: 7
   direction: {x: 0, y: 0, z: 0}

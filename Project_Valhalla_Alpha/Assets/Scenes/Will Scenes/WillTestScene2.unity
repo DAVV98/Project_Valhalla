@@ -1282,7 +1282,7 @@ PrefabInstance:
     - target: {fileID: 770968152414978178, guid: 5cb1316fbd842324194ee30789b794ff,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 2.5
+      value: 6.5
       objectReference: {fileID: 0}
     - target: {fileID: 770968152414978178, guid: 5cb1316fbd842324194ee30789b794ff,
         type: 3}
@@ -1601,7 +1601,7 @@ MonoBehaviour:
   playerSpawn: {fileID: 1973837887}
   playerHealth: 9
   shieldSpawn: {fileID: 5915791107973221894}
-  shieldPrefab: {fileID: 8360783977189383089, guid: 2b53cd994d1137e41b05c2e2de716b6b,
+  shieldPrefab: {fileID: 8360783977189383095, guid: 2b53cd994d1137e41b05c2e2de716b6b,
     type: 3}
   shieldSpeed: 10
   bArmed: 1

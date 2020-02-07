@@ -12,43 +12,30 @@ public class Shield : MonoBehaviour
     public float shieldSpeed = 5.0f;
     public Vector3 direction = Vector3.zero;
 
+    public Player_v3 player;
+
     private Rigidbody rb;
 
     private void Awake()
     {
         rb = GetComponent<Rigidbody>();
+        player = GameObject.FindObjectOfType<Player_v3>();
     }
 
     private void FixedUpdate()
     {
-        rb.velocity = direction * shieldSpeed;
-
-        if (age > shieldSlowThreshold) {
-            shieldSpeed *= 0.95f;
-        }
-
-        if (shieldSpeed < 0.1f)
-        {
-            shieldSpeed = 0.0f;
-        }
-
-        // slow down in direction correlation to age
-        //rb.velocity = direction * shieldSpeed * (1 - ((float) age / lifetime));
-
-        if (age < lifetime)
-        {
-            age += 1;
-        }
-        if (age >= lifetime)
-        {
-            // destroy shield if old
-            Destroy(gameObject);
-        }
+        MoveShield();
+        AgeShield();
     }
 
+    // improvements
+    //  - player.shieldTimer should ideally be reset by the player with the use of Coroutines to continually evaluate newShield.bDidHit
     private void OnTriggerEnter(Collider other)
     {
         bDidHit = true;
+        
+        player.shieldTimer = 0;
+        Debug.Log("Shield::OnTriggerEnter(), bDidHit = TRUE");
 
         if (other.CompareTag("Projectile")) {
             //ReflectArrow();
@@ -62,5 +49,37 @@ public class Shield : MonoBehaviour
 
         // destroy shield if triggered
         Destroy(gameObject);
+    }
+
+    private void MoveShield()
+    {
+        rb.velocity = direction * shieldSpeed;
+
+        // decrease shieldSpeed over time
+        if (age > shieldSlowThreshold)
+        {
+            shieldSpeed *= 0.95f;
+        }
+
+        if (shieldSpeed < 0.1f)
+        {
+            shieldSpeed = 0.0f;
+        }
+
+        // slow down in direction correlation to age
+        //rb.velocity = direction * shieldSpeed * (1 - ((float) age / lifetime));
+    }
+
+    private void AgeShield()
+    {
+        if (age < lifetime)
+        {
+            age += 1;
+        }
+        if (age >= lifetime)
+        {
+            // destroy shield if old
+            Destroy(gameObject);
+        }
     }
 }

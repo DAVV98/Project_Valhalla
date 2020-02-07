@@ -15,7 +15,7 @@ public class Player_v3 : MonoBehaviour
 
     [Header("Shield")]
     public Transform shieldSpawn;
-    public GameObject shieldPrefab;
+    public Shield shieldPrefab;
     public float shieldSpeed = 10.0f;
     //public int shieldHealth = 3;
 
@@ -111,13 +111,17 @@ public class Player_v3 : MonoBehaviour
     private void ShieldThrow()
     {
         // instantiate shield
-        GameObject newShield = Instantiate(shieldPrefab, shieldSpawn.position, shieldSpawn.rotation);
-        newShield.GetComponent<Shield>().direction = shieldSpawn.forward;
+        Shield newShield = Instantiate(shieldPrefab, shieldSpawn.position, shieldSpawn.rotation);
+        newShield.direction = shieldSpawn.forward;
         //newShield.GetComponent<Rigidbody>().velocity = shieldSpawn.forward * shieldSpeed;
 
+        //Debug.Log("Player::ShieldThrow(), bDidHit = " + newShield.GetComponent<Shield>().bDidHit);
+
+        // !!! currently not working !!!
         // if shield hits then reset timer
-        if (newShield.GetComponent<Shield>().bDidHit)
+        if (newShield.bDidHit)
         {
+            //Debug.Log("Player::ShieldThrow(), bDidHit = TRUE");
             shieldTimer = 0;
         }
     }
