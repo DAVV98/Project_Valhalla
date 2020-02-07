@@ -6,8 +6,8 @@ public class Shield : MonoBehaviour
 {
     public bool bDidHit = false;
     public int lifetime = 300;
-    public int shieldSlowThreshold = 75;
     public int age = 0;
+    public int shieldSlowThreshold = 75;
 
     public float shieldSpeed = 5.0f;
     public Vector3 direction = Vector3.zero;
@@ -35,20 +35,35 @@ public class Shield : MonoBehaviour
         bDidHit = true;
         
         player.shieldTimer = 0;
-        Debug.Log("Shield::OnTriggerEnter(), bDidHit = TRUE");
+        //Debug.Log("Shield::OnTriggerEnter(), bDidHit = TRUE");
 
         if (other.CompareTag("Projectile")) {
-            //ReflectArrow();
+            ReflectArrow(other);
         }
         else if (other.CompareTag("Enemy")) {
-            //PushEnemy();
+            PushEnemy(other);
         }
         else if (other.CompareTag("Pushable")) {
-            //PushBlock();
+            PushBlock(other);
         }
 
         // destroy shield if triggered
         Destroy(gameObject);
+    }
+
+    private void ReflectArrow(Collider other)
+    {
+
+    }
+
+    private void PushEnemy(Collider other)
+    {
+
+    }
+
+    private void PushBlock(Collider other)
+    {
+
     }
 
     private void MoveShield()

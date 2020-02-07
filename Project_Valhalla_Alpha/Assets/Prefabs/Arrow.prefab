@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 6143703689584354104}
   - component: {fileID: 6143703689584354109}
   m_Layer: 0
-  m_Name: ArrowProjectile
+  m_Name: Arrow
   m_TagString: Projectile
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -122,5 +122,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8a4806a1b548e7844a57046cc296f404, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lifetime: 10
+  lifetime: 50
+  age: 0
   arrowSpeed: 6
+  direction: {x: 0, y: 0, z: 0}

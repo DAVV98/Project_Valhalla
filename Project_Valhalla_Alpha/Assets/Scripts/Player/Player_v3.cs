@@ -113,11 +113,9 @@ public class Player_v3 : MonoBehaviour
         // instantiate shield
         Shield newShield = Instantiate(shieldPrefab, shieldSpawn.position, shieldSpawn.rotation);
         newShield.direction = shieldSpawn.forward;
-        //newShield.GetComponent<Rigidbody>().velocity = shieldSpawn.forward * shieldSpeed;
 
-        //Debug.Log("Player::ShieldThrow(), bDidHit = " + newShield.GetComponent<Shield>().bDidHit);
-
-        // !!! currently not working !!!
+        // improvements
+        //  - player.shieldTimer should ideally be reset by the player with the use of Coroutines to continually evaluate newShield.bDidHit
         // if shield hits then reset timer
         if (newShield.bDidHit)
         {
@@ -133,35 +131,23 @@ public class Player_v3 : MonoBehaviour
 
     private void MoveAndRotatePlayer()
     {
-        // get input
-        float input_horizontal = Input.GetAxisRaw("Horizontal");
-        float input_vertical = Input.GetAxisRaw("Vertical");
+        float input_hori = Input.GetAxisRaw("Horizontal");
+        float input_vert = Input.GetAxisRaw("Vertical");
 
-        // use movement to create a new vector
-        Vector3 newPosition = new Vector3(input_horizontal, 0.0f, input_vertical);
-        // normalize
+        // use movement to create a new vector, normalize and scale
+        Vector3 newPosition = new Vector3(input_hori, 0.0f, input_vert);
         newPosition.Normalize();
-        // scale
         newPosition = newPosition * moveSpeed * Time.fixedDeltaTime;
         
         // Look at move direction, and stay looking when not pressing.
-        if (input_horizontal == -1 || input_horizontal == 1 || input_vertical == -1 || input_vertical == 1)
-        //if (Mathf.Abs(input_horizontal + input_vertical) > 0)
+        if (input_hori == -1 || input_hori == 1 || input_vert == -1 || input_vert == 1)
         {
-            Vector3 movement = new Vector3(input_horizontal, 0.0f, input_vertical);
-            //transform.rotation = Quaternion.LookRotation(movement);
+            Vector3 movement = new Vector3(input_hori, 0.0f, input_vert);
             rb.MoveRotation(Quaternion.LookRotation(movement));
         }
 
-        // use vector to move player.
-        //transform.position = transform.position + newPosition;
+        // use vector to move player
         rb.MovePosition(transform.position + newPosition);
-
-        // fix player spinning
-        //if (input_horizontal + input_horizontal + 2 > 2)
-        //{
-        //    rb.velocity = Vector3.zero;
-        //}
     }
 
     //private void ShieldPush()

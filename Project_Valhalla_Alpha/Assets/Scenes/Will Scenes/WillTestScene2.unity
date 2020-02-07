@@ -773,7 +773,7 @@ GameObject:
   m_Component:
   - component: {fileID: 840622403}
   m_Layer: 0
-  m_Name: ArrowTrap
+  m_Name: ArrowTraps
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

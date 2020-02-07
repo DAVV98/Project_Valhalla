@@ -106,7 +106,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bActive: 1
-  arrowPrefab: {fileID: 6143703689584354107, guid: 71206c00b3c5dc0428f85685e7ee9278,
+  arrowPrefab: {fileID: 6143703689584354109, guid: 71206c00b3c5dc0428f85685e7ee9278,
     type: 3}
-  bMultiDirections: 0
+  bMultiDirections: 1
   arrowSpeed: 6
