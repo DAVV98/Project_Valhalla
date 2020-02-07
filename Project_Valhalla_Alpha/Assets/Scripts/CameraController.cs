@@ -19,7 +19,7 @@ public class CameraController : MonoBehaviour
     //  2. https://starmanta.gitbooks.io/unitytipsredux/content/all-my-updates.html
     private void LateUpdate() // LateUpdate() or FixedUpdate() if moving player via Rigidbody physics
     {
-        if (!player.GetComponent<Player>().bPlayerFalling)
+        if (!player.GetComponent<Player_v3>().bPlayerFalling)
         {
             Vector3 desiredPosition = player.transform.position + offset;
             // Vector3.Lerp() from borrowed from: https://www.youtube.com/watch?v=MFQhpwc6cKE

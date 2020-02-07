@@ -8,6 +8,9 @@ public class Shield : MonoBehaviour
     int lifetime = 300;
     int age = 0;
 
+    public float shieldSpeed = 5.0f;
+    public Vector3 direction = Vector3.zero;
+
     private Rigidbody rb;
 
     private void Awake()
@@ -17,6 +20,8 @@ public class Shield : MonoBehaviour
 
     private void FixedUpdate()
     {
+        rb.velocity = direction * shieldSpeed;
+
         if (age < lifetime)
         {
             age += 1;

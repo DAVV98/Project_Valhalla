@@ -17,6 +17,7 @@ public class Player_v3 : MonoBehaviour
     public Transform shieldSpawn;
     public GameObject shieldPrefab;
     public float shieldSpeed = 10.0f;
+    //public int shieldHealth = 3;
 
     public bool bArmed = true;
     public GameObject ArmedDisplay;
@@ -78,6 +79,7 @@ public class Player_v3 : MonoBehaviour
         if (other.CompareTag("Enemy") || other.CompareTag("Projectile")) {
             if (bArmed) {
                 playerHealth -= 1;
+                //shieldHealth -= 1;
             }
             else {
                 playerHealth -= 3;
@@ -110,7 +112,8 @@ public class Player_v3 : MonoBehaviour
     {
         // instantiate shield
         GameObject newShield = Instantiate(shieldPrefab, shieldSpawn.position, shieldSpawn.rotation);
-        newShield.GetComponent<Rigidbody>().velocity = shieldSpawn.forward * shieldSpeed;
+        newShield.GetComponent<Shield>().direction = shieldSpawn.forward;
+        //newShield.GetComponent<Rigidbody>().velocity = shieldSpawn.forward * shieldSpeed;
 
         // if shield hits then reset timer
         if (newShield.GetComponent<Shield>().bDidHit)
