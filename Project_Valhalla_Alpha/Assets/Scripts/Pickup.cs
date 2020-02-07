@@ -15,7 +15,7 @@ public class Pickup : MonoBehaviour
     {
 
 
-        if (Input.GetKey(KeyCode.E) && (Vector3.Distance(transform.position, player.position) < Dist))
+        if (Input.GetKey(KeyCode.Mouse0) && (Vector3.Distance(transform.position, player.position) < Dist))
         {
             this.transform.position = TheDest.position;
             this.transform.parent = GameObject.Find("Dest").transform;
