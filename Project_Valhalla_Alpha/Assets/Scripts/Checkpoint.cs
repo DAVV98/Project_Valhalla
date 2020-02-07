@@ -11,10 +11,8 @@ public class Checkpoint : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            Debug.Log("Player reached checkpoint");
-
             activeDisplay.SetActive(true);
-            other.GetComponent<Player>().playerSpawn = this.newPlayerSpawn;
+            other.GetComponent<Player_v3>().playerSpawn = this.newPlayerSpawn;
         }
     }
 }
