@@ -43,6 +43,8 @@ public class Player_v3 : MonoBehaviour
 
     private void FixedUpdate()
     {
+        //Debug.Log(gameObject.transform.position.y);
+
         MoveAndRotatePlayer();
         
         if (bPlayerFalling) {
@@ -66,8 +68,15 @@ public class Player_v3 : MonoBehaviour
         if (playerHealth <= 0)
         {
             // game over screen
-            gameObject.transform.position = playerSpawn.position;
+            PlayerReset();
         }
+    }
+
+    private void PlayerReset()
+    {
+        bPlayerFalling = false;
+        rb.MovePosition(playerSpawn.position);
+        playerHealth = 3;
     }
 
     private void OnTriggerEnter(Collider other)
@@ -83,6 +92,11 @@ public class Player_v3 : MonoBehaviour
             }
             else {
                 playerHealth -= 3;
+            }
+
+            if (other.CompareTag("Projectile"))
+            {
+                Destroy(other.gameObject);
             }
         }
 
@@ -103,8 +117,7 @@ public class Player_v3 : MonoBehaviour
 
         if (gameObject.transform.position.y <= playerMinHeight)
         {
-            gameObject.transform.position = playerSpawn.position;
-            bPlayerFalling = false;
+            PlayerReset();
         }
     }
 
