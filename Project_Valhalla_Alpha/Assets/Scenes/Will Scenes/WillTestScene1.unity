@@ -890,7 +890,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c486f80411b63794ba0f26311cfa6efc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 0}
+  player: {fileID: 1773510388}
   smoothSpeed: 2
 --- !u!1 &1065061834
 GameObject:
@@ -1466,6 +1466,91 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1773510388 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8058058989800333736, guid: 9cbc84b72e46ab44bae424f91d54471c,
+    type: 3}
+  m_PrefabInstance: {fileID: 1811199599}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &1811199599
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 872663228726616723, guid: 9cbc84b72e46ab44bae424f91d54471c,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 872663228726616723, guid: 9cbc84b72e46ab44bae424f91d54471c,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 872663228726616723, guid: 9cbc84b72e46ab44bae424f91d54471c,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 872663228726616723, guid: 9cbc84b72e46ab44bae424f91d54471c,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 872663228726616723, guid: 9cbc84b72e46ab44bae424f91d54471c,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 872663228726616723, guid: 9cbc84b72e46ab44bae424f91d54471c,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 872663228726616723, guid: 9cbc84b72e46ab44bae424f91d54471c,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 872663228726616723, guid: 9cbc84b72e46ab44bae424f91d54471c,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 14
+      objectReference: {fileID: 0}
+    - target: {fileID: 872663228726616723, guid: 9cbc84b72e46ab44bae424f91d54471c,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 872663228726616723, guid: 9cbc84b72e46ab44bae424f91d54471c,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 872663228726616723, guid: 9cbc84b72e46ab44bae424f91d54471c,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8058058989800333719, guid: 9cbc84b72e46ab44bae424f91d54471c,
+        type: 3}
+      propertyPath: playerSpawn
+      value: 
+      objectReference: {fileID: 1973837887}
+    - target: {fileID: 8058058989800333736, guid: 9cbc84b72e46ab44bae424f91d54471c,
+        type: 3}
+      propertyPath: m_Name
+      value: Player_v2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8058058989800333736, guid: 9cbc84b72e46ab44bae424f91d54471c,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 9cbc84b72e46ab44bae424f91d54471c, type: 3}
 --- !u!4 &1973837887 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 9195695424971512969, guid: 2be5749266c5b624aa072788b3994855,
@@ -1599,13 +1684,14 @@ MonoBehaviour:
   moveSpeed: 5
   playerMinHeight: -4
   playerSpawn: {fileID: 1973837887}
-  shieldSpeed: 10
+  playerHealth: 9
   shieldSpawn: {fileID: 5915791107973221894}
   shieldPrefab: {fileID: 8360783977189383089, guid: 2b53cd994d1137e41b05c2e2de716b6b,
     type: 3}
-  shieldPushRange: 10
-  shieldPushForce: 400
-  shieldPushRadius: 0
+  shieldSpeed: 5
+  bArmed: 1
+  shieldTimer: 0
+  shieldTimerRefreshRate: 60
 --- !u!33 &3441458755127549047
 MeshFilter:
   m_ObjectHideFlags: 0

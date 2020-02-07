@@ -11,15 +11,18 @@ public class Player_v3 : MonoBehaviour
     public float playerMinHeight = -4.0f;
     private int lookDirection = 0;
     public Transform playerSpawn;
+    public int playerHealth = 9;
 
     [Header("Shield")]
     public Transform shieldSpawn;
     public GameObject shieldPrefab;
-    bool bArmed = true;
-    int shieldTimer = 0;
-    int shieldTimerRefreshRate = 60;
-    int playerHealth = 9;
-    //public float shieldSpeed = 10.0f;
+    public float shieldSpeed = 10.0f;
+
+    public bool bArmed = true;
+    public GameObject ArmedDisplay;
+    public int shieldTimer = 0;
+    public int shieldTimerRefreshRate = 60;
+
     //bool bShieldThrowing = false;
     //private float shieldThrowTimer;
 
@@ -37,59 +40,52 @@ public class Player_v3 : MonoBehaviour
         rb = GetComponent<Rigidbody>();
     }
 
-    void Update()
-    {
-        //// update shieldThrowTimer
-        //if (shieldThrowTimer > 0)
-        //{
-        //    shieldThrowTimer -= 0.1f;
-        //}
-
-        //if (shieldPushTimer > 0)
-        //{
-        //    shieldPushTimer -= 0.1f;
-        //}
-    }
-
     private void FixedUpdate()
     {
         MoveAndRotatePlayer();
-
-        //bShieldThrowing = bCanThrow();
-        //bShieldPushing = bCanPush();
-
-        if (bPlayerFalling)
-        {
+        
+        if (bPlayerFalling) {
             PlayerFall();
         }
 
-        //if (bShieldThrowing)
-        //{
-        //    ShieldThrow();
-        //}
+        ArmedDisplay.SetActive(bArmed);
 
-        //if (bShieldPushing)
-        //{
-        //    ShieldPush();
-        //}
+        if (bArmed && bSpacePressed()) {
+            ShieldThrow();
+            bArmed = false;
+            shieldTimer = shieldTimerRefreshRate;
+        }
+
+        if (shieldTimer > 0) {
+            shieldTimer--;
+        } else if (shieldTimer <= 0) {
+            bArmed = true;
+        }
+
+        if (playerHealth <= 0)
+        {
+            // game over screen
+            gameObject.transform.position = playerSpawn.position;
+        }
     }
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Projectile"))
-        {
-            // hp -1
-            Destroy(other.gameObject);
+        if (other.CompareTag("Shield")) {
+            shieldTimer = 0;
         }
 
-        if (other.CompareTag("Pitfall"))
-        {
+        if (other.CompareTag("Enemy") || other.CompareTag("Projectile")) {
+            if (bArmed) {
+                playerHealth -= 1;
+            }
+            else {
+                playerHealth -= 3;
+            }
+        }
+
+        if (other.CompareTag("Pitfall")) {
             bPlayerFalling = true;
-        }
-
-        if (other.CompareTag("Projectile"))
-        {
-            gameObject.transform.position = playerSpawn.position;
         }
     }
 
@@ -112,26 +108,21 @@ public class Player_v3 : MonoBehaviour
 
     private void ShieldThrow()
     {
-        // reset timer
-        //shieldThrowTimer = 2.0f;
-
         // instantiate shield
         GameObject newShield = Instantiate(shieldPrefab, shieldSpawn.position, shieldSpawn.rotation);
         newShield.GetComponent<Rigidbody>().velocity = shieldSpawn.forward * shieldSpeed;
 
-        // destroy shield after amount of time
-        Destroy(newShield, 3.0f);
+        // if shield hits then reset timer
+        if (newShield.GetComponent<Shield>().bDidHit)
+        {
+            shieldTimer = 0;
+        }
     }
 
-    //bool bCanThrow()
-    //{
-    //    return Input.GetKey(KeyCode.Space) && shieldThrowTimer <= 0;
-    //}
-
-    //bool bCanPush()
-    //{
-    //    return Input.GetKey(KeyCode.LeftShift) && shieldPushTimer <= 0;
-    //}
+    bool bSpacePressed()
+    {
+        return Input.GetKey(KeyCode.Space);
+    }
 
     private void MoveAndRotatePlayer()
     {
