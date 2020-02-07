@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Shield : MonoBehaviour
 {
+    [Header("State")]
     public bool bDidHit = false;
     public int lifetime = 300;
     public int age = 0;
@@ -11,6 +12,11 @@ public class Shield : MonoBehaviour
 
     public float shieldSpeed = 5.0f;
     public Vector3 direction = Vector3.zero;
+
+    [Header("Push")]
+    public float pushRange = 10.0f;
+    public float pushForce = 400.0f;
+    public float pushRadius = 0.0f;
 
     public Player_v3 player;
 
@@ -40,11 +46,8 @@ public class Shield : MonoBehaviour
         if (other.CompareTag("Projectile")) {
             ReflectArrow(other);
         }
-        else if (other.CompareTag("Enemy")) {
-            PushEnemy(other);
-        }
-        else if (other.CompareTag("Pushable")) {
-            PushBlock(other);
+        else if (other.CompareTag("Enemy") || other.CompareTag("Pushable")) {
+            PushOther(other);
         }
 
         // destroy shield if triggered
@@ -56,14 +59,21 @@ public class Shield : MonoBehaviour
 
     }
 
-    private void PushEnemy(Collider other)
+    private void PushOther(Collider other)
     {
+        // creates layermask to ignore player objects.
+        int layerMask = 1 << 8;
+        layerMask = ~layerMask;
 
-    }
+        // sends ray forward
+        Vector3 fwd = transform.TransformDirection(Vector3.forward);
 
-    private void PushBlock(Collider other)
-    {
+        RaycastHit shield_hit;
 
+        if (Physics.SphereCast(transform.position, pushRadius, fwd, out shield_hit, pushRange, layerMask))
+        {
+            shield_hit.rigidbody.AddForceAtPosition(pushForce * fwd, shield_hit.point);
+        }
     }
 
     private void MoveShield()
