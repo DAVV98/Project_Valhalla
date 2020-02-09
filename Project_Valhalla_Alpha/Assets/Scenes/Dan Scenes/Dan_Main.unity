@@ -281,7 +281,7 @@ PrefabInstance:
     - target: {fileID: 8925573386346086751, guid: c103ce7843ca28b4a86803736014bf0b,
         type: 3}
       propertyPath: m_Enabled
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8925573386558270750, guid: c103ce7843ca28b4a86803736014bf0b,
         type: 3}
@@ -290,6 +290,32 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c103ce7843ca28b4a86803736014bf0b, type: 3}
+--- !u!1 &698653739 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8925573386346086750, guid: c103ce7843ca28b4a86803736014bf0b,
+    type: 3}
+  m_PrefabInstance: {fileID: 697763063}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &698653746
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 698653739}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4c8424a1150b3974db0554db658c0885, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moveSpeed: 2
+  stopPos: 4
+  currentState: 0
+  axeObject: {fileID: 8291421867862500384, guid: e339c2193c5c34f45b5a355b52dd4d1b,
+    type: 3}
+  axeSpawn: {fileID: 1527499949}
+  throwSpeed: 5
+  start_time_between_shots: 2
 --- !u!1 &714563405
 GameObject:
   m_ObjectHideFlags: 0
@@ -537,6 +563,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 32a1ce61ac8f1054fa30e302649c1e65, type: 3}
+--- !u!4 &1527499949 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 8925573386394961600, guid: c103ce7843ca28b4a86803736014bf0b,
+    type: 3}
+  m_PrefabInstance: {fileID: 697763063}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1561291938 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8058058989800333736, guid: 9cbc84b72e46ab44bae424f91d54471c,

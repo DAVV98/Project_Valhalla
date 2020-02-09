@@ -21,7 +21,8 @@ public class AI_Range : MonoBehaviour
 
 
    
-  
+
+
     void Start()
     {
     
@@ -82,5 +83,35 @@ public class AI_Range : MonoBehaviour
             time_between_shots -= Time.fixedDeltaTime;
         }
     }
-    
+
+
+/*
+
+    //Go towards player. 
+     
+    private IEnumerator move_towards()
+    {
+        //if distance > x
+            //move towards
+    }
+
+    //Stop at x distance
+    //Throw axe at quick speed
+    private IEnumerator stop_throw()
+    {
+        //if distance == x
+            //throw axe at high speed.
+    }
+
+    //go back to x distance
+    private IEnumerator retreat()
+    {
+        //once stop_throw done
+            //go towards x distance
+    }
+
+    //Repeat 
+
+
+*/
 }
