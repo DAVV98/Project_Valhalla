@@ -6,6 +6,9 @@ public class MAttack : MonoBehaviour,IResiveHitRedirect
 {
     Animator anim;
 
+    public float Timer = 1;
+    public float IntervalSet;
+
     [SerializeField] GameObject sword;
     [SerializeField] GameObject attackarea;
 
@@ -17,11 +20,24 @@ public class MAttack : MonoBehaviour,IResiveHitRedirect
     }
 
     // Update is called once per frame
-    void Update()
+    public void cooldown()
     {
-        
-    }
+        if (IntervalSet > 0)
+        {
+            IntervalSet -= Time.deltaTime;
+        }
 
+        if (IntervalSet < 0)
+        {
+            IntervalSet = 0;
+        }
+
+        if (IntervalSet == 0)
+        {
+            onAttackFinish();
+            IntervalSet = Timer;
+        }
+    }
     void OnDrawGizmosSelected()
     {
         // Draws a 5 unit long red line in front of the object
@@ -37,12 +53,18 @@ public class MAttack : MonoBehaviour,IResiveHitRedirect
             anim.SetTrigger("attack");
             sword.SetActive(true);
             attackarea.SetActive(false);
+            cooldown();
+          
         }
     }
 
     public void onAttackFinish()
     {
+        
         sword.SetActive(false);
         attackarea.SetActive(true);
+        
     }
 }
+
+
