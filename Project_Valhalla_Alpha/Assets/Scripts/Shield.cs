@@ -42,11 +42,11 @@ public class Shield : MonoBehaviour
         bDidHit = true;
         
         player.shieldTimer = 0;
-        Debug.Log("Shield::OnTriggerEnter(), bDidHit = TRUE");
+        //Debug.Log("Shield::OnTriggerEnter(), bDidHit = TRUE");
 
         if (other.CompareTag("Projectile")) {
 
-            Debug.Log("Shield::OnTriggerEnter(), other == Projectile");
+            //Debug.Log("Shield::OnTriggerEnter(), other == Projectile");
             ReflectArrow(other);
         }
         else if (other.CompareTag("Enemy") || other.CompareTag("Pushable"))
@@ -56,7 +56,7 @@ public class Shield : MonoBehaviour
         }
 
         // destroy shield if triggered
-        Destroy(gameObject);
+        //Destroy(gameObject);
     }
 
     private void ReflectArrow(Collider other)
@@ -73,17 +73,18 @@ public class Shield : MonoBehaviour
 
             Rigidbody arrowRigidbody = arrow.rb;
 
-            //Vector3 direction = Vector3.Reflect(rb.velocity, Vector3.right);
-            //arrowRigidbody.velocity = direction.normalized * arrow.arrowSpeed;
+            //Vector3 direction = Vector3.Reflect(arrowRigidbody.velocity, Vector3.right);
+            //arrow.direction = direction.normalized * arrow.arrowSpeed;
 
             // use raycast to access vector normal for reflection
             RaycastHit hit;
             Ray ray = new Ray(transform.position, rb.velocity);
 
-            if (Physics.Raycast(ray, out hit, 0.1f))
+            if (Physics.Raycast(ray, out hit))
             {
-                Vector3 direction = Vector3.Reflect(rb.velocity, hit.normal);
-                arrowRigidbody.velocity = direction.normalized * arrow.arrowSpeed;
+                Vector3 direction = Vector3.Reflect(arrowRigidbody.velocity, hit.normal);
+                //arrowRigidbody.velocity = direction.normalized * arrow.arrowSpeed;
+                arrow.direction = direction.normalized;
 
                 Debug.Log("ReflectArrow() direction = " + direction);
             }

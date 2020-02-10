@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 6143703689584354108}
   - component: {fileID: 6143703689584354104}
   - component: {fileID: 6143703689584354109}
+  - component: {fileID: 1839804787801587434}
   m_Layer: 0
   m_Name: Arrow
   m_TagString: Projectile
@@ -126,3 +127,17 @@ MonoBehaviour:
   age: 0
   arrowSpeed: 6
   direction: {x: 0, y: 0, z: 0}
+  rb: {fileID: 6143703689584354108}
+--- !u!65 &1839804787801587434
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6143703689584354107}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 0
+  serializedVersion: 2
+  m_Size: {x: 2, y: 2, z: 2}
+  m_Center: {x: 0, y: 0, z: 0}
