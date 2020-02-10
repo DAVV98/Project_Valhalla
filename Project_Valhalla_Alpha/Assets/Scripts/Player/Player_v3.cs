@@ -147,8 +147,9 @@ public class Player_v3 : MonoBehaviour
 
     bool bSpacePressed()
     {
-        return Input.GetKey(KeyCode.Space);
+        return Input.GetKeyDown(KeyCode.Space);
     }
+
     bool bResetPressed()
     {
         return Input.GetKey(KeyCode.R);

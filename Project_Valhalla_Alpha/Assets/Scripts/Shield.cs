@@ -15,9 +15,9 @@ public class Shield : MonoBehaviour
     public float fallSpeed = 0.25f;
 
     [Header("Push")]
-    public float pushRange = 10.0f;
+    //public float pushRange = 10.0f;
     public float pushForce = 400.0f;
-    public float pushRadius = 0.0f;
+    //public float pushRadius = 0.0f;
 
     public Player_v3 player;
 
@@ -61,14 +61,38 @@ public class Shield : MonoBehaviour
 
     private void ReflectArrow(Collider other)
     {
+        Debug.Log("ReflectArrow() called");
 
+        // reset age so arrow persists longer
+        Arrow arrow = other.GetComponent<Arrow>();
+        
+        if (arrow != null)
+        {
+            Debug.Log("ReflectArrow() arrow found");
+            arrow.age = 0;
+
+            Rigidbody arrowRigidbody = arrow.rb;
+
+            //Vector3 direction = Vector3.Reflect(rb.velocity, Vector3.right);
+            //arrowRigidbody.velocity = direction.normalized * arrow.arrowSpeed;
+
+            // use raycast to access vector normal for reflection
+            RaycastHit hit;
+            Ray ray = new Ray(transform.position, rb.velocity);
+
+            if (Physics.Raycast(ray, out hit, 0.1f))
+            {
+                Vector3 direction = Vector3.Reflect(rb.velocity, hit.normal);
+                arrowRigidbody.velocity = direction.normalized * arrow.arrowSpeed;
+
+                Debug.Log("ReflectArrow() direction = " + direction);
+            }
+        }
     }
 
     private void PushOther(Collider other)
     {
-        // sends ray forward
         Vector3 forceDirection = transform.TransformDirection(Vector3.forward);
-
         Rigidbody otherRigidbody = other.attachedRigidbody;
 
         if (otherRigidbody != null) {
