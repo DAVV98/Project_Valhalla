@@ -31,8 +31,15 @@ public class Shield : MonoBehaviour
 
     private void FixedUpdate()
     {
-        MoveShield();
+        //if (!bDidHit) {
+            MoveShield();
+        //}
         AgeShield();
+    }
+
+    IEnumerator WaitTime(float t = 3.0f)
+    {
+        yield return new WaitForSeconds(t);
     }
 
     // improvements
@@ -55,20 +62,22 @@ public class Shield : MonoBehaviour
             PushOther(other);
         }
 
+
         // destroy shield if triggered
+        //StartCoroutine(WaitTime(5.0f));
         //Destroy(gameObject);
     }
 
     private void ReflectArrow(Collider other)
     {
-        Debug.Log("ReflectArrow() called");
+        //Debug.Log("ReflectArrow() called");
 
         // reset age so arrow persists longer
         Arrow arrow = other.GetComponent<Arrow>();
         
         if (arrow != null)
         {
-            Debug.Log("ReflectArrow() arrow found");
+            //Debug.Log("ReflectArrow() arrow found");
             arrow.age = 0;
 
             Rigidbody arrowRigidbody = arrow.rb;
@@ -86,11 +95,9 @@ public class Shield : MonoBehaviour
                 //arrowRigidbody.velocity = direction.normalized * arrow.arrowSpeed;
                 arrow.direction = direction.normalized;
 
-                Debug.Log("ReflectArrow() direction = " + direction);
+                //Debug.Log("ReflectArrow() direction = " + direction);
             }
         }
-
-        //Destroy(gameObject);
     }
 
     private void PushOther(Collider other)
@@ -99,20 +106,8 @@ public class Shield : MonoBehaviour
         Rigidbody otherRigidbody = other.attachedRigidbody;
 
         if (otherRigidbody != null) {
-            //otherRigidbody.AddForceAtPosition(forceDirection * pushForce, other.transform.position);
             otherRigidbody.AddForce(forceDirection * pushForce);
         }
-
-        //// creates layermask to ignore player objects.
-        //int layerMask = 1 << 8;
-        //layerMask = ~layerMask;
-        
-        //RaycastHit shield_hit;
-
-        //if (Physics.SphereCast(transform.position, pushRadius, fwd, out shield_hit, pushRange, layerMask))
-        //{
-        //    shield_hit.rigidbody.AddForceAtPosition(pushForce * fwd, shield_hit.point);
-        //}
     }
 
     private void MoveShield()
