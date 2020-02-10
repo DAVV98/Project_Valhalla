@@ -67,8 +67,12 @@ public class Shield : MonoBehaviour
     {
         // sends ray forward
         Vector3 forceDirection = transform.TransformDirection(Vector3.forward);
-        other.attachedRigidbody.AddForceAtPosition(forceDirection * pushForce, other.transform.position);
 
+        Rigidbody otherRigidbody = other.attachedRigidbody;
+
+        if (otherRigidbody != null) {
+            otherRigidbody.AddForceAtPosition(forceDirection * pushForce, other.transform.position);
+        }
         //// creates layermask to ignore player objects.
         //int layerMask = 1 << 8;
         //layerMask = ~layerMask;
