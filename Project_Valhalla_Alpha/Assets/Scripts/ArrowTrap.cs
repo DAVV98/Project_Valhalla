@@ -15,7 +15,6 @@ public class ArrowTrap : MonoBehaviour
 
     private void FixedUpdate()
     {
-
         ShootArrows();
         ShrinkSize();
     }
