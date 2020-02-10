@@ -44,9 +44,13 @@ public class Shield : MonoBehaviour
         //Debug.Log("Shield::OnTriggerEnter(), bDidHit = TRUE");
 
         if (other.CompareTag("Projectile")) {
+
+            Debug.Log("Shield::OnTriggerEnter(), other == Projectile");
             ReflectArrow(other);
         }
-        else if (other.CompareTag("Enemy") || other.CompareTag("Pushable")) {
+        else if (other.CompareTag("Enemy") || other.CompareTag("Pushable"))
+        {
+            Debug.Log("Shield::OnTriggerEnter(), other == Enemy or Pushable");
             PushOther(other);
         }
 
@@ -61,19 +65,21 @@ public class Shield : MonoBehaviour
 
     private void PushOther(Collider other)
     {
-        // creates layermask to ignore player objects.
-        int layerMask = 1 << 8;
-        layerMask = ~layerMask;
-
         // sends ray forward
-        Vector3 fwd = transform.TransformDirection(Vector3.forward);
+        Vector3 forceDirection = transform.TransformDirection(Vector3.forward);
+        other.attachedRigidbody.AddForceAtPosition(forceDirection * pushForce, other.transform.position);
 
-        RaycastHit shield_hit;
+        //// creates layermask to ignore player objects.
+        //int layerMask = 1 << 8;
+        //layerMask = ~layerMask;
 
-        if (Physics.SphereCast(transform.position, pushRadius, fwd, out shield_hit, pushRange, layerMask))
-        {
-            shield_hit.rigidbody.AddForceAtPosition(pushForce * fwd, shield_hit.point);
-        }
+
+        //RaycastHit shield_hit;
+
+        //if (Physics.SphereCast(transform.position, pushRadius, fwd, out shield_hit, pushRange, layerMask))
+        //{
+        //    shield_hit.rigidbody.AddForceAtPosition(pushForce * fwd, shield_hit.point);
+        //}
     }
 
     private void MoveShield()

@@ -32,13 +32,13 @@ public class Arrow : MonoBehaviour
 
     private void AgeArrow()
     {
-        if (age < lifetime)
-        {
+        // increment age
+        if (age < lifetime) {
             age += 1;
         }
-        if (age >= lifetime)
-        {
-            // destroy shield if old
+
+        if (age >= lifetime) {
+            // destroy arrow if old
             Destroy(gameObject);
         }
     }
