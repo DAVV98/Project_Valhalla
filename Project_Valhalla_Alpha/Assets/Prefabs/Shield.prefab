@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 8360783977189383088}
   - component: {fileID: 8360783977189383092}
   - component: {fileID: 8360783977189383095}
+  - component: {fileID: 2219227797382100216}
   m_Layer: 8
   m_Name: Shield
   m_TagString: Shield
@@ -92,7 +93,7 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
+  m_Size: {x: 3, y: 1, z: 0.5}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!54 &8360783977189383092
 Rigidbody:
@@ -128,7 +129,20 @@ MonoBehaviour:
   shieldSlowThreshold: 20
   shieldSpeed: 7
   direction: {x: 0, y: 0, z: 0}
-  pushRange: 10
+  fallSpeed: 0.25
   pushForce: 400
-  pushRadius: 0
   player: {fileID: 0}
+--- !u!64 &2219227797382100216
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8360783977189383089}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 0
+  serializedVersion: 3
+  m_Convex: 1
+  m_CookingOptions: 14
+  m_Mesh: {fileID: 10210, guid: 0000000000000000e000000000000000, type: 0}

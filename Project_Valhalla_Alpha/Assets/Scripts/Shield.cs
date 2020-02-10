@@ -89,6 +89,8 @@ public class Shield : MonoBehaviour
                 Debug.Log("ReflectArrow() direction = " + direction);
             }
         }
+
+        //Destroy(gameObject);
     }
 
     private void PushOther(Collider other)
