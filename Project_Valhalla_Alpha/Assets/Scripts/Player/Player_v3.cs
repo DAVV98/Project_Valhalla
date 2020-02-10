@@ -12,6 +12,7 @@ public class Player_v3 : MonoBehaviour
     private int lookDirection = 0;
     public Transform playerSpawn;
     public int playerHealth = 9;
+    public float fallSpeed = 4.0f;
 
     [Header("Shield")]
     public Transform shieldSpawn;
@@ -45,6 +46,12 @@ public class Player_v3 : MonoBehaviour
     {
         //Debug.Log(gameObject.transform.position.y);
 
+        // for debugging
+        if (bResetPressed())
+        {
+            shieldTimer = 0;
+        }
+
         MoveAndRotatePlayer();
         
         if (bPlayerFalling) {
@@ -77,6 +84,7 @@ public class Player_v3 : MonoBehaviour
         bPlayerFalling = false;
         rb.MovePosition(playerSpawn.position);
         playerHealth = 3;
+        fallSpeed = 4.0f;
     }
 
     private void OnTriggerEnter(Collider other)
@@ -111,9 +119,9 @@ public class Player_v3 : MonoBehaviour
     //  3. the player can currently float into the walls as they fall
     private void PlayerFall()
     {
-        float fallSpeed = 4.0f;
         // decrease transform's y-component
         transform.Translate(Vector3.down * Time.deltaTime * fallSpeed);
+        fallSpeed *= 1.01f;
 
         if (gameObject.transform.position.y <= playerMinHeight)
         {
@@ -140,6 +148,10 @@ public class Player_v3 : MonoBehaviour
     bool bSpacePressed()
     {
         return Input.GetKey(KeyCode.Space);
+    }
+    bool bResetPressed()
+    {
+        return Input.GetKey(KeyCode.R);
     }
 
     private void MoveAndRotatePlayer()

@@ -108,7 +108,7 @@ Rigidbody:
   m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 116
+  m_Constraints: 112
   m_CollisionDetection: 0
 --- !u!114 &8360783977189383095
 MonoBehaviour:
@@ -124,7 +124,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bDidHit: 0
   lifetime: 300
-  shieldSlowThreshold: 20
   age: 0
+  shieldSlowThreshold: 20
   shieldSpeed: 7
   direction: {x: 0, y: 0, z: 0}
+  pushRange: 10
+  pushForce: 400
+  pushRadius: 0
+  player: {fileID: 0}

@@ -12,6 +12,7 @@ public class Shield : MonoBehaviour
 
     public float shieldSpeed = 5.0f;
     public Vector3 direction = Vector3.zero;
+    public float fallSpeed = 0.25f;
 
     [Header("Push")]
     public float pushRange = 10.0f;
@@ -41,7 +42,7 @@ public class Shield : MonoBehaviour
         bDidHit = true;
         
         player.shieldTimer = 0;
-        //Debug.Log("Shield::OnTriggerEnter(), bDidHit = TRUE");
+        Debug.Log("Shield::OnTriggerEnter(), bDidHit = TRUE");
 
         if (other.CompareTag("Projectile")) {
 
@@ -71,13 +72,14 @@ public class Shield : MonoBehaviour
         Rigidbody otherRigidbody = other.attachedRigidbody;
 
         if (otherRigidbody != null) {
-            otherRigidbody.AddForceAtPosition(forceDirection * pushForce, other.transform.position);
+            //otherRigidbody.AddForceAtPosition(forceDirection * pushForce, other.transform.position);
+            otherRigidbody.AddForce(forceDirection * pushForce);
         }
+
         //// creates layermask to ignore player objects.
         //int layerMask = 1 << 8;
         //layerMask = ~layerMask;
-
-
+        
         //RaycastHit shield_hit;
 
         //if (Physics.SphereCast(transform.position, pushRadius, fwd, out shield_hit, pushRange, layerMask))
@@ -88,8 +90,6 @@ public class Shield : MonoBehaviour
 
     private void MoveShield()
     {
-        rb.velocity = direction * shieldSpeed;
-
         // decrease shieldSpeed over time
         if (age > shieldSlowThreshold)
         {
@@ -101,8 +101,15 @@ public class Shield : MonoBehaviour
             shieldSpeed = 0.0f;
         }
 
-        // slow down in direction correlation to age
-        //rb.velocity = direction * shieldSpeed * (1 - ((float) age / lifetime));
+        // if not over ground, enable gravity
+        RaycastHit hit;
+        float raycastRange = 3.0f;
+        if (!Physics.Raycast(transform.position, Vector3.down, out hit, raycastRange)) {
+            rb.useGravity = true;
+        } else {
+            rb.velocity = direction * shieldSpeed;
+            //rb.AddForce(direction * shieldSpeed);
+        }
     }
 
     private void AgeShield()
