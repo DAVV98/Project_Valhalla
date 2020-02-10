@@ -62,7 +62,8 @@ public class Shield : MonoBehaviour
             PushOther(other);
         }
 
-
+        gameObject.GetComponent<MeshRenderer>().enabled = false;
+        age = lifetime - 50;
         // destroy shield if triggered
         //StartCoroutine(WaitTime(5.0f));
         //Destroy(gameObject);
