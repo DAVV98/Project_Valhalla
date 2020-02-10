@@ -86,7 +86,7 @@ public class Axe_AI : MonoBehaviour
         //thrown axe goes towareds player.
         axeObject.transform.LookAt(Player_Pos);
 
-        Debug.Log(thrown_axes);
+        //Debug.Log(thrown_axes);
         
         //Change state to retreat.
         if (thrown_axes == max_Axes)
