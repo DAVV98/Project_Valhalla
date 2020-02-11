@@ -5,7 +5,7 @@ using UnityEngine;
 public class S_movement : MonoBehaviour
 {
     public Transform target;
-    [SerializeField] float MovmentSpeed = 10f;
+    public float MovementSpeed = 3f;
     
 
     public float Dist;
@@ -34,6 +34,6 @@ public class S_movement : MonoBehaviour
 
     void Move()
     {
-       transform.position += transform.forward * MovmentSpeed * Time.deltaTime;
+       transform.position += transform.forward * MovementSpeed * Time.deltaTime;
     }
 }

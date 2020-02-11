@@ -120,31 +120,18 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
---- !u!1 &416679594 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 2491806192457937371, guid: abc2d147bdffe23429e2b94a8da41dcf,
+--- !u!114 &416679595 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2491806192457937370, guid: abc2d147bdffe23429e2b94a8da41dcf,
     type: 3}
   m_PrefabInstance: {fileID: 2491806192855480177}
   m_PrefabAsset: {fileID: 0}
---- !u!95 &416679600
-Animator:
-  serializedVersion: 3
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 416679594}
+  m_GameObject: {fileID: 0}
   m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: ffc03e5989334f74cb914103492dcccd, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 1
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d48724501726a0e45b78ff8f360b878f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &938565796
 GameObject:
   m_ObjectHideFlags: 0
@@ -652,19 +639,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1760646054752144541, guid: abc2d147bdffe23429e2b94a8da41dcf,
         type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1760646054752144541, guid: abc2d147bdffe23429e2b94a8da41dcf,
-        type: 3}
-      propertyPath: Timer
-      value: 1
-      objectReference: {fileID: 0}
+      propertyPath: enemyM
+      value: 
+      objectReference: {fileID: 416679595}
     - target: {fileID: 2491806192457937370, guid: abc2d147bdffe23429e2b94a8da41dcf,
         type: 3}
       propertyPath: target
       value: 
       objectReference: {fileID: 1880086000}
+    - target: {fileID: 2491806192457937370, guid: abc2d147bdffe23429e2b94a8da41dcf,
+        type: 3}
+      propertyPath: MovementSpeed
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 2491806192457937371, guid: abc2d147bdffe23429e2b94a8da41dcf,
         type: 3}
       propertyPath: m_Name

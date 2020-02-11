@@ -6,7 +6,9 @@ public class MAttack : MonoBehaviour,IResiveHitRedirect
 {
     Animator anim;
 
-    public float Timer = 1;
+    [SerializeField] S_movement enemyM;
+
+    public float Timer = 3;
     public float IntervalSet;
 
     [SerializeField] GameObject sword;
@@ -16,26 +18,23 @@ public class MAttack : MonoBehaviour,IResiveHitRedirect
     void Awake()
     {
         anim = GetComponent<Animator>();
-
+        
+        
     }
 
     // Update is called once per frame
-    public void cooldown()
+    void Update()
     {
         if (IntervalSet > 0)
         {
             IntervalSet -= Time.deltaTime;
+            enemyM.MovementSpeed = 1.5f;
+            
         }
-
-        if (IntervalSet < 0)
+        if (IntervalSet <= 0)
         {
-            IntervalSet = 0;
-        }
-
-        if (IntervalSet == 0)
-        {
-            onAttackFinish();
-            IntervalSet = Timer;
+            enemyM.MovementSpeed = 3f;
+            attackarea.SetActive(true);
         }
     }
     void OnDrawGizmosSelected()
@@ -53,17 +52,15 @@ public class MAttack : MonoBehaviour,IResiveHitRedirect
             anim.SetTrigger("attack");
             sword.SetActive(true);
             attackarea.SetActive(false);
-            cooldown();
-          
+            IntervalSet = Timer;
+
         }
     }
 
     public void onAttackFinish()
     {
-        
+       
         sword.SetActive(false);
-        attackarea.SetActive(true);
-        
     }
 }
 
