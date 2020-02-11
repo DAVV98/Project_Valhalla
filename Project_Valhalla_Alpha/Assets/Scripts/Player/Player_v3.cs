@@ -172,8 +172,13 @@ public class Player_v3 : MonoBehaviour
             rb.MoveRotation(Quaternion.LookRotation(movement));
         }
 
+        transform.position = transform.position + newPosition;
+
         // use vector to move player
-        rb.MovePosition(transform.position + newPosition);
+        //rb.MovePosition(transform.position + newPosition);
+        //rb.AddForce(newPosition);
+        //rb.velocity = newPosition;
+        //transform
     }
 
     //private void ShieldPush()
