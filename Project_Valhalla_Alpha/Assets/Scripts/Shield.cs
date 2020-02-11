@@ -62,8 +62,9 @@ public class Shield : MonoBehaviour
             PushOther(other);
         }
 
+        // can't delete immediately otherwise there are issues with reflection
         gameObject.GetComponent<MeshRenderer>().enabled = false;
-        age = lifetime - 50;
+        age = lifetime - 20;
         // destroy shield if triggered
         //StartCoroutine(WaitTime(5.0f));
         //Destroy(gameObject);
@@ -93,10 +94,9 @@ public class Shield : MonoBehaviour
             if (Physics.Raycast(ray, out hit))
             {
                 Vector3 direction = Vector3.Reflect(arrowRigidbody.velocity, hit.normal);
-                //arrowRigidbody.velocity = direction.normalized * arrow.arrowSpeed;
                 arrow.direction = direction.normalized;
 
-                //Debug.Log("ReflectArrow() direction = " + direction);
+                Debug.Log("ReflectArrow() direction = " + direction);
             }
         }
     }
