@@ -23,6 +23,23 @@ public class Laser_Line : MonoBehaviour
     {
         //set laser start and end position.
         lr.SetPosition(0, startPos.position);
-        lr.SetPosition(1, endPos.position);
+
+
+        RaycastHit laser_hit;
+
+        if(Physics.Raycast(startPos.position, -transform.forward, out laser_hit))
+        {
+            if(laser_hit.collider)
+            {
+                lr.SetPosition(1, laser_hit.point);
+            }       
+        }
+
+        /*
+        else
+        {
+            lr.SetPosition(1, endPos.position);
+        }
+       */
     }
 }
