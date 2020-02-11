@@ -4,13 +4,13 @@ using UnityEngine;
 
 public class Arrow : MonoBehaviour
 {
-    public int lifetime = 50;
+    public int lifetime = 150;
     public int age = 0;
 
     public float arrowSpeed = 6.0f;
     public Vector3 direction = Vector3.zero;
 
-    private Rigidbody rb;
+    public Rigidbody rb;
 
     private void Awake()
     {
@@ -32,13 +32,14 @@ public class Arrow : MonoBehaviour
 
     private void AgeArrow()
     {
-        if (age < lifetime)
-        {
+        // increment age
+        if (age < lifetime) {
             age += 1;
         }
-        if (age >= lifetime)
-        {
-            // destroy shield if old
+
+        if (age >= lifetime) {
+            // destroy arrow if old
+            //Debug.Log("Arrow::AgeArrow() arrow destroyed");
             Destroy(gameObject);
         }
     }

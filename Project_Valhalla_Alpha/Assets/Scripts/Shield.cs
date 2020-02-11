@@ -12,11 +12,12 @@ public class Shield : MonoBehaviour
 
     public float shieldSpeed = 5.0f;
     public Vector3 direction = Vector3.zero;
+    public float fallSpeed = 0.25f;
 
     [Header("Push")]
-    public float pushRange = 10.0f;
+    //public float pushRange = 10.0f;
     public float pushForce = 400.0f;
-    public float pushRadius = 0.0f;
+    //public float pushRadius = 0.0f;
 
     public Player_v3 player;
 
@@ -30,8 +31,15 @@ public class Shield : MonoBehaviour
 
     private void FixedUpdate()
     {
-        MoveShield();
+        //if (!bDidHit) {
+            MoveShield();
+        //}
         AgeShield();
+    }
+
+    IEnumerator WaitTime(float t = 3.0f)
+    {
+        yield return new WaitForSeconds(t);
     }
 
     // improvements
@@ -44,42 +52,67 @@ public class Shield : MonoBehaviour
         //Debug.Log("Shield::OnTriggerEnter(), bDidHit = TRUE");
 
         if (other.CompareTag("Projectile")) {
+
+            //Debug.Log("Shield::OnTriggerEnter(), other == Projectile");
             ReflectArrow(other);
         }
-        else if (other.CompareTag("Enemy") || other.CompareTag("Pushable")) {
+        else if (other.CompareTag("Enemy") || other.CompareTag("Pushable"))
+        {
+            Debug.Log("Shield::OnTriggerEnter(), other == Enemy or Pushable");
             PushOther(other);
         }
 
+        gameObject.GetComponent<MeshRenderer>().enabled = false;
+        age = lifetime - 50;
         // destroy shield if triggered
-        Destroy(gameObject);
+        //StartCoroutine(WaitTime(5.0f));
+        //Destroy(gameObject);
     }
 
     private void ReflectArrow(Collider other)
     {
+        //Debug.Log("ReflectArrow() called");
 
+        // reset age so arrow persists longer
+        Arrow arrow = other.GetComponent<Arrow>();
+        
+        if (arrow != null)
+        {
+            //Debug.Log("ReflectArrow() arrow found");
+            arrow.age = 0;
+
+            Rigidbody arrowRigidbody = arrow.rb;
+
+            //Vector3 direction = Vector3.Reflect(arrowRigidbody.velocity, Vector3.right);
+            //arrow.direction = direction.normalized * arrow.arrowSpeed;
+
+            // use raycast to access vector normal for reflection
+            RaycastHit hit;
+            Ray ray = new Ray(transform.position, rb.velocity);
+
+            if (Physics.Raycast(ray, out hit))
+            {
+                Vector3 direction = Vector3.Reflect(arrowRigidbody.velocity, hit.normal);
+                //arrowRigidbody.velocity = direction.normalized * arrow.arrowSpeed;
+                arrow.direction = direction.normalized;
+
+                //Debug.Log("ReflectArrow() direction = " + direction);
+            }
+        }
     }
 
     private void PushOther(Collider other)
     {
-        // creates layermask to ignore player objects.
-        int layerMask = 1 << 8;
-        layerMask = ~layerMask;
+        Vector3 forceDirection = transform.TransformDirection(Vector3.forward);
+        Rigidbody otherRigidbody = other.attachedRigidbody;
 
-        // sends ray forward
-        Vector3 fwd = transform.TransformDirection(Vector3.forward);
-
-        RaycastHit shield_hit;
-
-        if (Physics.SphereCast(transform.position, pushRadius, fwd, out shield_hit, pushRange, layerMask))
-        {
-            shield_hit.rigidbody.AddForceAtPosition(pushForce * fwd, shield_hit.point);
+        if (otherRigidbody != null) {
+            otherRigidbody.AddForce(forceDirection * pushForce);
         }
     }
 
     private void MoveShield()
     {
-        rb.velocity = direction * shieldSpeed;
-
         // decrease shieldSpeed over time
         if (age > shieldSlowThreshold)
         {
@@ -91,8 +124,15 @@ public class Shield : MonoBehaviour
             shieldSpeed = 0.0f;
         }
 
-        // slow down in direction correlation to age
-        //rb.velocity = direction * shieldSpeed * (1 - ((float) age / lifetime));
+        // if not over ground, enable gravity
+        RaycastHit hit;
+        float raycastRange = 3.0f;
+        if (!Physics.Raycast(transform.position, Vector3.down, out hit, raycastRange)) {
+            rb.useGravity = true;
+        } else {
+            rb.velocity = direction * shieldSpeed;
+            //rb.AddForce(direction * shieldSpeed);
+        }
     }
 
     private void AgeShield()
