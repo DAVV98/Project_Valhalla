@@ -4,5 +4,11 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Scenes/Dan Scenes/Teleport 1.unity
+    guid: 512710952cd1bc341a3689000e59918e
+  - enabled: 1
+    path: Assets/Scenes/Dan Scenes/Teleport 2.unity
+    guid: 638bf6d559b4f9742b66fa228a24d8cf
   m_configObjects: {}

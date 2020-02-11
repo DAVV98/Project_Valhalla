@@ -1,20 +1,20 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.SceneManagement;
 using UnityEngine;
 
-public class Pressure_Pad : MonoBehaviour
+public class Teleport_Pad : MonoBehaviour
 {
-    [Header("Object_To_Hide")]
-    public GameObject hiddenObject;
-
     //Private variables
-    private MeshRenderer hider;
+    private MeshRenderer hide_pad;
+
+    public int sceneIndex;
+
 
     // Start is called before the first frame update
     void Start()
     {
-       //gets mesh renderer of this gameobject.
-       hider = this.gameObject.GetComponent<MeshRenderer>();
+        hide_pad = this.gameObject.GetComponent<MeshRenderer>();
     }
 
     /// <summary>
@@ -23,15 +23,14 @@ public class Pressure_Pad : MonoBehaviour
     ///     - hides a public object. 
     /// </summary>
     /// <param name="padEnter"> creates collider between this obecjc and player</param>
-    void OnTriggerEnter(Collider padEnter)
+    void OnTriggerEnter(Collider teleport_entered)
     {
-        if(padEnter.tag == "Player")
+        if (teleport_entered.tag == "Player")
         {
-            hider.enabled = false;
-            hiddenObject.SetActive(false);
-          
+            hide_pad.enabled = false;
+            SceneManager.LoadScene(sceneIndex);
         }
-        
+
     }
 
     /// <summary>
@@ -40,14 +39,19 @@ public class Pressure_Pad : MonoBehaviour
     ///     - shows a public object. 
     /// </summary>
     /// <param name="padExit"></param>
-    void OnTriggerExit(Collider padExit)
+    void OnTriggerExit(Collider teleport_exited)
     {
-        if (padExit.tag == "Player")
+        if (teleport_exited.tag == "Player")
         {
-            hider.enabled = true;
-            hiddenObject.SetActive(true);
-           
+            hide_pad.enabled = true;
+            Debug.Log("bye");
         }
 
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        
     }
 }
