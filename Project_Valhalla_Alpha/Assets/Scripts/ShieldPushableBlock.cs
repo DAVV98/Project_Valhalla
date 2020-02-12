@@ -13,4 +13,13 @@ public class ShieldPushableBlock : MonoBehaviour
             Destroy(this.gameObject);
         }
     }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        // destroy arrows
+        if (other.CompareTag("Projectile"))
+        {
+            Destroy(other.gameObject);
+        }
+    }
 }
