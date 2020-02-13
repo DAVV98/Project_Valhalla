@@ -54,7 +54,8 @@ public class Shield : MonoBehaviour
         if (other.CompareTag("Projectile")) {
 
             //Debug.Log("Shield::OnTriggerEnter(), other == Projectile");
-            ReflectArrow(other);
+            //ReflectArrowByRaycast(other);
+            ReflectArrowByVelocity(other);
         }
         else if (other.CompareTag("Enemy") || other.CompareTag("Pushable"))
         {
@@ -64,28 +65,37 @@ public class Shield : MonoBehaviour
 
         // can't delete immediately otherwise there are issues with reflection
         gameObject.GetComponent<MeshRenderer>().enabled = false;
-        age = lifetime - 20;
-        // destroy shield if triggered
+        age = lifetime - 10;
+
+        // could use a coroutine...
         //StartCoroutine(WaitTime(5.0f));
         //Destroy(gameObject);
     }
 
-    private void ReflectArrow(Collider other)
+    private void ReflectArrowByVelocity(Collider other)
     {
-        //Debug.Log("ReflectArrow() called");
+        // reset age so arrow persists longer
+        Arrow arrow = other.GetComponent<Arrow>();
 
+        if (arrow != null)
+        {
+            // reset arrow age so it persists longer
+            arrow.age = 0;
+            arrow.direction = direction;
+        }
+    }
+
+    private void ReflectArrowByRaycast(Collider other)
+    {
         // reset age so arrow persists longer
         Arrow arrow = other.GetComponent<Arrow>();
         
         if (arrow != null)
         {
-            //Debug.Log("ReflectArrow() arrow found");
+            // reset arrow age so it persists longer
             arrow.age = 0;
 
             Rigidbody arrowRigidbody = arrow.rb;
-
-            //Vector3 direction = Vector3.Reflect(arrowRigidbody.velocity, Vector3.right);
-            //arrow.direction = direction.normalized * arrow.arrowSpeed;
 
             // use raycast to access vector normal for reflection
             RaycastHit hit;
@@ -129,7 +139,9 @@ public class Shield : MonoBehaviour
         float raycastRange = 3.0f;
         if (!Physics.Raycast(transform.position, Vector3.down, out hit, raycastRange)) {
             rb.useGravity = true;
-        } else {
+        }
+        // otherwise move along direction
+        else {
             rb.velocity = direction * shieldSpeed;
             //rb.AddForce(direction * shieldSpeed);
         }

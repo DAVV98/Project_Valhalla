@@ -49,7 +49,7 @@ public class Player_v3 : MonoBehaviour
         // for debugging
         if (bResetPressed())
         {
-            shieldTimer = 0;
+            //shieldTimer = 0;
         }
 
         MoveAndRotatePlayer();
@@ -147,6 +147,10 @@ public class Player_v3 : MonoBehaviour
 
     bool bSpacePressed()
     {
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            //Debug.Log("Player pressed SPACE");
+        }
         return Input.GetKeyDown(KeyCode.Space);
     }
 
