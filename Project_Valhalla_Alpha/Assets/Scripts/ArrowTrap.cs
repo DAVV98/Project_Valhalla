@@ -10,9 +10,6 @@ public class ArrowTrap : MonoBehaviour
     private int shootInterval = 50;
     public bool bMultiDirections = true;
 
-    public float arrowSpeed = 6.0f;
-
-
     private void FixedUpdate()
     {
         ShootArrows();
