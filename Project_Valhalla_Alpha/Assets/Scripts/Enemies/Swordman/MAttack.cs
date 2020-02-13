@@ -25,17 +25,20 @@ public class MAttack : MonoBehaviour,IResiveHitRedirect
     // Update is called once per frame
     void Update()
     {
+
         if (IntervalSet > 0)
         {
             IntervalSet -= Time.deltaTime;
-            enemyM.MovementSpeed = 1.5f;
+            enemyM.MovementSpeed = -0.5f;
             
         }
         if (IntervalSet <= 0)
         {
+            IntervalSet = 0;
             enemyM.MovementSpeed = 3f;
             attackarea.SetActive(true);
         }
+
     }
     void OnDrawGizmosSelected()
     {
