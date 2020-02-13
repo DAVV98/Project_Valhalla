@@ -149,7 +149,7 @@ public class Player_v3 : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            //Debug.Log("Player pressed SPACE");
+            Debug.Log("Player pressed SPACE");
         }
         return Input.GetKeyDown(KeyCode.Space);
     }
