@@ -9,12 +9,12 @@ EditorBuildSettings:
     path: Assets/Scenes/_BuildScenes/Alpha/Alpha_Intro.unity
     guid: 48f250564ee3eaf48bd941724deefe74
   - enabled: 1
-    path: Assets/Scenes/_BuildScenes/BuildScene_Will_02.unity
+    path: Assets/Scenes/_BuildScenes/Alpha/L1 Zone_2.unity
     guid: 46312d94ab57b9f458e787d51b0186e8
   - enabled: 1
-    path: Assets/Scenes/_BuildScenes/BuildScene_Will_01.unity
+    path: Assets/Scenes/_BuildScenes/Alpha/L1 Zone_3.unity
     guid: 6b661a1161878774db21608af88f875d
   - enabled: 1
-    path: Assets/Scenes/_BuildScenes/Alpha/L1 Zone_1.unity
+    path: Assets/Scenes/_BuildScenes/Alpha/L1 Zone_4.unity
     guid: e7d02b940bb232547970d9c874bb2534
   m_configObjects: {}
