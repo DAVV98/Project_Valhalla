@@ -45,7 +45,7 @@ public class Player_v3 : MonoBehaviour
     private void FixedUpdate()
     {
         //Debug.Log(gameObject.transform.position.y);
-
+                                                                          
         // for debugging
         if (bResetPressed())
         {
