@@ -25,8 +25,6 @@ public class ArrowTrap : MonoBehaviour
     {
         if (bActive)
         {
-            shootTimer++;
-
             if (shootTimer % shootInterval == 0)
             {
                 if (bMultiDirections)
@@ -51,6 +49,8 @@ public class ArrowTrap : MonoBehaviour
                 }
                 shootTimer = 0;
             }
+
+            shootTimer++;
         }
     }
 
