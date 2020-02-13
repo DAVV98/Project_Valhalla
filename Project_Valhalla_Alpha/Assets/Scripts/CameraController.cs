@@ -17,7 +17,7 @@ public class CameraController : MonoBehaviour
     // research on LateUpdate() or FixedUpdate():
     //  1. https://forum.unity.com/threads/solved-camera-jitter-as-soon-as-using-lerp.762116/
     //  2. https://starmanta.gitbooks.io/unitytipsredux/content/all-my-updates.html
-    private void LateUpdate() // LateUpdate() or FixedUpdate() if moving player via Rigidbody physics
+    private void FixedUpdate() // LateUpdate() or FixedUpdate() if moving player via Rigidbody physics
     {
         if (!player.GetComponent<Player_v3>().bPlayerFalling)
         {
