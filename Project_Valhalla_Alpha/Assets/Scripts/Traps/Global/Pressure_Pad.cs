@@ -25,7 +25,7 @@ public class Pressure_Pad : MonoBehaviour
     /// <param name="padEnter"> creates collider between this obecjc and player</param>
     void OnTriggerEnter(Collider padEnter)
     {
-        if(padEnter.tag == "Player")
+        if(padEnter.tag == "Pushable")
         {
             hider.enabled = false;
             hiddenObject.SetActive(false);
@@ -34,6 +34,7 @@ public class Pressure_Pad : MonoBehaviour
         
     }
 
+    
     /// <summary>
     /// OnTriggerExit:
     ///     - enables mesh renderer of this gameobject.
@@ -42,7 +43,7 @@ public class Pressure_Pad : MonoBehaviour
     /// <param name="padExit"></param>
     void OnTriggerExit(Collider padExit)
     {
-        if (padExit.tag == "Player")
+        if (padExit.tag == "Pushable")
         {
             hider.enabled = true;
             hiddenObject.SetActive(true);
@@ -50,4 +51,5 @@ public class Pressure_Pad : MonoBehaviour
         }
 
     }
+    
 }
