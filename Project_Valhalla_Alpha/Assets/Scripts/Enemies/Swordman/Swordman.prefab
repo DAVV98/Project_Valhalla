@@ -169,7 +169,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: bf833a134ee50d846a2c20b05b33330e, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -215,7 +215,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bcd9dd8fce2373c49aed94bbd9d36490, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Timer: 1
+  enemyM: {fileID: 2491806192457937370}
+  Timer: 3
   IntervalSet: 0
   sword: {fileID: 1958149113}
   attackarea: {fileID: 7621398342607150188}
@@ -232,8 +233,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 872663228726616723, guid: 9cbc84b72e46ab44bae424f91d54471c, type: 3}
-  MovmentSpeed: 2
-  Dist: 30
+  MovementSpeed: 2
+  Dist: 10
 --- !u!95 &4035080264477787121
 Animator:
   serializedVersion: 3
