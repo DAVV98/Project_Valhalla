@@ -23,4 +23,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/_BuildScenes/Alpha V2/Alpha 6.unity
     guid: 358f41c2093cf9c458f4160e6600e267
+  - enabled: 1
+    path: Assets/Scenes/_BuildScenes/Alpha V2/Alpha 7.unity
+    guid: 8a556cc95b217194bb10e01a0bc36001
   m_configObjects: {}
