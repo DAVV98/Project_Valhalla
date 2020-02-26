@@ -21,7 +21,7 @@ TagManager:
   - 
   - 
   - ignore push
-  - 
+  - InvisibleWallCollision
   - 
   - 
   - 
