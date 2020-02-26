@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 5791965048219955106}
   - component: {fileID: 5791965048219955110}
   - component: {fileID: 5791965048219955109}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: ShieldPushableBlock_v2
   m_TagString: Pushable
   m_Icon: {fileID: 0}
