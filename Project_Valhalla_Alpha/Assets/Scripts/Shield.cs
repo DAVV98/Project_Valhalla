@@ -14,10 +14,13 @@ public class Shield : MonoBehaviour
     public Vector3 direction = Vector3.zero;
     public float fallSpeed = 0.25f;
 
+    // fading borrowed from: http://answers.unity.com/answers/1230729/view.html
+    private bool bFading = false;
+    private Color oldColor;
+    private Color fadeColor;
+
     [Header("Push")]
-    //public float pushRange = 10.0f;
     public float pushForce = 400.0f;
-    //public float pushRadius = 0.0f;
 
     public Player_v3 player;
 
@@ -27,14 +30,90 @@ public class Shield : MonoBehaviour
     {
         rb = GetComponent<Rigidbody>();
         player = GameObject.FindObjectOfType<Player_v3>();
+
+        oldColor = gameObject.GetComponent<MeshRenderer>().material.color;
+        fadeColor = gameObject.GetComponent<MeshRenderer>().material.color;
+        fadeColor.a = 0.0f;
     }
 
     private void FixedUpdate()
     {
-        //if (!bDidHit) {
-            MoveShield();
-        //}
+        MoveShield();
         AgeShield();
+
+        if (bFading)
+        {
+            FadeShield();
+        }
+    }
+
+    private void FadeShield()
+    {
+        //Color currentColor = gameObject.GetComponent<MeshRenderer>().material.color;
+
+        //StartCoroutine(Lerp_MeshRenderer_Color(gameObject.GetComponent<MeshRenderer>(), 1.0f, currentColor, fadeColor));
+
+
+        if (age == 100 || age == 200 || age == 250) {
+            Color flashColor = oldColor;
+            flashColor.a = 0.5f;
+            gameObject.GetComponent<MeshRenderer>().material.color = oldColor;
+        } else {
+            float time = map(age, shieldSlowThreshold, lifetime, 0, 1);
+            Debug.Log("time = " + time);
+            gameObject.GetComponent<MeshRenderer>().material.color = Color.Lerp(oldColor, fadeColor, time);
+        }
+
+        //float lerpProgress = Time.time - lerpStart_Time;
+        //float lerpDuration = 1.0f;
+        //currentColor = Color.Lerp(currentColor, fadeColor, lerpProgress / lerpDuration);
+        //
+        //Debug.Log("FadeShield()");
+        //Debug.Log("fadeColor.a = " + fadeColor.a);
+        //Debug.Log("currentColor.a = " + currentColor.a);
+
+
+        ////currentColor = Color.Lerp(currentColor, fadeColor, lifetime - age);
+        //currentColor.a = map(age, 0, lifetime, 1, 0);
+        ////Debug.Log("map(age, 0, lifetime, 1, 0) = " + map(age, 0, lifetime, 1, 0));
+
+        //Color newColor = currentColor;
+        //newColor.a = map(age, 0, lifetime, 1, 0);
+
+        //currentColor = newColor;
+        //currentColor = Color.Lerp(currentColor, fadeColor, 1.0f * Time.deltaTime);
+    }
+
+    // taken from: http://answers.unity.com/answers/1457433/view.html
+    private IEnumerator Lerp_MeshRenderer_Color(MeshRenderer target_MeshRender, float lerpDuration, Color startLerp, Color targetLerp) {
+        float lerpStart_Time = Time.time;
+        float lerpProgress;
+        bool lerping = true;
+        while (lerping) {
+            yield return new WaitForEndOfFrame();
+            lerpProgress = Time.time - lerpStart_Time;
+            if (target_MeshRender != null) {
+                Debug.Log("lerpProgress / lerpDuration = " + lerpProgress / lerpDuration);
+                target_MeshRender.material.color = Color.Lerp(startLerp, targetLerp, lerpProgress / lerpDuration);
+            }
+            else {
+                lerping = false;
+            }
+
+
+            if (lerpProgress >= lerpDuration) {
+                lerping = false;
+            }
+        }
+        yield break;
+    }
+
+    // function taken from post #4: https://forum.unity.com/threads/mapping-or-scaling-values-to-a-new-range.180090/
+    public float map(float OldValue, float OldMin, float OldMax, float NewMin, float NewMax) {
+        float OldRange = (OldMax - OldMin);
+        float NewRange = (NewMax - NewMin);
+        float NewValue = (((OldValue - OldMin) * NewRange) / OldRange) + NewMin;
+        return (NewValue);
     }
 
     IEnumerator WaitTime(float t = 3.0f)
@@ -127,6 +206,7 @@ public class Shield : MonoBehaviour
         if (age > shieldSlowThreshold)
         {
             shieldSpeed *= 0.95f;
+            bFading = true;
         }
 
         if (shieldSpeed < 0.1f)

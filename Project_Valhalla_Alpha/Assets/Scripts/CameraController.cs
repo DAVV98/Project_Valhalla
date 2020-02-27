@@ -25,13 +25,10 @@ public class CameraController : MonoBehaviour
         {
             if (hit.collider.gameObject.CompareTag("Island"))
             {
-
                 Island objectHit = hit.transform.gameObject.GetComponent<Island>();
-                
-
                 //renderer.material.mainTexture = Texture;
 
-                Debug.Log("Player hit by ray");
+                //Debug.Log("Player walked behind Island");
             }
         }
     }

@@ -137,7 +137,7 @@ MonoBehaviour:
   bArmed: 1
   ArmedDisplay: {fileID: 5233692706181422308}
   shieldTimer: 0
-  shieldTimerRefreshRate: 100
+  shieldTimerRefreshRate: 300
 --- !u!1 &5233692704661556190
 GameObject:
   m_ObjectHideFlags: 0
