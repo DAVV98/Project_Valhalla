@@ -51,9 +51,11 @@ public class Shield : MonoBehaviour
     {
         if (age == 200 || age == 210 || age == 220 || age == 230 || age == 240 || age == 250 || age == 260 || age == 270 || age == 280 || age == 290) {
             Color flashColor = oldColor;
-            flashColor.a = 0.25f;
-            gameObject.GetComponent<MeshRenderer>().material.color = oldColor;
+            flashColor.a = 0.5f;
+            gameObject.GetComponent<MeshRenderer>().material.color = flashColor;
         } else {
+            // map from shieldSlowThresold-lifetime, not 0-age, since when bFading 
+            // is set to TRUE in MoveShield(), age must be at shieldSlowThreshold
             float time = map(age, shieldSlowThreshold, lifetime, 0, 1);
             gameObject.GetComponent<MeshRenderer>().material.color = Color.Lerp(oldColor, fadeColor, time);
         }
