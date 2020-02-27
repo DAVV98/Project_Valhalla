@@ -13,8 +13,7 @@ public class Shield : MonoBehaviour
     public float shieldSpeed = 5.0f;
     public Vector3 direction = Vector3.zero;
     public float fallSpeed = 0.25f;
-
-    // fading borrowed from: http://answers.unity.com/answers/1230729/view.html
+    
     private bool bFading = false;
     private Color oldColor;
     private Color fadeColor;
@@ -31,7 +30,9 @@ public class Shield : MonoBehaviour
         rb = GetComponent<Rigidbody>();
         player = GameObject.FindObjectOfType<Player_v3>();
 
+        // setup fade colors
         oldColor = gameObject.GetComponent<MeshRenderer>().material.color;
+        Debug.Log(oldColor.a);
         fadeColor = gameObject.GetComponent<MeshRenderer>().material.color;
         fadeColor.a = 0.0f;
     }
@@ -41,84 +42,21 @@ public class Shield : MonoBehaviour
         MoveShield();
         AgeShield();
 
-        if (bFading)
-        {
+        if (bFading) {
             FadeShield();
         }
     }
 
     private void FadeShield()
     {
-        //Color currentColor = gameObject.GetComponent<MeshRenderer>().material.color;
-
-        //StartCoroutine(Lerp_MeshRenderer_Color(gameObject.GetComponent<MeshRenderer>(), 1.0f, currentColor, fadeColor));
-
-
-        if (age == 100 || age == 200 || age == 250) {
+        if (age == 200 || age == 210 || age == 220 || age == 230 || age == 240 || age == 250 || age == 260 || age == 270 || age == 280 || age == 290) {
             Color flashColor = oldColor;
-            flashColor.a = 0.5f;
+            flashColor.a = 0.25f;
             gameObject.GetComponent<MeshRenderer>().material.color = oldColor;
         } else {
             float time = map(age, shieldSlowThreshold, lifetime, 0, 1);
-            Debug.Log("time = " + time);
             gameObject.GetComponent<MeshRenderer>().material.color = Color.Lerp(oldColor, fadeColor, time);
         }
-
-        //float lerpProgress = Time.time - lerpStart_Time;
-        //float lerpDuration = 1.0f;
-        //currentColor = Color.Lerp(currentColor, fadeColor, lerpProgress / lerpDuration);
-        //
-        //Debug.Log("FadeShield()");
-        //Debug.Log("fadeColor.a = " + fadeColor.a);
-        //Debug.Log("currentColor.a = " + currentColor.a);
-
-
-        ////currentColor = Color.Lerp(currentColor, fadeColor, lifetime - age);
-        //currentColor.a = map(age, 0, lifetime, 1, 0);
-        ////Debug.Log("map(age, 0, lifetime, 1, 0) = " + map(age, 0, lifetime, 1, 0));
-
-        //Color newColor = currentColor;
-        //newColor.a = map(age, 0, lifetime, 1, 0);
-
-        //currentColor = newColor;
-        //currentColor = Color.Lerp(currentColor, fadeColor, 1.0f * Time.deltaTime);
-    }
-
-    // taken from: http://answers.unity.com/answers/1457433/view.html
-    private IEnumerator Lerp_MeshRenderer_Color(MeshRenderer target_MeshRender, float lerpDuration, Color startLerp, Color targetLerp) {
-        float lerpStart_Time = Time.time;
-        float lerpProgress;
-        bool lerping = true;
-        while (lerping) {
-            yield return new WaitForEndOfFrame();
-            lerpProgress = Time.time - lerpStart_Time;
-            if (target_MeshRender != null) {
-                Debug.Log("lerpProgress / lerpDuration = " + lerpProgress / lerpDuration);
-                target_MeshRender.material.color = Color.Lerp(startLerp, targetLerp, lerpProgress / lerpDuration);
-            }
-            else {
-                lerping = false;
-            }
-
-
-            if (lerpProgress >= lerpDuration) {
-                lerping = false;
-            }
-        }
-        yield break;
-    }
-
-    // function taken from post #4: https://forum.unity.com/threads/mapping-or-scaling-values-to-a-new-range.180090/
-    public float map(float OldValue, float OldMin, float OldMax, float NewMin, float NewMax) {
-        float OldRange = (OldMax - OldMin);
-        float NewRange = (NewMax - NewMin);
-        float NewValue = (((OldValue - OldMin) * NewRange) / OldRange) + NewMin;
-        return (NewValue);
-    }
-
-    IEnumerator WaitTime(float t = 3.0f)
-    {
-        yield return new WaitForSeconds(t);
     }
 
     // improvements
@@ -238,5 +176,21 @@ public class Shield : MonoBehaviour
             // destroy shield if old
             Destroy(gameObject);
         }
+    }
+
+
+
+    IEnumerator WaitTime(float t = 3.0f)
+    {
+        yield return new WaitForSeconds(t);
+    }
+
+    // function taken from post #4: https://forum.unity.com/threads/mapping-or-scaling-values-to-a-new-range.180090/
+    public float map(float OldValue, float OldMin, float OldMax, float NewMin, float NewMax)
+    {
+        float OldRange = (OldMax - OldMin);
+        float NewRange = (NewMax - NewMin);
+        float NewValue = (((OldValue - OldMin) * NewRange) / OldRange) + NewMin;
+        return (NewValue);
     }
 }
