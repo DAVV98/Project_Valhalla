@@ -6,6 +6,9 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/Scenes/Will Scenes/WillMenuScene1.unity
+    guid: 5c7f7f6f898795848b61aaea4a343a70
+  - enabled: 1
     path: Assets/Scenes/_BuildScenes/Alpha V2/Alpha 1.unity
     guid: ff4d82d9e168c5345bbee14d34989c3f
   - enabled: 1
