@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class cl_options_menu : MonoBehaviour {
+public class OptionsMenu : MonoBehaviour {
 
     //public Slider sensSlider;
     //private float currentSens;

@@ -1,9 +1,9 @@
 ﻿using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class cl_level_change : MonoBehaviour {
+public class SceneChange : MonoBehaviour {
 
-    public cl_level_fade fadeObject;
+    public SceneFade fadeObject;
     private GameObject player;
 
     void OnTriggerEnter(Collider other) {

@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class cl_level_fade : MonoBehaviour {
+public class SceneFade : MonoBehaviour {
 
     public Animator animator;
 
