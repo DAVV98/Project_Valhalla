@@ -7,34 +7,9 @@ public class CameraController : MonoBehaviour
     public GameObject player; // GameObject so we can access player.bPlayerFalling
     private Vector3 offset;
     public float smoothSpeed = 10.0f;
+    
 
-    public Camera camera;
-
-    private void Update()
-    {
-        RaycastHit hit;
-        //Ray ray = camera.ScreenPointToRay(player.transform.position);
-
-
-        Ray ray = new Ray(transform.position, player.transform.position - transform.position);
-
-        //Debug.DrawRay(transform.position, player.transform.position - transform.position, Color.green);
-        Debug.DrawRay(ray.origin, ray.direction, Color.green);
-
-        if (Physics.Raycast(ray, out hit))
-        {
-            if (hit.collider.gameObject.CompareTag("Island"))
-            {
-                Island objectHit = hit.transform.gameObject.GetComponent<Island>();
-                //renderer.material.mainTexture = Texture;
-
-                //Debug.Log("Player walked behind Island");
-            }
-        }
-    }
-
-    private void Awake()
-    {
+    private void Awake() {
         // offset borrowed from: https://learn.unity.com/tutorial/movement-basics?projectId=5c514956edbc2a002069467c#5c7f8528edbc2a002053b711
         offset = transform.position - player.transform.position;
     }
@@ -42,8 +17,23 @@ public class CameraController : MonoBehaviour
     // research on LateUpdate() or FixedUpdate():
     //  1. https://forum.unity.com/threads/solved-camera-jitter-as-soon-as-using-lerp.762116/
     //  2. https://starmanta.gitbooks.io/unitytipsredux/content/all-my-updates.html
-    private void FixedUpdate() // LateUpdate() or FixedUpdate() if moving player via Rigidbody physics
+    // LateUpdate(), or FixedUpdate(), if moving player via Rigidbody physics
+    private void FixedUpdate() {
+        MoveCamera();
+    }
+
+    private void LateUpdate()
     {
+        // this solution is a little messy
+        // the reason this is called in LateUpdate() is because each
+        // Island resets bFade to false, in Update(), so we want to fade it
+        // after this Update() call
+        HideWalls();
+    }
+
+    private void MoveCamera()
+    {
+
         if (!player.GetComponent<Player_v3>().bPlayerFalling)
         {
             Vector3 desiredPosition = player.transform.position + offset;
@@ -53,6 +43,21 @@ public class CameraController : MonoBehaviour
 
             // make the camera fixed on the player
             //transform.LookAt(player.transform);
+        }
+    }
+
+    private void HideWalls()
+    {
+        RaycastHit hit;
+        Ray ray = new Ray(transform.position, player.transform.position - transform.position);
+        //Debug.DrawRay(transform.position, player.transform.position - transform.position, Color.green);
+
+        if (Physics.Raycast(ray, out hit))
+        {
+            if (hit.collider.gameObject.CompareTag("Island"))
+            {
+                hit.transform.gameObject.GetComponent<Island>().bFade = true;
+            }
         }
     }
 }
