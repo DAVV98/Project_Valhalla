@@ -4,48 +4,20 @@ using UnityEngine;
 
 public class Turbine : MonoBehaviour
 {
-
-    public GameObject windArea;
-   
-    // Start is called before the first frame update
-    void Start()
-    {
-
-
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
-
+    private GameObject windArea;
 
     private void FixedUpdate()
     {
-        
-            RaycastHit windRay;
+        RaycastHit windRay;
 
         if(Physics.Raycast(transform.position, transform.forward, out windRay, 100))
         {
-
             if (windRay.collider.GetComponent<MoveByWind>())
             {
-                Debug.Log("Enter");
+                //Debug.Log("Enter");
                 windArea = windRay.collider.gameObject;
                 windArea.GetComponent<Rigidbody>().AddForce(transform.forward * 20);
-
             }
-
         }
-
     }
-
-
-
-
-
-
-
-
 }

@@ -32,7 +32,6 @@ public class Shield : MonoBehaviour
 
         // setup fade colors
         oldColor = gameObject.GetComponent<MeshRenderer>().material.color;
-        Debug.Log(oldColor.a);
         fadeColor = gameObject.GetComponent<MeshRenderer>().material.color;
         fadeColor.a = 0.0f;
     }
@@ -50,8 +49,10 @@ public class Shield : MonoBehaviour
     private void FadeShield()
     {
         if (age == 200 || age == 210 || age == 220 || age == 230 || age == 240 || age == 250 || age == 260 || age == 270 || age == 280 || age == 290) {
-            Color flashColor = oldColor;
-            flashColor.a = 0.5f;
+            Color flashColor = gameObject.GetComponent<MeshRenderer>().material.color;
+            flashColor.a += 0.25f;
+            //Color flashColor = oldColor;
+            //flashColor.a = 0.5f;
             gameObject.GetComponent<MeshRenderer>().material.color = flashColor;
         } else {
             // map from shieldSlowThresold-lifetime, not 0-age, since when bFading 
