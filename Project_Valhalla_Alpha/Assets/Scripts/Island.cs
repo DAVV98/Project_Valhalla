@@ -8,16 +8,14 @@ public class Island : MonoBehaviour
     private Color oldColor;
     private Color fadeColor;
 
-    private void Awake()
-    {
+    private void Awake() {
         // setup fade colors
         oldColor = gameObject.GetComponent<MeshRenderer>().material.color;
         fadeColor = gameObject.GetComponent<MeshRenderer>().material.color;
-        fadeColor.a = 0.25f;
+        fadeColor.a = 0.5f;
     }
 
-    void Update()
-    {
+    void Update() {
         if (bFade) {
             Debug.Log("island fade");
             gameObject.GetComponent<MeshRenderer>().material.color = fadeColor;

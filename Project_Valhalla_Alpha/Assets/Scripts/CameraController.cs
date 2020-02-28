@@ -50,12 +50,13 @@ public class CameraController : MonoBehaviour
     {
         RaycastHit hit;
         Ray ray = new Ray(transform.position, player.transform.position - transform.position);
-        //Debug.DrawRay(transform.position, player.transform.position - transform.position, Color.green);
+        Debug.DrawRay(transform.position, player.transform.position - transform.position, Color.green);
 
         if (Physics.Raycast(ray, out hit))
         {
             if (hit.collider.gameObject.CompareTag("Island"))
             {
+                Debug.Log("player walked behind wall");
                 hit.transform.gameObject.GetComponent<Island>().bFade = true;
             }
         }
