@@ -11,6 +11,7 @@ TagManager:
   - Projectile
   - Shield
   - WindPush
+  - Island
   layers:
   - Default
   - TransparentFX
@@ -21,8 +22,8 @@ TagManager:
   - 
   - 
   - ignore push
-  - 
-  - 
+  - InvisibleWall
+  - IgnoreInvisibleWall
   - 
   - 
   - 

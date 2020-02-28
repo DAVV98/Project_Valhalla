@@ -8,6 +8,31 @@ public class CameraController : MonoBehaviour
     private Vector3 offset;
     public float smoothSpeed = 10.0f;
 
+    public Camera camera;
+
+    private void Update()
+    {
+        RaycastHit hit;
+        //Ray ray = camera.ScreenPointToRay(player.transform.position);
+
+
+        Ray ray = new Ray(transform.position, player.transform.position - transform.position);
+
+        //Debug.DrawRay(transform.position, player.transform.position - transform.position, Color.green);
+        Debug.DrawRay(ray.origin, ray.direction, Color.green);
+
+        if (Physics.Raycast(ray, out hit))
+        {
+            if (hit.collider.gameObject.CompareTag("Island"))
+            {
+                Island objectHit = hit.transform.gameObject.GetComponent<Island>();
+                //renderer.material.mainTexture = Texture;
+
+                //Debug.Log("Player walked behind Island");
+            }
+        }
+    }
+
     private void Awake()
     {
         // offset borrowed from: https://learn.unity.com/tutorial/movement-basics?projectId=5c514956edbc2a002069467c#5c7f8528edbc2a002053b711

@@ -13,11 +13,13 @@ public class Shield : MonoBehaviour
     public float shieldSpeed = 5.0f;
     public Vector3 direction = Vector3.zero;
     public float fallSpeed = 0.25f;
+    
+    private bool bFading = false;
+    private Color oldColor;
+    private Color fadeColor;
 
     [Header("Push")]
-    //public float pushRange = 10.0f;
     public float pushForce = 400.0f;
-    //public float pushRadius = 0.0f;
 
     public Player_v3 player;
 
@@ -27,19 +29,36 @@ public class Shield : MonoBehaviour
     {
         rb = GetComponent<Rigidbody>();
         player = GameObject.FindObjectOfType<Player_v3>();
+
+        // setup fade colors
+        oldColor = gameObject.GetComponent<MeshRenderer>().material.color;
+        Debug.Log(oldColor.a);
+        fadeColor = gameObject.GetComponent<MeshRenderer>().material.color;
+        fadeColor.a = 0.0f;
     }
 
     private void FixedUpdate()
     {
-        //if (!bDidHit) {
-            MoveShield();
-        //}
+        MoveShield();
         AgeShield();
+
+        if (bFading) {
+            FadeShield();
+        }
     }
 
-    IEnumerator WaitTime(float t = 3.0f)
+    private void FadeShield()
     {
-        yield return new WaitForSeconds(t);
+        if (age == 200 || age == 210 || age == 220 || age == 230 || age == 240 || age == 250 || age == 260 || age == 270 || age == 280 || age == 290) {
+            Color flashColor = oldColor;
+            flashColor.a = 0.5f;
+            gameObject.GetComponent<MeshRenderer>().material.color = flashColor;
+        } else {
+            // map from shieldSlowThresold-lifetime, not 0-age, since when bFading 
+            // is set to TRUE in MoveShield(), age must be at shieldSlowThreshold
+            float time = map(age, shieldSlowThreshold, lifetime, 0, 1);
+            gameObject.GetComponent<MeshRenderer>().material.color = Color.Lerp(oldColor, fadeColor, time);
+        }
     }
 
     // improvements
@@ -127,6 +146,7 @@ public class Shield : MonoBehaviour
         if (age > shieldSlowThreshold)
         {
             shieldSpeed *= 0.95f;
+            bFading = true;
         }
 
         if (shieldSpeed < 0.1f)
@@ -158,5 +178,21 @@ public class Shield : MonoBehaviour
             // destroy shield if old
             Destroy(gameObject);
         }
+    }
+
+
+
+    IEnumerator WaitTime(float t = 3.0f)
+    {
+        yield return new WaitForSeconds(t);
+    }
+
+    // function taken from post #4: https://forum.unity.com/threads/mapping-or-scaling-values-to-a-new-range.180090/
+    public float map(float OldValue, float OldMin, float OldMax, float NewMin, float NewMax)
+    {
+        float OldRange = (OldMax - OldMin);
+        float NewRange = (NewMax - NewMin);
+        float NewValue = (((OldValue - OldMin) * NewRange) / OldRange) + NewMin;
+        return (NewValue);
     }
 }
