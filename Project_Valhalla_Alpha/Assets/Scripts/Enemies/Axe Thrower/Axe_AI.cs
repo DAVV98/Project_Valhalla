@@ -10,8 +10,9 @@ public class Axe_AI : MonoBehaviour
     public float escapeSpeed;
     public float stopPos;
     public float retreatDistance;
-    public enum Axe_State { Approach, Throw, Retreat };
+    public enum Axe_State { Approach, Throw, Retreat, Dont_Fall, Fall  };
     public Axe_State currentState;
+    public float weight;
     private GameObject Player;
     private Transform Player_Pos;
 
@@ -25,6 +26,8 @@ public class Axe_AI : MonoBehaviour
     private float time_between_shots;
     public float start_time_between_shots;
 
+
+    private bool canFall;
 
     // Start is called before the first frame update
     void Start()
@@ -40,6 +43,8 @@ public class Axe_AI : MonoBehaviour
         time_between_shots = start_time_between_shots - 0.8f;
 
         thrown_axes = 0;
+
+        canFall = false;
     }
 
     // Update is called once per frame
@@ -56,6 +61,9 @@ public class Axe_AI : MonoBehaviour
                 break;
             case Axe_State.Retreat:
                 Retreat();
+                break;
+            case Axe_State.Dont_Fall:
+                Dont_Fall();
                 break;
         }
 
@@ -108,6 +116,15 @@ public class Axe_AI : MonoBehaviour
             currentState = Axe_State.Approach;
         }
     }
+
+    void Dont_Fall()
+    {
+        currentState = Axe_State.Approach;
+    }
+
+
+
+
     void Attack_Timer()
     {
         if (time_between_shots <= 0)
@@ -121,4 +138,42 @@ public class Axe_AI : MonoBehaviour
             time_between_shots -= Time.fixedDeltaTime;
         }
     }
+
+   void OnTriggerEnter(Collider collision)
+    {
+        if (collision.tag == "Shield")
+        {
+            shieldPush();
+            canFall = true;
+
+            if(this.transform.position.y >= 0)
+            {
+                canFall = false;
+            }
+          
+        }
+
+        if (collision.tag == "Invisable_Wall")
+        {
+           if (canFall == false)
+            {
+                currentState = Axe_State.Dont_Fall;
+            }
+           else
+            {
+                Physics.IgnoreCollision(this.GetComponent<Collider>(), collision.GetComponent<Collider>());
+            }
+            
+        }
+
+    }
+
+    void shieldPush()
+    {
+        Vector3 forceDirection = transform.TransformDirection(Vector3.forward);
+        Rigidbody rb = this.GetComponent<Rigidbody>();
+
+        rb.AddForce(-(forceDirection * weight));
+    }
+  
 }

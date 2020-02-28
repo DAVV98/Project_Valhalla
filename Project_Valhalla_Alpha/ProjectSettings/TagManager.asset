@@ -12,6 +12,8 @@ TagManager:
   - Shield
   - WindPush
   - Island
+  - Invisable_Wall
+  - Axe Enemy
   layers:
   - Default
   - TransparentFX

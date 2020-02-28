@@ -6,7 +6,6 @@ public class Axe : MonoBehaviour
 {
     [Header("Characteristics")]
     public float speed;
-    public float maxDistance;
 
     [Header("Target")]
     private Transform player;
@@ -39,6 +38,7 @@ public class Axe : MonoBehaviour
     void FixedUpdate()
     {
         transform.position = Vector3.MoveTowards(transform.position, Target, speed * Time.fixedDeltaTime);
+        deathTimer();
     }
     
     /// <summary>
