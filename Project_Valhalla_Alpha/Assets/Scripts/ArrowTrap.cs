@@ -7,13 +7,29 @@ public class ArrowTrap : MonoBehaviour
     public bool bActive = false;
     public Arrow arrowPrefab;
     private int shootTimer = 0;
-    private int shootInterval = 50;
-    public bool bMultiDirections = true;
+    public int shootInterval = 50;
+
+    public bool bMultiDirections = false;
+
+    public bool bRotate = false;
+    public float rotateSpeed = 100.0f;
 
     private void FixedUpdate()
     {
         ShootArrows();
         ShrinkSize();
+
+        if (bRotate)
+        {
+            RotateTrap();
+        }
+    }
+
+    private void RotateTrap()
+    {
+        float yAngle = Time.time * rotateSpeed;
+        Quaternion newRotation = Quaternion.Euler(0, yAngle, 0);
+        transform.rotation = newRotation;
     }
 
     // improvements

@@ -6,6 +6,8 @@ public class Turbine : MonoBehaviour
 {
     private GameObject windArea;
 
+    public int windForce = 20;
+
     private void FixedUpdate()
     {
         RaycastHit windRay;
@@ -16,7 +18,7 @@ public class Turbine : MonoBehaviour
             {
                 //Debug.Log("Enter");
                 windArea = windRay.collider.gameObject;
-                windArea.GetComponent<Rigidbody>().AddForce(transform.forward * 20);
+                windArea.GetComponent<Rigidbody>().AddForce(transform.forward * windForce);
             }
         }
     }

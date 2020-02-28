@@ -52,9 +52,10 @@ public class Player_v3 : MonoBehaviour
             //shieldTimer = 0;
         }
 
-        MoveAndRotatePlayer();
-        
-        if (bPlayerFalling) {
+        if (!bPlayerFalling)
+        {
+            MoveAndRotatePlayer();
+        } else {
             PlayerFall();
         }
 
@@ -82,9 +83,11 @@ public class Player_v3 : MonoBehaviour
     private void PlayerReset()
     {
         bPlayerFalling = false;
-        rb.MovePosition(playerSpawn.position);
+        transform.position = playerSpawn.position;
+        //rb.MovePosition(playerSpawn.position);
         playerHealth = 3;
         fallSpeed = 4.0f;
+        rb.velocity *= 0;
     }
 
     private void OnTriggerEnter(Collider other)
