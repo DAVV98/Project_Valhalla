@@ -42,6 +42,15 @@ public class Player_v3 : MonoBehaviour
         rb = GetComponent<Rigidbody>();
     }
 
+    private void Update()
+    {
+        if (bArmed && bSpacePressed())
+        {
+            ShieldThrow();
+            bArmed = false;
+            shieldTimer = shieldTimerRefreshRate;
+        }
+    }
     private void FixedUpdate()
     {
         //Debug.Log(gameObject.transform.position.y);
@@ -61,11 +70,7 @@ public class Player_v3 : MonoBehaviour
 
         ArmedDisplay.SetActive(bArmed);
 
-        if (bArmed && bSpacePressed()) {
-            ShieldThrow();
-            bArmed = false;
-            shieldTimer = shieldTimerRefreshRate;
-        }
+       
 
         if (shieldTimer > 0) {
             shieldTimer--;
