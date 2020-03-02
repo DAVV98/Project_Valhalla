@@ -1016,6 +1016,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: ProjectileTrigger
       objectReference: {fileID: 0}
+    - target: {fileID: 264336855142675887, guid: 2b382dbd77622234981b829354c11300,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 423ea1617d1043747932827587077bdd, type: 2}
+    - target: {fileID: 7524461997887585725, guid: 2b382dbd77622234981b829354c11300,
+        type: 3}
+      propertyPath: Active_mat
+      value: 
+      objectReference: {fileID: 2100000, guid: 4c0e0ef6281c37f4da37d8d1a7c921b6, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2b382dbd77622234981b829354c11300, type: 3}
 --- !u!1001 &225736055
@@ -4984,7 +4994,7 @@ PrefabInstance:
     - target: {fileID: 5791965048219955111, guid: 936dbc27995d0ab4e8bd67099f406668,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 75
+      value: 76
       objectReference: {fileID: 0}
     - target: {fileID: 5791965048219955111, guid: 936dbc27995d0ab4e8bd67099f406668,
         type: 3}
@@ -4994,7 +5004,7 @@ PrefabInstance:
     - target: {fileID: 5791965048219955111, guid: 936dbc27995d0ab4e8bd67099f406668,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -1.5
+      value: -2
       objectReference: {fileID: 0}
     - target: {fileID: 5791965048219955111, guid: 936dbc27995d0ab4e8bd67099f406668,
         type: 3}
