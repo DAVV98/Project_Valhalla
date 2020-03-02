@@ -1173,7 +1173,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 1368712206}
   smoothSpeed: 2
-  camera: {fileID: 0}
 --- !u!81 &1157917904
 AudioListener:
   m_ObjectHideFlags: 0
@@ -1658,6 +1657,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1760646054752144541, guid: abc2d147bdffe23429e2b94a8da41dcf,
+        type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 1368712206}
     - target: {fileID: 2491806192457937370, guid: abc2d147bdffe23429e2b94a8da41dcf,
         type: 3}
       propertyPath: target

@@ -458,7 +458,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 1867748867}
   smoothSpeed: 2
-  camera: {fileID: 0}
 --- !u!81 &304515841
 AudioListener:
   m_ObjectHideFlags: 0
@@ -597,6 +596,11 @@ PrefabInstance:
       propertyPath: door
       value: 
       objectReference: {fileID: 955774063}
+    - target: {fileID: 264336855142675874, guid: 2b382dbd77622234981b829354c11300,
+        type: 3}
+      propertyPath: Active
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 264336855142675885, guid: 2b382dbd77622234981b829354c11300,
         type: 3}
       propertyPath: m_Name
@@ -800,7 +804,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 1501147918}
   smoothSpeed: 2
-  camera: {fileID: 0}
 --- !u!81 &985331991
 AudioListener:
   m_ObjectHideFlags: 0
@@ -2234,6 +2237,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: ArrowTrap
       objectReference: {fileID: 0}
+    - target: {fileID: 770968152414978190, guid: 5cb1316fbd842324194ee30789b794ff,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5cb1316fbd842324194ee30789b794ff, type: 3}
 --- !u!4 &1888979617 stripped
@@ -2562,6 +2570,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: ArrowTrap 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 770968152414978190, guid: 5cb1316fbd842324194ee30789b794ff,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5cb1316fbd842324194ee30789b794ff, type: 3}

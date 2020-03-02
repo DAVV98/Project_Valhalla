@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 264336855142675887}
   - component: {fileID: 264336855142675886}
   - component: {fileID: 264336855142675874}
+  - component: {fileID: 7524461997887585725}
   m_Layer: 0
   m_Name: ProjectileTrigger
   m_TagString: Untagged
@@ -106,3 +107,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   door: {fileID: 0}
+  Active: 0
+--- !u!114 &7524461997887585725
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 264336855142675885}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bca1ad7edb7fb2642839677cb8a1da0d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  trigger: {fileID: 264336855142675874}
+  Active_mat: {fileID: 2100000, guid: 2c0e243f487628f4c8c94ef08012a9ee, type: 2}
+  Trigger: {fileID: 264336855142675885}

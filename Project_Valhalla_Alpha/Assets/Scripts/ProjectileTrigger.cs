@@ -6,11 +6,13 @@ public class ProjectileTrigger : MonoBehaviour
 {
     //public bool bActive = false;
     public GameObject door;
+    public bool Active;
 
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Projectile"))
         {
+            Active = true;
             //bActive = true;
             door.SetActive(false);
             Destroy(other.gameObject);
