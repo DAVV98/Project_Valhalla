@@ -1049,6 +1049,11 @@ PrefabInstance:
       propertyPath: weight
       value: 400
       objectReference: {fileID: 0}
+    - target: {fileID: 4994561122271522197, guid: eb2d23e450f7f1740890f486faacde39,
+        type: 3}
+      propertyPath: moveSpeed
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 4994561122271522201, guid: eb2d23e450f7f1740890f486faacde39,
         type: 3}
       propertyPath: m_LocalPosition.x
