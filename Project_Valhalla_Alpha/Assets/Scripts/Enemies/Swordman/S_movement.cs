@@ -6,7 +6,7 @@ public class S_movement : MonoBehaviour
 {
     public Transform target;
     public float MovementSpeed = 3f;
-    
+    public float weight;
 
     public float Dist;
     
@@ -35,5 +35,13 @@ public class S_movement : MonoBehaviour
     void Move()
     {
        transform.position += transform.forward * MovementSpeed * Time.deltaTime;
+    }
+
+    void shieldPush()
+    {
+        Vector3 forceDirection = transform.TransformDirection(Vector3.forward);
+        Rigidbody rb = this.GetComponent<Rigidbody>();
+
+        rb.AddForce(-(forceDirection * weight));
     }
 }
