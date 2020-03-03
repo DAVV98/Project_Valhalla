@@ -14,7 +14,7 @@ public class ProjectileTrigger : MonoBehaviour
         {
             Active = true;
             //bActive = true;
-            door.SetActive(false);
+            //door.SetActive(false);
             Destroy(other.gameObject);
         }
     }

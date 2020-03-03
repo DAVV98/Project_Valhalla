@@ -331,6 +331,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Door_v2
       objectReference: {fileID: 0}
+    - target: {fileID: 7001618379121029303, guid: c2f0c4950aa59604a9abba29d196275c,
+        type: 3}
+      propertyPath: trigger
+      value: 
+      objectReference: {fileID: 1802149878}
     - target: {fileID: 7057805494809123815, guid: c2f0c4950aa59604a9abba29d196275c,
         type: 3}
       propertyPath: m_ApplyRootMotion
