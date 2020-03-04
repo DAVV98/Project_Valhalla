@@ -46,9 +46,9 @@ public class Arrow : MonoBehaviour
 
     //private void OnTriggerEnter(Collider other)
     //{
-    //    if (other.CompareTag("Shield"))
+    //    if (!other.CompareTag("Shield"))
     //    {
-    //        ReflectArrowByRaycast(other);
+    //        Destroy(gameObject);
     //    }
     //}
 
