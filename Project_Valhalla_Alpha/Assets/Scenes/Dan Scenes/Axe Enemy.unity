@@ -142,6 +142,11 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1370622087347632517, guid: 884798736021c0e4ab973b8ed3770645,
+        type: 3}
+      propertyPath: m_Constraints
+      value: 116
+      objectReference: {fileID: 0}
     - target: {fileID: 7436377219984698540, guid: 884798736021c0e4ab973b8ed3770645,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1029,30 +1034,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1899405599781412056, guid: eb2d23e450f7f1740890f486faacde39,
-        type: 3}
-      propertyPath: m_Constraints
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 4994561122271522196, guid: eb2d23e450f7f1740890f486faacde39,
         type: 3}
       propertyPath: m_Name
       value: EnemyAxe_v2
-      objectReference: {fileID: 0}
-    - target: {fileID: 4994561122271522196, guid: eb2d23e450f7f1740890f486faacde39,
-        type: 3}
-      propertyPath: m_TagString
-      value: Axe Enemy
-      objectReference: {fileID: 0}
-    - target: {fileID: 4994561122271522197, guid: eb2d23e450f7f1740890f486faacde39,
-        type: 3}
-      propertyPath: weight
-      value: 400
-      objectReference: {fileID: 0}
-    - target: {fileID: 4994561122271522197, guid: eb2d23e450f7f1740890f486faacde39,
-        type: 3}
-      propertyPath: moveSpeed
-      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 4994561122271522201, guid: eb2d23e450f7f1740890f486faacde39,
         type: 3}

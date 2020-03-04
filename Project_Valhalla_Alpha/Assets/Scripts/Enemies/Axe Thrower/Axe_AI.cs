@@ -105,6 +105,7 @@ public class Axe_AI : MonoBehaviour
 
     void Retreat()
     {
+        Debug.Log(canFall);
         //look at player
         transform.LookAt(Player_Pos);
         //move towards players
@@ -157,7 +158,7 @@ public class Axe_AI : MonoBehaviour
         {
            if (canFall == false)
             {
-                currentState = Axe_State.Dont_Fall;
+                currentState = Axe_State.Approach;
             }
            else
             {

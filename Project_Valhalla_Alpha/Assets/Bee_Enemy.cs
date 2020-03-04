@@ -6,10 +6,11 @@ public class Bee_Enemy : MonoBehaviour
 {
     [Header("Characteristics")]
     public float moveSpeed;
-    public enum Bee_State { moveTowards, retreat };
+    public enum Bee_State { moveTowards, retreat, pushed };
     public Bee_State currentState;
     public float stingDist;
     public float maxDist;
+    public float pushDist;
     public float weight;
 
     //Privates
@@ -41,6 +42,9 @@ public class Bee_Enemy : MonoBehaviour
             case Bee_State.retreat:
                 retreat();
             break;
+            case Bee_State.pushed:
+                pushed();
+            break;
             
         }
     }
@@ -70,6 +74,14 @@ public class Bee_Enemy : MonoBehaviour
 
     }
 
+    void pushed()
+    {
+        if (Vector3.Distance(Player_Pos.position, this.transform.position) >= pushDist)
+        {
+            currentState = Bee_State.moveTowards;
+        }
+    }
+
     void OnTriggerEnter(Collider collision)
     {
         if (collision.tag == "Player")
@@ -79,21 +91,18 @@ public class Bee_Enemy : MonoBehaviour
 
         if (collision.tag == "Shield")
         {
-            Debug.Log("Shield");
-            Vector3 forceDirection = transform.TransformDirection(Vector3.forward);
-            Rigidbody rb = this.GetComponent<Rigidbody>();
-
-            rb.AddForce(-(forceDirection * weight));
-            currentState = Bee_State.moveTowards;
+            shieldPush();
+            currentState = Bee_State.pushed;
         }
     }
 
    
     void shieldPush()
     {
+        Debug.Log("Shield");
         Vector3 forceDirection = transform.TransformDirection(Vector3.forward);
         Rigidbody rb = this.GetComponent<Rigidbody>();
 
-        rb.AddForce(-(forceDirection * weight)); 
+        rb.AddForce(-(forceDirection * weight), ForceMode.VelocityChange); 
     }
 }
