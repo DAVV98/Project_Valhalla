@@ -34,6 +34,7 @@ public class Turbine : MonoBehaviour
                 Debug.Log("Turbine::FixedUpdate(), RaycastAll[]");
                 windArea = hit.collider.gameObject;
                 windArea.GetComponent<Rigidbody>().AddForce(transform.forward * windForce);
+                //return;
             }
         }
     }

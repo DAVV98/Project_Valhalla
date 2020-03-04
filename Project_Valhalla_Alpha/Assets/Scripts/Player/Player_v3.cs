@@ -90,7 +90,7 @@ public class Player_v3 : MonoBehaviour
         bPlayerFalling = false;
         transform.position = playerSpawn.position;
         rb.MovePosition(transform.position);
-        playerHealth = 3;
+        playerHealth = 9;
         fallSpeed = 4.0f;
         rb.velocity *= 0;
         rb.angularVelocity *= 0;
