@@ -124,6 +124,7 @@ public class Player_v5 : MonoBehaviour
 
         }
 
+        // center spirits when removing them
 
         // disable spirits (could be improved with an array)
         int currentHealth = playerHealth / 3;
