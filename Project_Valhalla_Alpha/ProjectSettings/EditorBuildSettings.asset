@@ -29,4 +29,7 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Scenes/_BuildScenes/Alpha V2/Alpha 7.unity
     guid: 8a556cc95b217194bb10e01a0bc36001
+  - enabled: 1
+    path: Assets/Scenes/Will Scenes/WillPlaytestScene3.unity
+    guid: 76335da8536b19941a1ec9de9f79514e
   m_configObjects: {}
