@@ -83,6 +83,23 @@ public class Player_v5 : MonoBehaviour
     private void DisplayHealth()
     {
         // move spirits up and down at different phase
+        float theta = Time.time * 2;
+        float amp = 0.25f;
+
+        float y1 = 1.5f + amp * Mathf.Sin(theta);
+        Vector3 newPosition1 = hSpirit1.transform.position;
+        newPosition1.y = y1;
+        hSpirit1.transform.position = newPosition1;
+
+        float y2 = 1.5f + amp * Mathf.Sin(theta + ((Mathf.PI * 2.0f) * 0.333f));
+        Vector3 newPosition2 = hSpirit2.transform.position;
+        newPosition2.y = y2;
+        hSpirit2.transform.position = newPosition2;
+
+        float y3 = 1.5f + amp * Mathf.Sin(theta + ((Mathf.PI * 2.0f) * 0.666f));
+        Vector3 newPosition3 = hSpirit3.transform.position;
+        newPosition3.y = y3;
+        hSpirit3.transform.position = newPosition3;
 
         // move spirits closer in when resetting
 
