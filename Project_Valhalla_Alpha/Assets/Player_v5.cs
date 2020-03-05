@@ -4,14 +4,18 @@ using UnityEngine;
 
 public class Player_v5 : MonoBehaviour
 {
-    [Header("State")]
+    [Header("Movement")]
     public bool bPlayerFalling = false;
     public float moveSpeed = 250.0f;
     public float playerMinHeight = -4.0f;
     private int lookDirection = 0;
     public Transform playerSpawn;
-    public int playerHealth = 9;
     public float fallSpeed = 4.0f;
+
+    [Header("Health")]
+    public int playerHealth = 9;
+    //public GameObject[] healthSpirits;
+    public GameObject hSpirit1, hSpirit2, hSpirit3;
 
     [Header("Shield")]
     public Transform shieldSpawn;
@@ -58,7 +62,7 @@ public class Player_v5 : MonoBehaviour
 
         ArmedDisplay.SetActive(bArmed);
 
-
+        DisplayHealth();
 
         if (shieldTimer > 0)
         {
@@ -73,6 +77,27 @@ public class Player_v5 : MonoBehaviour
         {
             // game over screen
             PlayerReset();
+        }
+    }
+
+    private void DisplayHealth()
+    {
+        // move spirits up and down at different phase
+
+        // move spirits closer in when resetting
+
+        // flash player material when hit
+
+        // disable spirits (could be improved with an array)
+        int currentHealth = playerHealth / 3;
+        if (currentHealth <= 2) {
+            hSpirit1.SetActive(false);
+        }
+        if (currentHealth <= 1) {
+            hSpirit2.SetActive(false);
+        }
+        if (currentHealth <= 0) {
+            hSpirit3.SetActive(false);
         }
     }
 
@@ -98,7 +123,7 @@ public class Player_v5 : MonoBehaviour
         {
             if (bArmed)
             {
-                playerHealth -= 1;
+                playerHealth -= 3;
                 //shieldHealth -= 1;
             }
             else
