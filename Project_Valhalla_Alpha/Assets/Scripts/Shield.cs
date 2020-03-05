@@ -21,14 +21,14 @@ public class Shield : MonoBehaviour
     [Header("Push")]
     public float pushForce = 400.0f;
 
-    public Player_v3 player;
+    public Player_v5 player;
 
     private Rigidbody rb;
 
     private void Awake()
     {
         rb = GetComponent<Rigidbody>();
-        player = GameObject.FindObjectOfType<Player_v3>();
+        player = GameObject.FindObjectOfType<Player_v5>();
 
         // setup fade colors
         oldColor = gameObject.GetComponent<MeshRenderer>().material.color;
