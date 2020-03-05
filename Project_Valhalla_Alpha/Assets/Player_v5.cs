@@ -14,8 +14,12 @@ public class Player_v5 : MonoBehaviour
 
     [Header("Health")]
     public int playerHealth = 9;
-    //public GameObject[] healthSpirits;
     public GameObject hSpirit1, hSpirit2, hSpirit3;
+    public bool bFlashing = false;
+    private int flashTimer = 0;
+    public int flashTimerRefreshRate = 15;
+    private Color oldColor;
+    private Color flashColor;
 
     [Header("Shield")]
     public Transform shieldSpawn;
@@ -33,6 +37,11 @@ public class Player_v5 : MonoBehaviour
     private void Awake()
     {
         rb = GetComponent<Rigidbody>();
+
+        // setup flash colors
+        oldColor = gameObject.GetComponent<MeshRenderer>().material.color;
+        flashColor = gameObject.GetComponent<MeshRenderer>().material.color;
+        flashColor.a = 0.25f;
     }
 
     private void Update()
@@ -63,6 +72,11 @@ public class Player_v5 : MonoBehaviour
         ArmedDisplay.SetActive(bArmed);
 
         DisplayHealth();
+
+        if (bFlashing)
+        {
+            FlashTimer();
+        }
 
         if (shieldTimer > 0)
         {
@@ -102,8 +116,14 @@ public class Player_v5 : MonoBehaviour
         hSpirit3.transform.position = newPosition3;
 
         // move spirits closer in when resetting
+        Vector3 offset1 = hSpirit1.transform.position - transform.position;
+        float distance1 = offset1.magnitude;
 
-        // flash player material when hit
+        if (bResetPressed())
+        {
+
+        }
+
 
         // disable spirits (could be improved with an array)
         int currentHealth = playerHealth / 3;
@@ -127,6 +147,10 @@ public class Player_v5 : MonoBehaviour
         fallSpeed = 4.0f;
         rb.velocity *= 0;
         rb.angularVelocity *= 0;
+
+        hSpirit1.SetActive(true);
+        hSpirit2.SetActive(true);
+        hSpirit3.SetActive(true);
     }
 
     private void OnTriggerEnter(Collider other)
@@ -138,18 +162,14 @@ public class Player_v5 : MonoBehaviour
 
         if (other.CompareTag("Enemy") || other.CompareTag("Projectile"))
         {
-            if (bArmed)
-            {
-                playerHealth -= 3;
+            if (bArmed) {
+                DamagePlayer(3);
                 //shieldHealth -= 1;
-            }
-            else
-            {
-                playerHealth -= 3;
+            } else {
+                DamagePlayer(3);
             }
 
-            if (other.CompareTag("Projectile"))
-            {
+            if (other.CompareTag("Projectile")) {
                 Destroy(other.gameObject);
             }
         }
@@ -158,6 +178,35 @@ public class Player_v5 : MonoBehaviour
         {
             bPlayerFalling = true;
         }
+    }
+
+    private void DamagePlayer(int damageAmount) {
+        // flash player material
+        bFlashing = true;
+
+        // decrease health
+        playerHealth -= damageAmount;
+    }
+
+    // flash player material when hit
+    private void FlashTimer() {
+        if (flashTimer % 5 == 0) {
+            gameObject.GetComponent<MeshRenderer>().material.color = flashColor;
+            Debug.Log("flash color");
+        } else {
+            gameObject.GetComponent<MeshRenderer>().material.color = oldColor;
+            Debug.Log("normal color");
+        }
+
+        if (flashTimer >= flashTimerRefreshRate) {
+            flashTimer = 0;
+            bFlashing = false;
+            gameObject.GetComponent<MeshRenderer>().material.color = oldColor;
+        }
+        
+        flashTimer += 1;
+
+        //Debug.Log(flashTimerCounter);
     }
 
     // falling could be improved:
