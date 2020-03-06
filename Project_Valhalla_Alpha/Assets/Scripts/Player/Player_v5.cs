@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Player_v5 : MonoBehaviour
 {
@@ -17,7 +18,7 @@ public class Player_v5 : MonoBehaviour
     public GameObject hSpirit1, hSpirit2, hSpirit3;
     public bool bFlashing = false;
     private int flashTimer = 0;
-    public int flashTimerRefreshRate = 15;
+    public int flashTimerRate = 15;
     private Color oldColor;
     private Color flashColor;
 
@@ -26,11 +27,16 @@ public class Player_v5 : MonoBehaviour
     public Shield shieldPrefab;
     public float shieldSpeed = 10.0f;
     //public int shieldHealth = 3;
-
     public bool bArmed = true;
     public GameObject ArmedDisplay;
     public int shieldTimer = 0;
-    public int shieldTimerRefreshRate = 60;
+    public int shieldTimerRate = 60;
+
+    [Header("Other")]
+    private bool bResetting = false;
+    private float resetTimer = 0;
+    private float resetTimerRate = 100;
+    public Camera camera;
 
     private Rigidbody rb;
 
@@ -50,15 +56,17 @@ public class Player_v5 : MonoBehaviour
         {
             ShieldThrow();
             bArmed = false;
-            shieldTimer = shieldTimerRefreshRate;
+            shieldTimer = shieldTimerRate;
         }
     }
     private void FixedUpdate()
     {
-        if (bResetPressed())
-        {
-            //shieldTimer = 0;
-        }
+        //if (bResetPressed())
+        //{
+        //     = true;
+        //    //shieldTimer = 0;
+        //}
+        bResetting = bResetPressed();
 
         if (!bPlayerFalling)
         {
@@ -69,6 +77,7 @@ public class Player_v5 : MonoBehaviour
             PlayerFall();
         }
 
+        // show shield if armed
         ArmedDisplay.SetActive(bArmed);
 
         DisplayHealth();
@@ -76,6 +85,17 @@ public class Player_v5 : MonoBehaviour
         if (bFlashing)
         {
             FlashTimer();
+        }
+
+        if (bResetting)
+        {
+            StartPlayerReset();
+        } else
+        {
+            bResetting = false;
+            resetTimer = 0;
+            // reset camera
+            camera.orthographicSize = 8.0f;
         }
 
         if (shieldTimer > 0)
@@ -94,6 +114,28 @@ public class Player_v5 : MonoBehaviour
         }
     }
 
+    private void StartPlayerReset()
+    {
+        Debug.Log("Player::StartPlayerReset()");
+
+        // camera zooms in on player
+        float t = map(resetTimer, 0, resetTimerRate - 10, 0, 1);
+        camera.orthographicSize = Mathf.Lerp(8.0f, 2.0f, t);
+
+        // move health spirits closer
+        // ...
+
+        // reset player
+        if (resetTimer >= resetTimerRate)
+        {
+            resetTimer = 0;
+            bResetting = false;
+            PlayerReset();
+        }
+
+        resetTimer += 1;
+    }
+
     private void DisplayHealth()
     {
         // move spirits up and down at different phase
@@ -105,12 +147,12 @@ public class Player_v5 : MonoBehaviour
         newPosition1.y = y1;
         hSpirit1.transform.position = newPosition1;
 
-        float y2 = 1.5f + amp * Mathf.Sin(theta + ((Mathf.PI * 2.0f) * 0.333f));
+        float y2 = 1.5f + amp * Mathf.Sin(theta + ((Mathf.PI * 2.0f) * 0.167f));
         Vector3 newPosition2 = hSpirit2.transform.position;
         newPosition2.y = y2;
         hSpirit2.transform.position = newPosition2;
 
-        float y3 = 1.5f + amp * Mathf.Sin(theta + ((Mathf.PI * 2.0f) * 0.666f));
+        float y3 = 1.5f + amp * Mathf.Sin(theta + ((Mathf.PI * 2.0f) * 0.333f));
         Vector3 newPosition3 = hSpirit3.transform.position;
         newPosition3.y = y3;
         hSpirit3.transform.position = newPosition3;
@@ -119,20 +161,24 @@ public class Player_v5 : MonoBehaviour
         Vector3 offset1 = hSpirit1.transform.position - transform.position;
         float distance1 = offset1.magnitude;
 
-        if (bResetPressed())
-        {
-
-        }
-
         // center spirits when removing them
+        // ...
 
         // disable spirits (could be improved with an array)
         int currentHealth = playerHealth / 3;
         if (currentHealth <= 2) {
             hSpirit1.SetActive(false);
+
+            //newPosition2.x = 0.25f;
+            //hSpirit2.transform.position = newPosition2;
+            //newPosition3.x = -0.25f;
+            //hSpirit3.transform.position = newPosition3;
         }
         if (currentHealth <= 1) {
             hSpirit2.SetActive(false);
+
+            //newPosition3.x = 0.0f;
+            //hSpirit3.transform.position = newPosition3;
         }
         if (currentHealth <= 0) {
             hSpirit3.SetActive(false);
@@ -152,6 +198,9 @@ public class Player_v5 : MonoBehaviour
         hSpirit1.SetActive(true);
         hSpirit2.SetActive(true);
         hSpirit3.SetActive(true);
+
+        // reload scene
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 
     private void OnTriggerEnter(Collider other)
@@ -199,7 +248,7 @@ public class Player_v5 : MonoBehaviour
             Debug.Log("normal color");
         }
 
-        if (flashTimer >= flashTimerRefreshRate) {
+        if (flashTimer >= flashTimerRate) {
             flashTimer = 0;
             bFlashing = false;
             gameObject.GetComponent<MeshRenderer>().material.color = oldColor;
@@ -279,5 +328,14 @@ public class Player_v5 : MonoBehaviour
         //rb.MovePosition(transform.position + newPosition);
         //rb.AddForce(newPosition);
         rb.velocity = newPosition;
+    }
+
+    // function taken from post #4: https://forum.unity.com/threads/mapping-or-scaling-values-to-a-new-range.180090/
+    public float map(float OldValue, float OldMin, float OldMax, float NewMin, float NewMax)
+    {
+        float OldRange = (OldMax - OldMin);
+        float NewRange = (NewMax - NewMin);
+        float NewValue = (((OldValue - OldMin) * NewRange) / OldRange) + NewMin;
+        return (NewValue);
     }
 }
