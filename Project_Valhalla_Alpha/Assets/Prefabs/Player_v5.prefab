@@ -147,7 +147,7 @@ MonoBehaviour:
   hSpirit2: {fileID: 0}
   hSpirit3: {fileID: 0}
   bFlashing: 0
-  flashTimerRefreshRate: 40
+  flashTimerRate: 15
   shieldSpawn: {fileID: 6541924605536195456}
   shieldPrefab: {fileID: 8360783977189383095, guid: 2b53cd994d1137e41b05c2e2de716b6b,
     type: 3}
@@ -155,7 +155,8 @@ MonoBehaviour:
   bArmed: 1
   ArmedDisplay: {fileID: 6541924606264444091}
   shieldTimer: 0
-  shieldTimerRefreshRate: 150
+  shieldTimerRate: 120
+  camera: {fileID: 0}
 --- !u!1 &6541924605536195457
 GameObject:
   m_ObjectHideFlags: 0

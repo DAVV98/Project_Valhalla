@@ -13,16 +13,17 @@ public class Shield : MonoBehaviour
     public float shieldSpeed = 5.0f;
     public Vector3 direction = Vector3.zero;
     public float fallSpeed = 0.25f;
-    
-    private bool bFading = false;
-    private Color oldColor;
-    private Color fadeColor;
 
     [Header("Push")]
     public float pushForce = 400.0f;
 
-    public Player_v5 player;
+    private bool bFading = false;
+    private Color oldColor;
+    private Color fadeColor;
 
+    [Header("Other")]
+    public GameObject fadeParticlePrefab;
+    public Player_v5 player;
     private Rigidbody rb;
 
     private void Awake()
@@ -48,7 +49,13 @@ public class Shield : MonoBehaviour
 
     private void FadeShield()
     {
-        if (age == 200 || age == 210 || age == 220 || age == 230 || age == 240 || age == 250 || age == 260 || age == 270 || age == 280 || age == 290) {
+        if (age >= lifetime / 100 * 99)
+        {
+            Instantiate(fadeParticlePrefab, transform);
+        }
+
+        //if (age == 200 || age == 210 || age == 220 || age == 230 || age == 240 || age == 250 || age == 260 || age == 270 || age == 280 || age == 290) {
+        if (age >= lifetime / 2 && age % 10 == 0) {
             Color flashColor = gameObject.GetComponent<MeshRenderer>().material.color;
             flashColor.a += 0.25f;
             //Color flashColor = oldColor;
@@ -179,13 +186,6 @@ public class Shield : MonoBehaviour
             // destroy shield if old
             Destroy(gameObject);
         }
-    }
-
-
-
-    IEnumerator WaitTime(float t = 3.0f)
-    {
-        yield return new WaitForSeconds(t);
     }
 
     // function taken from post #4: https://forum.unity.com/threads/mapping-or-scaling-values-to-a-new-range.180090/
