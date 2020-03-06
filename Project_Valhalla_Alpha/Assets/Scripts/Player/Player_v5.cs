@@ -138,51 +138,51 @@ public class Player_v5 : MonoBehaviour
 
     private void DisplayHealth()
     {
-        // move spirits up and down at different phase
-        float theta = Time.time * 2;
-        float amp = 0.25f;
+        //// move spirits up and down at different phase
+        //float theta = Time.time * 2;
+        //float amp = 0.25f;
 
-        float y1 = 1.5f + amp * Mathf.Sin(theta);
-        Vector3 newPosition1 = hSpirit1.transform.position;
-        newPosition1.y = y1;
-        hSpirit1.transform.position = newPosition1;
+        //float y1 = 1.5f + amp * Mathf.Sin(theta);
+        //Vector3 newPosition1 = hSpirit1.transform.position;
+        //newPosition1.y = y1;
+        //hSpirit1.transform.position = newPosition1;
 
-        float y2 = 1.5f + amp * Mathf.Sin(theta + ((Mathf.PI * 2.0f) * 0.167f));
-        Vector3 newPosition2 = hSpirit2.transform.position;
-        newPosition2.y = y2;
-        hSpirit2.transform.position = newPosition2;
+        //float y2 = 1.5f + amp * Mathf.Sin(theta + ((Mathf.PI * 2.0f) * 0.167f));
+        //Vector3 newPosition2 = hSpirit2.transform.position;
+        //newPosition2.y = y2;
+        //hSpirit2.transform.position = newPosition2;
 
-        float y3 = 1.5f + amp * Mathf.Sin(theta + ((Mathf.PI * 2.0f) * 0.333f));
-        Vector3 newPosition3 = hSpirit3.transform.position;
-        newPosition3.y = y3;
-        hSpirit3.transform.position = newPosition3;
+        //float y3 = 1.5f + amp * Mathf.Sin(theta + ((Mathf.PI * 2.0f) * 0.333f));
+        //Vector3 newPosition3 = hSpirit3.transform.position;
+        //newPosition3.y = y3;
+        //hSpirit3.transform.position = newPosition3;
 
-        // move spirits closer in when resetting
-        Vector3 offset1 = hSpirit1.transform.position - transform.position;
-        float distance1 = offset1.magnitude;
+        //// move spirits closer in when resetting
+        //Vector3 offset1 = hSpirit1.transform.position - transform.position;
+        //float distance1 = offset1.magnitude;
 
-        // center spirits when removing them
-        // ...
+        //// center spirits when removing them
+        //// ...
 
-        // disable spirits (could be improved with an array)
-        int currentHealth = playerHealth / 3;
-        if (currentHealth <= 2) {
-            hSpirit1.SetActive(false);
+        //// disable spirits (could be improved with an array)
+        //int currentHealth = playerHealth / 3;
+        //if (currentHealth <= 2) {
+        //    hSpirit1.SetActive(false);
 
-            //newPosition2.x = 0.25f;
-            //hSpirit2.transform.position = newPosition2;
-            //newPosition3.x = -0.25f;
-            //hSpirit3.transform.position = newPosition3;
-        }
-        if (currentHealth <= 1) {
-            hSpirit2.SetActive(false);
+        //    //newPosition2.x = 0.25f;
+        //    //hSpirit2.transform.position = newPosition2;
+        //    //newPosition3.x = -0.25f;
+        //    //hSpirit3.transform.position = newPosition3;
+        //}
+        //if (currentHealth <= 1) {
+        //    hSpirit2.SetActive(false);
 
-            //newPosition3.x = 0.0f;
-            //hSpirit3.transform.position = newPosition3;
-        }
-        if (currentHealth <= 0) {
-            hSpirit3.SetActive(false);
-        }
+        //    //newPosition3.x = 0.0f;
+        //    //hSpirit3.transform.position = newPosition3;
+        //}
+        //if (currentHealth <= 0) {
+        //    hSpirit3.SetActive(false);
+        //}
     }
 
     private void PlayerReset()

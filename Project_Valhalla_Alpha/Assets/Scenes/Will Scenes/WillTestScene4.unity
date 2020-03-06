@@ -8147,14 +8147,13 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4428480597935855305, guid: 91632f7f5cdf82b46b0fe333ccfd37e7,
         type: 3}
-      propertyPath: playerTransform
+      propertyPath: player
       value: 
-      objectReference: {fileID: 7436377220781440970}
+      objectReference: {fileID: 359437836350487793}
+    - target: {fileID: 4428480598921689885, guid: 91632f7f5cdf82b46b0fe333ccfd37e7,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 91632f7f5cdf82b46b0fe333ccfd37e7, type: 3}
---- !u!4 &7436377220781440970 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 8456365520768611571, guid: 44bf9c287b9d41f488bba1a0e4a4fbca,
-    type: 3}
-  m_PrefabInstance: {fileID: 1326409106038049593}
-  m_PrefabAsset: {fileID: 0}

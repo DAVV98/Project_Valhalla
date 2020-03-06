@@ -46,8 +46,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 317bd046db97b9a488ec1bae5040b1dc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerTransform: {fileID: 0}
+  player: {fileID: 0}
   smoothSpeed: 8
+  hSpirit1: {fileID: 4428480598921689885}
+  hSpirit2: {fileID: 4428480598897013720}
+  hSpirit3: {fileID: 4428480599307843478}
 --- !u!1 &4428480598897013720
 GameObject:
   m_ObjectHideFlags: 0

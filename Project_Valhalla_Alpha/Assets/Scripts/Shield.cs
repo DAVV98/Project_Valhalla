@@ -49,12 +49,12 @@ public class Shield : MonoBehaviour
 
     private void FadeShield()
     {
-        if (age >= lifetime / 100 * 99)
+        if (age >= lifetime / 100 * 90)
         {
-            Instantiate(fadeParticlePrefab, transform);
+            //Instantiate(fadeParticlePrefab, transform);
         }
-
-        //if (age == 200 || age == 210 || age == 220 || age == 230 || age == 240 || age == 250 || age == 260 || age == 270 || age == 280 || age == 290) {
+        
+        // start flashing after shield is half it's lifetime
         if (age >= lifetime / 2 && age % 10 == 0) {
             Color flashColor = gameObject.GetComponent<MeshRenderer>().material.color;
             flashColor.a += 0.25f;
