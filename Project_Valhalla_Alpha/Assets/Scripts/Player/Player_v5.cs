@@ -15,7 +15,7 @@ public class Player_v5 : MonoBehaviour
 
     [Header("Health")]
     public int playerHealth = 9;
-    public GameObject hSpirit1, hSpirit2, hSpirit3;
+    //public GameObject hSpirit1, hSpirit2, hSpirit3;
     public bool bFlashing = false;
     private int flashTimer = 0;
     public int flashTimerRate = 15;
@@ -187,17 +187,17 @@ public class Player_v5 : MonoBehaviour
 
     private void PlayerReset()
     {
-        bPlayerFalling = false;
-        transform.position = playerSpawn.position;
-        rb.MovePosition(transform.position);
-        playerHealth = 9;
-        fallSpeed = 4.0f;
-        rb.velocity *= 0;
-        rb.angularVelocity *= 0;
+        //bPlayerFalling = false;
+        //transform.position = playerSpawn.position;
+        //rb.MovePosition(transform.position);
+        //playerHealth = 9;
+        //fallSpeed = 4.0f;
+        //rb.velocity *= 0;
+        //rb.angularVelocity *= 0;
 
-        hSpirit1.SetActive(true);
-        hSpirit2.SetActive(true);
-        hSpirit3.SetActive(true);
+        //hSpirit1.SetActive(true);
+        //hSpirit2.SetActive(true);
+        //hSpirit3.SetActive(true);
 
         // reload scene
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
