@@ -128,9 +128,9 @@ public class Player_v5 : MonoBehaviour
         // reset player
         if (resetTimer >= resetTimerRate)
         {
-            resetTimer = 0;
-            bResetting = false;
-            PlayerReset();
+            //resetTimer = 0;
+            //bResetting = false;
+            Invoke("PlayerReset", 1.0f);
         }
 
         resetTimer += 1;
