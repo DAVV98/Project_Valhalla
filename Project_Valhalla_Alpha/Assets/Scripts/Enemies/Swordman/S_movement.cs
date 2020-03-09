@@ -9,7 +9,11 @@ public class S_movement : MonoBehaviour
     public float weight;
 
     public float Dist;
-    
+    public bool canFall;
+    void Start()
+    {
+        canFall = false;
+    }
 
     void Update()
     {
@@ -20,7 +24,27 @@ public class S_movement : MonoBehaviour
         }
         
     }
+    void OnTriggerEnter(Collider collision)
+    {
+        if (collision.tag == "Shield")
+        {
+            shieldPush();
+            canFall = true;
+        }
 
+        if (collision.tag == "Invisable_Wall")
+        {
+            if (canFall == false)
+            {
+                
+            }
+            else
+            {
+                Physics.IgnoreCollision(this.GetComponent<Collider>(), collision.GetComponent<Collider>());
+            }
+
+        }
+    }
     void turn()
     {
 
