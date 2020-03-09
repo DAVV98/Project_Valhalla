@@ -7,7 +7,7 @@ public class MAttack : MonoBehaviour,IResiveHitRedirect
     Animator anim;
 
     [SerializeField] S_movement enemyM;
-    [SerializeField] Collider player;
+    //[SerializeField] Collider player;
 
     public float Timer = 3;
     public float IntervalSet;
@@ -49,9 +49,9 @@ public class MAttack : MonoBehaviour,IResiveHitRedirect
         Gizmos.DrawRay(transform.position, direction);
     }
 
-    public void hitredirect(Collider player, HitType hit)
+    public void hitredirect(Collider other, HitType hit)
     {
-        if (hit == HitType.attackarea && CompareTag("player") == true)
+        if (hit == HitType.attackarea )
         {
             anim.SetTrigger("attack");
             sword.SetActive(true);

@@ -7,6 +7,8 @@ public class Wscript : MonoBehaviour
     
     IResiveHitRedirect toredirect;
 
+    
+
     [SerializeField]
     HitType hitType;
 
@@ -16,15 +18,18 @@ public class Wscript : MonoBehaviour
         toredirect = GetComponentInParent<IResiveHitRedirect>();
     }
 
-    private void OnTriggerEnter(Collider other)
+    private void OnTriggerEnter(Collider Player)
     {
-        toredirect.hitredirect(other, hitType);
+        if (CompareTag("Player") == true)
+        {
+            toredirect.hitredirect(Player, hitType);
+        }
     }
 }
 
 public interface IResiveHitRedirect
 {
-    void hitredirect(Collider other, HitType hit);
+    void hitredirect(Collider Player, HitType hit);
 
 
     
