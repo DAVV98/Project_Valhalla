@@ -84,7 +84,7 @@ public class Shield : MonoBehaviour
             //ReflectArrowByRaycast(other);
             ReflectArrowByVelocity(other);
         }
-        else if (other.CompareTag("Enemy") || other.CompareTag("Pushable"))
+        else if (other.CompareTag("Enemy") || other.CompareTag("Pushable") || other.CompareTag("Axe Enemy"))
         {
             Debug.Log("Shield::OnTriggerEnter(), other == Enemy or Pushable");
             PushOther(other);
