@@ -124,13 +124,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bDidHit: 0
-  lifetime: 300
+  lifetime: 120
   age: 0
   shieldSlowThreshold: 20
   shieldSpeed: 7
   direction: {x: 0, y: 0, z: 0}
   fallSpeed: 0.25
   pushForce: 400
+  fadeParticlePrefab: {fileID: 1661054556972686844, guid: 4bee3a525d059f84692170decafec57f,
+    type: 3}
   player: {fileID: 0}
 --- !u!64 &2219227797382100216
 MeshCollider:

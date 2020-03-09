@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class CameraController : MonoBehaviour
 {
-    public GameObject player; // GameObject so we can access player.bPlayerFalling
+    public GameObject player;
     private Vector3 offset;
-    public float smoothSpeed = 10.0f;
+    public float smoothSpeed = 2.0f;
     
 
     private void Awake() {

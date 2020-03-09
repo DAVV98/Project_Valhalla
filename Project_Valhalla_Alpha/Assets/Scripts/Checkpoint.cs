@@ -11,8 +11,8 @@ public class Checkpoint : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            activeDisplay.SetActive(true);
-            other.GetComponent<Player_v3>().playerSpawn = this.newPlayerSpawn;
+            //activeDisplay.SetActive(true);
+            other.GetComponent<Player_v5>().playerSpawn = this.newPlayerSpawn;
         }
     }
 }

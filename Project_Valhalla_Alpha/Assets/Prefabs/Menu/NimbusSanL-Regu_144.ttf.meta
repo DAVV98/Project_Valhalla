@@ -3,11 +3,11 @@ guid: 476468bbfe27edd43b15d899c03af1f8
 TrueTypeFontImporter:
   externalObjects: {}
   serializedVersion: 4
-  fontSize: 16
+  fontSize: 144
   forceTextureCase: -2
   characterSpacing: 0
   characterPadding: 1
-  includeFontData: 1
+  includeFontData: 0
   fontName: NimbusSanL
   fontNames:
   - NimbusSanL
