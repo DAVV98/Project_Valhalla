@@ -34,7 +34,7 @@ public class CameraController : MonoBehaviour
     private void MoveCamera()
     {
 
-        if (!player.GetComponent<Player_v5>().bPlayerFalling)
+        if (!player.GetComponent<Player_v5>().bPlayerFalling  || !player.GetComponent<Player_v3>().bPlayerFalling)
         {
             Vector3 desiredPosition = player.transform.position + offset;
             // Vector3.Lerp() from borrowed from: https://www.youtube.com/watch?v=MFQhpwc6cKE

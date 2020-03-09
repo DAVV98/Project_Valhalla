@@ -422,7 +422,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c486f80411b63794ba0f26311cfa6efc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 0}
+  player: {fileID: 1855452517}
   smoothSpeed: 2
 --- !u!81 &585838310
 AudioListener:
@@ -736,6 +736,12 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1855452517 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 359437835536969623, guid: 884798736021c0e4ab973b8ed3770645,
+    type: 3}
+  m_PrefabInstance: {fileID: 546250014}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &7294791548950043237
 PrefabInstance:
   m_ObjectHideFlags: 0
