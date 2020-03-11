@@ -131,7 +131,7 @@ MonoBehaviour:
   direction: {x: 0, y: 0, z: 0}
   fallSpeed: 0.25
   pushForce: 400
-  fadeParticlePrefab: {fileID: 1661054556972686844, guid: 4bee3a525d059f84692170decafec57f,
+  fadeParticlePrefab: {fileID: 9174717459142854410, guid: 236344ddb19799342b3d850ad59c47c3,
     type: 3}
   player: {fileID: 0}
 --- !u!64 &2219227797382100216

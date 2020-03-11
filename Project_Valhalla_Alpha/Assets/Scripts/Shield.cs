@@ -49,7 +49,7 @@ public class Shield : MonoBehaviour
 
     private void FadeShield()
     {
-        if (age >= lifetime / 100 * 90)
+        if (age >= lifetime / 2)
         {
             //Instantiate(fadeParticlePrefab, transform);
         }

@@ -32,4 +32,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Will Scenes/WillPlaytestScene3.unity
     guid: 76335da8536b19941a1ec9de9f79514e
+  - enabled: 1
+    path: Assets/Scenes/Will Scenes/WillTestScene4.unity
+    guid: c497623b9c1dafa429d1f7b5fff60603
   m_configObjects: {}
