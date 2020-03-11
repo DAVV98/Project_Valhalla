@@ -33,7 +33,7 @@ public class Player_v5 : MonoBehaviour
     public int shieldTimerRate = 60;
 
     [Header("Other")]
-    private bool bResetting = false;
+    public bool bResetting = false;
     private float resetTimer = 0;
     private float resetTimerRate = 100;
     public Camera camera;

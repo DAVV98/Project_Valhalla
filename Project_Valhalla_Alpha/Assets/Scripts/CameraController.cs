@@ -33,26 +33,32 @@ public class CameraController : MonoBehaviour
 
     private void MoveCamera()
     {
-        if (!player.GetComponent<Player_v3>().bPlayerFalling)
+        if (player.GetComponent<Player_v3>())
         {
-            Vector3 desiredPosition = player.transform.position + offset;
-            // Vector3.Lerp() from borrowed from: https://www.youtube.com/watch?v=MFQhpwc6cKE
-            Vector3 smoothedPosition = Vector3.Lerp(transform.position, desiredPosition, smoothSpeed * Time.deltaTime);
-            transform.position = smoothedPosition;
+            if (!player.GetComponent<Player_v3>().bPlayerFalling)
+            {
+                Vector3 desiredPosition = player.transform.position + offset;
+                // Vector3.Lerp() from borrowed from: https://www.youtube.com/watch?v=MFQhpwc6cKE
+                Vector3 smoothedPosition = Vector3.Lerp(transform.position, desiredPosition, smoothSpeed * Time.deltaTime);
+                transform.position = smoothedPosition;
 
-            // make the camera fixed on the player
-            //transform.LookAt(player.transform);
+                // make the camera fixed on the player
+                //transform.LookAt(player.transform);
+            }
         }
 
-        if (!player.GetComponent<Player_v5>().bPlayerFalling)
+        if (player.GetComponent<Player_v5>())
         {
-            Vector3 desiredPosition = player.transform.position + offset;
-            // Vector3.Lerp() from borrowed from: https://www.youtube.com/watch?v=MFQhpwc6cKE
-            Vector3 smoothedPosition = Vector3.Lerp(transform.position, desiredPosition, smoothSpeed * Time.deltaTime);
-            transform.position = smoothedPosition;
+            if (!player.GetComponent<Player_v5>().bPlayerFalling)
+            {
+                Vector3 desiredPosition = player.transform.position + offset;
+                // Vector3.Lerp() from borrowed from: https://www.youtube.com/watch?v=MFQhpwc6cKE
+                Vector3 smoothedPosition = Vector3.Lerp(transform.position, desiredPosition, smoothSpeed * Time.deltaTime);
+                transform.position = smoothedPosition;
 
-            // make the camera fixed on the player
-            //transform.LookAt(player.transform);
+                // make the camera fixed on the player
+                //transform.LookAt(player.transform);
+            }
         }
     }
 

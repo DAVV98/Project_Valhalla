@@ -9,8 +9,9 @@ public class HealthSpiritManager : MonoBehaviour
 
     public GameObject player;
     public Vector3 offset;
-    public float smoothSpeed = 8.0f;
+    public float smoothSpeed = 2.0f;
     public GameObject hSpirit1, hSpirit2, hSpirit3;
+    private float waveAmplitude = 0.25f;
 
     private void Awake()
     {
@@ -25,47 +26,82 @@ public class HealthSpiritManager : MonoBehaviour
 
     private void UpdateSpirits()
     {
+        OscillateSpirits();
+        int currentHealth = player.GetComponent<Player_v5>().playerHealth / 3;
+        PositionManager(currentHealth);
+        DisableSpirits(currentHealth);
+    }
+
+    private void DisableSpirits(int playerHealth)
+    {
+        // disable spirits (could be improved with an array)
+        if (playerHealth <= 2)
+        {
+            hSpirit1.SetActive(false);
+        }
+        if (playerHealth <= 1)
+        {
+            hSpirit2.SetActive(false);
+        }
+        if (playerHealth <= 0)
+        {
+            hSpirit3.SetActive(false);
+        }
+    }
+
+    private void PositionManager(int playerHealth)
+    {
+        // adjust offset so spirits are centered as they decrease
+        if (playerHealth <= 2)
+        {
+            offset.x = -0.25f;
+        }
+        if (playerHealth <= 1)
+        {
+            offset.x = -0.5f;
+        }
+        if (playerHealth <= 0)
+        {
+            offset.x = 0;
+        }
+
+        // move spirits closer in or further depending on player state: resetting, armed, not armed
+        if (player.GetComponent<Player_v5>().bResetting)
+        {
+            waveAmplitude = Mathf.Lerp(waveAmplitude, 0.05f, smoothSpeed * Time.deltaTime);
+        }
+        else
+        {
+            if (player.GetComponent<Player_v5>().bArmed)
+            {
+                waveAmplitude = Mathf.Lerp(waveAmplitude, 0.25f, smoothSpeed * Time.deltaTime);
+            }
+            else
+            {
+                waveAmplitude = Mathf.Lerp(waveAmplitude, 0.5f, smoothSpeed * Time.deltaTime);
+            }
+        }
+    }
+
+    private void OscillateSpirits()
+    {
         // move spirits up and down at different phase
         float theta = Time.time * 2;
-        float amp = 0.25f;
 
-        float y1 = 1.5f + amp * Mathf.Sin(theta);
+        float y1 = 1.5f + waveAmplitude * Mathf.Sin(theta);
         Vector3 newPosition1 = hSpirit1.transform.position;
         newPosition1.y = y1;
         hSpirit1.transform.position = newPosition1;
 
-        float y2 = 1.5f + amp * Mathf.Sin(theta + ((Mathf.PI * 2.0f) * 0.167f));
+        float y2 = 1.5f + waveAmplitude * Mathf.Sin(theta + ((Mathf.PI * 2.0f) * 0.167f));
         Vector3 newPosition2 = hSpirit2.transform.position;
         newPosition2.y = y2;
         hSpirit2.transform.position = newPosition2;
 
-        float y3 = 1.5f + amp * Mathf.Sin(theta + ((Mathf.PI * 2.0f) * 0.333f));
+        float y3 = 1.5f + waveAmplitude * Mathf.Sin(theta + ((Mathf.PI * 2.0f) * 0.333f));
         Vector3 newPosition3 = hSpirit3.transform.position;
         newPosition3.y = y3;
         hSpirit3.transform.position = newPosition3;
-
-        // move spirits closer in when resetting
-        Vector3 offset1 = hSpirit1.transform.position - transform.position;
-        float distance1 = offset1.magnitude;
-
-        // disable spirits (could be improved with an array)
-        // and adjust offset so spirits are centered
-        int currentHealth = player.GetComponent<Player_v5>().playerHealth / 3;
-        if (currentHealth <= 2)
-        {
-            offset = new Vector3(-0.25f, 0, 0);
-            hSpirit1.SetActive(false);
-        }
-        if (currentHealth <= 1)
-        {
-            offset = new Vector3(-0.5f, 0, 0);
-            hSpirit2.SetActive(false);
-        }
-        if (currentHealth <= 0)
-        {
-            offset = Vector3.zero;
-            hSpirit3.SetActive(false);
-        }
     }
 
     private void MoveManager()
