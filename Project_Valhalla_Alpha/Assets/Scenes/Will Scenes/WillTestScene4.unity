@@ -4620,6 +4620,17 @@ PrefabInstance:
       propertyPath: bRotate
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 770968152414978181, guid: 5cb1316fbd842324194ee30789b794ff,
+        type: 3}
+      propertyPath: arrowPrefab
+      value: 
+      objectReference: {fileID: 6143703689584354109, guid: d803612daceccab4fad1b710bef167eb,
+        type: 3}
+    - target: {fileID: 770968152414978181, guid: 5cb1316fbd842324194ee30789b794ff,
+        type: 3}
+      propertyPath: bActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 770968152414978190, guid: 5cb1316fbd842324194ee30789b794ff,
         type: 3}
       propertyPath: m_Name
@@ -5428,7 +5439,7 @@ Light:
   serializedVersion: 9
   m_Type: 1
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Intensity: 1.1
+  m_Intensity: 1
   m_Range: 10
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
