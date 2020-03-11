@@ -27,13 +27,13 @@ public class Player_v5 : MonoBehaviour
     public Shield shieldPrefab;
     public float shieldSpeed = 10.0f;
     //public int shieldHealth = 3;
-    public bool bArmed = true;
+    public bool bArmed = false;
     public GameObject ArmedDisplay;
     public int shieldTimer = 0;
     public int shieldTimerRate = 60;
 
     [Header("Other")]
-    private bool bResetting = false;
+    public bool bResetting = false;
     private float resetTimer = 0;
     private float resetTimerRate = 100;
     public Camera camera;
