@@ -1,0 +1,23 @@
+fileFormatVersion: 2
+guid: 4efb1de33e28d7b46a5082a4451c9fe0
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 48
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 0
+  fontName: NimbusSanL
+  fontNames:
+  - NimbusSanL
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: 476468bbfe27edd43b15d899c03af1f8, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  shouldRoundAdvanceValue: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
