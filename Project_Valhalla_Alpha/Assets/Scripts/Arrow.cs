@@ -19,15 +19,15 @@ public class Arrow : MonoBehaviour
 
     private void FixedUpdate()
     {
-        MoveArrow();
+        MoveAndRotateArrow();
         AgeArrow();
 
-        //transform.LookAt(transform.position + rb.velocity);
     }
 
-    private void MoveArrow()
+    private void MoveAndRotateArrow()
     {
         rb.velocity = direction * arrowSpeed;
+        transform.LookAt(transform.position + rb.velocity);
     }
 
     private void AgeArrow()

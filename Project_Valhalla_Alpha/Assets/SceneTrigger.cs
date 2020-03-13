@@ -6,19 +6,24 @@ public class SceneTrigger : MonoBehaviour
 {
     public GameObject invisibleWall;
 
-    public ArrowTrap arrowTrap1;
-    public ArrowTrap arrowTrap2;
+    public ArrowTrap[] arrowTraps;
+
+    private void Awake()
+    {
+        arrowTraps = GameObject.FindObjectsOfType<ArrowTrap>();
+    }
 
     private void OnTriggerExit(Collider other)
     {
         if (other.CompareTag("Player"))
         {
             invisibleWall.SetActive(true);
-
-            arrowTrap1.bActive = true;
-            arrowTrap1.bRotate = true;
-            arrowTrap2.bActive = true;
-            arrowTrap2.bRotate = true;
+            
+            for (int i = 0; i < arrowTraps.Length; ++i)
+            {
+                //arrowTraps[i].bRotate = true;
+                arrowTraps[i].bActive = true;
+            }
         }
     }
 }
