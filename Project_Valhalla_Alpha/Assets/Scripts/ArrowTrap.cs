@@ -12,12 +12,13 @@ public class ArrowTrap : MonoBehaviour
     public bool bMultiDirections = false;
 
     public bool bRotate = false;
-    public float rotateSpeed = 100.0f;
+    public float rotateSpeed = 2.0f;
+    private int rotateTimer = 0;
 
     private void FixedUpdate()
     {
         ShootArrows();
-        ShrinkSize();
+        //ShrinkSize();
 
         if (bRotate)
         {
@@ -27,9 +28,10 @@ public class ArrowTrap : MonoBehaviour
 
     private void RotateTrap()
     {
-        float yAngle = Time.time * rotateSpeed;
+        float yAngle = rotateTimer * rotateSpeed;
         Quaternion newRotation = Quaternion.Euler(0, yAngle, 0);
         transform.rotation = newRotation;
+        rotateTimer++;
     }
 
     // improvements

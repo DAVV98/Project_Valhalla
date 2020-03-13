@@ -25,13 +25,4 @@ public class Island : MonoBehaviour
 
         bFade = false;
     }
-
-    private void OnTriggerEnter(Collider other)
-    {
-        // destroy arrows
-        if (other.CompareTag("Projectile"))
-        {
-            Destroy(other.gameObject);
-        }
-    }
 }
