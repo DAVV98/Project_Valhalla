@@ -8085,6 +8085,11 @@ PrefabInstance:
       propertyPath: camera
       value: 
       objectReference: {fileID: 2069758509}
+    - target: {fileID: 1627102125349451723, guid: 44bf9c287b9d41f488bba1a0e4a4fbca,
+        type: 3}
+      propertyPath: shieldTimerRate
+      value: 180
+      objectReference: {fileID: 0}
     - target: {fileID: 8456365520768611571, guid: 44bf9c287b9d41f488bba1a0e4a4fbca,
         type: 3}
       propertyPath: m_LocalPosition.x

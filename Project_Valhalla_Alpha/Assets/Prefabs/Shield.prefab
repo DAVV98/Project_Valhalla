@@ -124,7 +124,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bDidHit: 0
-  lifetime: 120
+  lifetime: 180
   age: 0
   shieldSlowThreshold: 20
   shieldSpeed: 7
