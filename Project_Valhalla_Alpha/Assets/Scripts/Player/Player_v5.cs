@@ -34,6 +34,7 @@ public class Player_v5 : MonoBehaviour
 
     [Header("Other")]
     public bool bResetting = false;
+    public bool bGoingToReset = false;
     private float resetTimer = 0;
     private float resetTimerRate = 100;
     public Camera camera;
@@ -61,12 +62,6 @@ public class Player_v5 : MonoBehaviour
     }
     private void FixedUpdate()
     {
-        //if (bResetPressed())
-        //{
-        //     = true;
-        //    //shieldTimer = 0;
-        //}
-        bResetting = bResetPressed();
 
         if (!bPlayerFalling)
         {
@@ -80,22 +75,20 @@ public class Player_v5 : MonoBehaviour
         // show shield if armed
         ArmedDisplay.SetActive(bArmed);
 
-        DisplayHealth();
-
         if (bFlashing)
         {
             FlashTimer();
         }
 
-        if (bResetting)
+        bResetting = bResetPressed();
+        if (bResetPressed() )
         {
             StartPlayerReset();
-        } else
+        }
+        else if (!bGoingToReset)
         {
-            bResetting = false;
             resetTimer = 0;
-            // reset camera
-            camera.orthographicSize = 8.0f;
+            camera.orthographicSize = Mathf.Lerp(camera.orthographicSize, 8.0f, Time.deltaTime * 5.0f);
         }
 
         if (shieldTimer > 0)
@@ -122,84 +115,19 @@ public class Player_v5 : MonoBehaviour
         float t = map(resetTimer, 0, resetTimerRate - 10, 0, 1);
         camera.orthographicSize = Mathf.Lerp(8.0f, 2.0f, t);
 
-        // move health spirits closer
-        // ...
-
         // reset player
         if (resetTimer >= resetTimerRate)
         {
             //resetTimer = 0;
-            //bResetting = false;
+            bGoingToReset = true;
             Invoke("PlayerReset", 1.0f);
         }
 
         resetTimer += 1;
     }
 
-    private void DisplayHealth()
-    {
-        //// move spirits up and down at different phase
-        //float theta = Time.time * 2;
-        //float amp = 0.25f;
-
-        //float y1 = 1.5f + amp * Mathf.Sin(theta);
-        //Vector3 newPosition1 = hSpirit1.transform.position;
-        //newPosition1.y = y1;
-        //hSpirit1.transform.position = newPosition1;
-
-        //float y2 = 1.5f + amp * Mathf.Sin(theta + ((Mathf.PI * 2.0f) * 0.167f));
-        //Vector3 newPosition2 = hSpirit2.transform.position;
-        //newPosition2.y = y2;
-        //hSpirit2.transform.position = newPosition2;
-
-        //float y3 = 1.5f + amp * Mathf.Sin(theta + ((Mathf.PI * 2.0f) * 0.333f));
-        //Vector3 newPosition3 = hSpirit3.transform.position;
-        //newPosition3.y = y3;
-        //hSpirit3.transform.position = newPosition3;
-
-        //// move spirits closer in when resetting
-        //Vector3 offset1 = hSpirit1.transform.position - transform.position;
-        //float distance1 = offset1.magnitude;
-
-        //// center spirits when removing them
-        //// ...
-
-        //// disable spirits (could be improved with an array)
-        //int currentHealth = playerHealth / 3;
-        //if (currentHealth <= 2) {
-        //    hSpirit1.SetActive(false);
-
-        //    //newPosition2.x = 0.25f;
-        //    //hSpirit2.transform.position = newPosition2;
-        //    //newPosition3.x = -0.25f;
-        //    //hSpirit3.transform.position = newPosition3;
-        //}
-        //if (currentHealth <= 1) {
-        //    hSpirit2.SetActive(false);
-
-        //    //newPosition3.x = 0.0f;
-        //    //hSpirit3.transform.position = newPosition3;
-        //}
-        //if (currentHealth <= 0) {
-        //    hSpirit3.SetActive(false);
-        //}
-    }
-
     private void PlayerReset()
     {
-        //bPlayerFalling = false;
-        //transform.position = playerSpawn.position;
-        //rb.MovePosition(transform.position);
-        //playerHealth = 9;
-        //fallSpeed = 4.0f;
-        //rb.velocity *= 0;
-        //rb.angularVelocity *= 0;
-
-        //hSpirit1.SetActive(true);
-        //hSpirit2.SetActive(true);
-        //hSpirit3.SetActive(true);
-
-        // reload scene
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 
@@ -214,7 +142,6 @@ public class Player_v5 : MonoBehaviour
         {
             if (bArmed) {
                 DamagePlayer(3);
-                //shieldHealth -= 1;
             } else {
                 DamagePlayer(3);
             }
@@ -325,9 +252,10 @@ public class Player_v5 : MonoBehaviour
         //transform.position = transform.position + newPosition;
 
         // use vector to move player
-        //rb.MovePosition(transform.position + newPosition);
+        rb.MovePosition(transform.position + newPosition);
         //rb.AddForce(newPosition);
-        rb.velocity = newPosition;
+        //rb.velocity = newPosition;
+        //rb.AddForce(newPosition);
     }
 
     // function taken from post #4: https://forum.unity.com/threads/mapping-or-scaling-values-to-a-new-range.180090/

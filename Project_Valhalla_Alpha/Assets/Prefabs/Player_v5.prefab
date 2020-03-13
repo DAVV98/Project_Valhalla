@@ -138,14 +138,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bPlayerFalling: 0
-  moveSpeed: 250
+  moveSpeed: 5
   playerMinHeight: -4
   playerSpawn: {fileID: 0}
   fallSpeed: 4
   playerHealth: 9
-  hSpirit1: {fileID: 0}
-  hSpirit2: {fileID: 0}
-  hSpirit3: {fileID: 0}
   bFlashing: 0
   flashTimerRate: 15
   shieldSpawn: {fileID: 6541924605536195456}
@@ -156,6 +153,7 @@ MonoBehaviour:
   ArmedDisplay: {fileID: 6541924606264444091}
   shieldTimer: 0
   shieldTimerRate: 120
+  bResetting: 0
   camera: {fileID: 0}
 --- !u!1 &6541924605536195457
 GameObject:

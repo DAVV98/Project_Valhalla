@@ -88,7 +88,7 @@ public class HealthSpiritManager : MonoBehaviour
         // move spirits closer in or further depending on player state: resetting, armed, not armed
         if (player.GetComponent<Player_v5>().bResetting)
         {
-            waveAmplitude = Mathf.Lerp(waveAmplitude, 0.05f, smoothSpeed * Time.deltaTime);
+            waveAmplitude = Mathf.Lerp(waveAmplitude, 0.15f, smoothSpeed * Time.deltaTime);
         }
         else
         {
