@@ -34,18 +34,31 @@ public class HealthSpiritManager : MonoBehaviour
 
     private void DisableSpirits(int playerHealth)
     {
-        // disable spirits (could be improved with an array)
         if (playerHealth <= 2)
         {
             hSpirit1.SetActive(false);
         }
+        else
+        {
+            hSpirit1.SetActive(true);
+        }
+
         if (playerHealth <= 1)
         {
             hSpirit2.SetActive(false);
         }
+        else
+        {
+            hSpirit2.SetActive(true);
+        }
+
         if (playerHealth <= 0)
         {
             hSpirit3.SetActive(false);
+        }
+        else
+        {
+            hSpirit3.SetActive(true);
         }
     }
 
@@ -56,6 +69,11 @@ public class HealthSpiritManager : MonoBehaviour
         {
             offset.x = -0.25f;
         }
+        else if (playerHealth >= 2)
+        {
+            offset.x = 0;
+        }
+
         if (playerHealth <= 1)
         {
             offset.x = -0.5f;
@@ -64,6 +82,8 @@ public class HealthSpiritManager : MonoBehaviour
         {
             offset.x = 0;
         }
+
+
 
         // move spirits closer in or further depending on player state: resetting, armed, not armed
         if (player.GetComponent<Player_v5>().bResetting)

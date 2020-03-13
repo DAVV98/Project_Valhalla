@@ -9,7 +9,7 @@ public class Health_spring : MonoBehaviour
     public float IntervalSet;
 
     //private GameObject Player;
-    [SerializeField] Player_v5 Player;
+    [SerializeField] Player_v5 player;
 
     // Start is called before the first frame update
     void Start()
@@ -30,7 +30,7 @@ public class Health_spring : MonoBehaviour
         if (IntervalSet <= 0)
         {
             IntervalSet = 0;
-            Player.playerHealth += 1;
+            //Player.playerHealth += 1;
 
         }
 
@@ -42,11 +42,23 @@ public class Health_spring : MonoBehaviour
         {
             IntervalSet = Timer;
         }
+
+
+        //Debug.Log("trigger enter");
+        if (other.CompareTag("Player"))
+        {
+            //Debug.Log("player found");
+            if (other.GetComponent<Player_v5>().playerHealth < 7)
+            {
+                //Debug.Log("player given health from spring");
+                other.GetComponent<Player_v5>().playerHealth += 3;
+            }
+        }
     }
 
     private void OnTriggerExit(Collider other)
     {
-        if (CompareTag("player") == true)
+        if (CompareTag("Player") == true)
         {
             IntervalSet = 0;
         }
