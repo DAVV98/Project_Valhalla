@@ -151,7 +151,7 @@ Transform:
   m_GameObject: {fileID: 9025872944429659491}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0.72}
-  m_LocalScale: {x: 0.56474, y: 0.61555, z: 1}
+  m_LocalScale: {x: 0.47836867, y: 0.49337563, z: 1}
   m_Children: []
   m_Father: {fileID: 6807485533282873317}
   m_RootOrder: 0
@@ -784,7 +784,7 @@ ParticleSystem:
     serializedVersion: 6
     enabled: 1
     type: 4
-    angle: 5
+    angle: 1
     length: 5
     boxThickness: {x: 0, y: 0, z: 0}
     radiusThickness: 1
