@@ -9,7 +9,7 @@ EditorBuildSettings:
     path: Assets/Scenes/Will Scenes/WillMenuScene3_Tutorial_NewFormat.unity
     guid: 8445ba72318568f4bb3090f8253af7f5
   - enabled: 1
-    path: Assets/Scenes/Will Scenes/WillPlaytestScene4_Introduction.unity
+    path: Assets/Scenes/Will Scenes/WillPlaytestScene4_Level1_Introduction.unity
     guid: 70f1ce8c6163db040901e5485e5cdfa6
   - enabled: 1
     path: Assets/Scenes/Will Scenes/WillPlaytestScene3.unity
