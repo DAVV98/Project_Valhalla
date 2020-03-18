@@ -12,6 +12,7 @@ public class ProjectileTrigger : MonoBehaviour
     {
         if (other.CompareTag("Projectile"))
         {
+            Debug.Log("trigger");
             Active = true;
             //bActive = true;
             //door.SetActive(false);

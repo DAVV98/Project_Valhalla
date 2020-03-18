@@ -202,3 +202,4 @@ public class Player_v3 : MonoBehaviour
         rb.MovePosition(transform.position + newPosition);
     }
 }
+

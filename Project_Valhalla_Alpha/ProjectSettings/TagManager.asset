@@ -27,8 +27,8 @@ TagManager:
   - ignore push
   - InvisibleWall
   - IgnoreInvisibleWall
-  - 
-  - 
+  - IgnoreLaserCollider
+  - LaserEmitter
   - 
   - 
   - 
