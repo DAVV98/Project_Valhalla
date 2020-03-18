@@ -51,6 +51,21 @@ public class Player_v5 : MonoBehaviour
         flashColor.a = 0.25f;
     }
 
+    private void Start()
+    {
+        // set player position
+        //if (PlayerPrefs.GetFloat("spawnX") != -99999)
+        //{
+        //    float x = PlayerPrefs.GetFloat("spawnX");
+        //    float y = PlayerPrefs.GetFloat("spawnY");
+        //    float z = PlayerPrefs.GetFloat("spawnZ");
+
+        //    Debug.Log("Player::Start(), set spawn = " + x + ", " + y + ", " + z);
+        //    rb.MovePosition(new Vector3(x, y, z));
+        //    transform.position = (new Vector3(x, y, z));
+        //}
+    }
+
     private void Update()
     {
         if (bArmed && bSpacePressed())
@@ -102,7 +117,6 @@ public class Player_v5 : MonoBehaviour
 
         if (playerHealth <= 0)
         {
-            // game over screen
             PlayerReset();
         }
     }
@@ -128,7 +142,12 @@ public class Player_v5 : MonoBehaviour
 
     private void PlayerReset()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        bPlayerFalling = false;
+        rb.MovePosition(playerSpawn.position);
+        playerHealth = 9;
+        fallSpeed = 4.0f;
+
+        //SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 
     private void OnTriggerEnter(Collider other)

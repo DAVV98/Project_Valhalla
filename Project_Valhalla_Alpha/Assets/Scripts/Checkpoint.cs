@@ -16,6 +16,16 @@ public class Checkpoint : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
+            PlayerPrefs.SetFloat("spawnX", newPlayerSpawn.position.x);
+            PlayerPrefs.SetFloat("spawnY", newPlayerSpawn.position.y);
+            PlayerPrefs.SetFloat("spawnZ", newPlayerSpawn.position.z);
+            Debug.Log("Checkpoint::OnTriggerEnter(), newPlayerSpawn = " + newPlayerSpawn.position.x + ", " + newPlayerSpawn.position.y + ", " + newPlayerSpawn.position.z);
+
+            float x = PlayerPrefs.GetFloat("spawnX");
+            float y = PlayerPrefs.GetFloat("spawnY");
+            float z = PlayerPrefs.GetFloat("spawnZ");
+            Debug.Log("Checkpoint::OnTriggerEnter(), PlayerPrefs spawn = " + x + ", " + y + ", " + z);
+
             other.GetComponent<Player_v5>().playerSpawn = newPlayerSpawn;
         }
     }

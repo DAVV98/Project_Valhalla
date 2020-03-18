@@ -42,6 +42,19 @@ public class Player_v3 : MonoBehaviour
         rb = GetComponent<Rigidbody>();
     }
 
+    private void Start()
+    {
+        // set player position
+        if (PlayerPrefs.GetFloat("spawnX") != -99999)
+        {
+            float x = PlayerPrefs.GetFloat("spawnX");
+            float y = PlayerPrefs.GetFloat("spawnY");
+            float z = PlayerPrefs.GetFloat("spawnZ");
+
+            rb.MovePosition(new Vector3(x, y, z));
+        }
+    }
+
     private void Update()
     {
         if (bArmed && bSpacePressed())
@@ -178,45 +191,14 @@ public class Player_v3 : MonoBehaviour
         newPosition.Normalize();
         newPosition = newPosition * moveSpeed * Time.fixedDeltaTime;
         
-        // Look at move direction, and stay looking when not pressing.
+        // rotate player, and stay looking when not pressing
         if (input_hori == -1 || input_hori == 1 || input_vert == -1 || input_vert == 1)
         {
             Vector3 movement = new Vector3(input_hori, 0.0f, input_vert);
             rb.MoveRotation(Quaternion.LookRotation(movement));
         }
-
-        //transform.position = transform.position + newPosition;
-
-        // use vector to move player
+        
+        // move palyer
         rb.MovePosition(transform.position + newPosition);
-        //rb.AddForce(newPosition);
-        //rb.velocity = newPosition;
-        //transform
     }
-
-    //private void ShieldPush()
-    //{
-    //    // reset timer
-    //    shieldPushTimer = 2.0f;
-
-    //    //creates layermask to ignore player objects.
-    //    int layerMask = 1 << 8;
-    //    layerMask = ~layerMask;
-
-    //    //sends ray forward.
-    //    Vector3 fwd = transform.TransformDirection(Vector3.forward);
-
-    //    RaycastHit shield_hit;
-
-    //    if (Physics.SphereCast(transform.position, shieldPushRadius, fwd, out shield_hit, shieldPushRange, layerMask))
-    //    {
-    //        if (shield_hit.collider.tag == "Enemy" || shield_hit.collider.tag == "Pushable")
-    //        {
-    //            //Destroy(shield_hit.rigidbody.gameObject);
-
-    //            shield_hit.rigidbody.AddForceAtPosition(shieldPushForce * fwd, shield_hit.point);
-
-    //        }
-    //    }
-    //}
 }

@@ -1055,8 +1055,8 @@ Transform:
   - {fileID: 1318129992}
   - {fileID: 172341276}
   - {fileID: 1929484671}
-  - {fileID: 628050716}
   - {fileID: 1207196519}
+  - {fileID: 628050716}
   - {fileID: 1189677233}
   - {fileID: 2116980211}
   - {fileID: 1362030068}
@@ -2173,7 +2173,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1698230323128764, guid: 4452b50e0b9f0d24ca15b3dc23c77751, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 224846268288870398, guid: 4452b50e0b9f0d24ca15b3dc23c77751,
         type: 3}
