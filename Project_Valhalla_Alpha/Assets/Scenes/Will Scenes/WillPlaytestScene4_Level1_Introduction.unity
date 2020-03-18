@@ -2109,7 +2109,7 @@ PrefabInstance:
     - target: {fileID: 1627102125349451723, guid: 44bf9c287b9d41f488bba1a0e4a4fbca,
         type: 3}
       propertyPath: shieldTimer
-      value: 100000
+      value: 9999999
       objectReference: {fileID: 0}
     - target: {fileID: 1627102125349451723, guid: 44bf9c287b9d41f488bba1a0e4a4fbca,
         type: 3}
@@ -2191,7 +2191,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1698230323128764, guid: 4452b50e0b9f0d24ca15b3dc23c77751, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 224846268288870398, guid: 4452b50e0b9f0d24ca15b3dc23c77751,
         type: 3}
