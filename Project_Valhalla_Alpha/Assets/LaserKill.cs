@@ -5,11 +5,19 @@ using UnityEngine;
 public class LaserKill : MonoBehaviour
 {
 
-    private void OnParticleCollision(GameObject col)
+    //private void OnParticleCollision(GameObject col)
+    //{
+    //    if(col.tag == "Player")
+    //    {
+    //        Destroy(col.gameObject);
+    //    }
+    //}
+
+    private void OnParticleCollision(GameObject other)
     {
-        if(col.tag == "Player")
+        if (other.tag == "Player")
         {
-            Destroy(col.gameObject);
+            Destroy(other.gameObject);
         }
     }
 }
