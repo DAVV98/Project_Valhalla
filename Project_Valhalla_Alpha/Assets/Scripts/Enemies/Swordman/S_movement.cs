@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class S_movement : MonoBehaviour
 {
+    [SerializeField] trigger_ai follow;
     public Transform target;
     public float MovementSpeed = 3f;
     public float weight;
@@ -17,7 +18,7 @@ public class S_movement : MonoBehaviour
 
     void Update()
     {
-        if (Vector3.Distance(transform.position, target.position) < Dist)
+        if (follow == true)
         {
             turn();
             Move();
