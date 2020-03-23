@@ -5468,6 +5468,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: ProjectileTrigger_new
       objectReference: {fileID: 0}
+    - target: {fileID: 264336855142675885, guid: 2b382dbd77622234981b829354c11300,
+        type: 3}
+      propertyPath: m_TagString
+      value: ProjectileTrigger
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2b382dbd77622234981b829354c11300, type: 3}
 --- !u!1 &1134156761
