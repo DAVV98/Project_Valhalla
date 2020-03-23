@@ -23,7 +23,7 @@ public class PlayerSpawnManager : MonoBehaviour
 
     private void Start()
     {
-        Debug.Log("PlayerSpawnManager::Start : currentCheckpoint = " + currentCheckpoint.position);
+        //Debug.Log("PlayerSpawnManager::Start : currentCheckpoint = " + currentCheckpoint.position);
         //player.GetComponent<Player_v5>().SetPosition(currentCheckpoint.position);
         player.GetComponent<Player_v5>().rb.MovePosition(currentCheckpoint.position);
     }

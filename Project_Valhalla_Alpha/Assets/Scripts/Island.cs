@@ -17,7 +17,7 @@ public class Island : MonoBehaviour
 
     void Update() {
         if (bFade) {
-            Debug.Log("island fade");
+            //Debug.Log("island fade");
             gameObject.GetComponent<MeshRenderer>().material.color = fadeColor;
         } else {
             gameObject.GetComponent<MeshRenderer>().material.color = oldColor;

@@ -123,7 +123,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 42c642dc3e2f346caa1cfed33d6fe95d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  windForce: 35
+  windForce: 25
 --- !u!1 &9025872944429659491
 GameObject:
   m_ObjectHideFlags: 0
@@ -239,7 +239,7 @@ ParticleSystem:
     startLifetime:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 5
+      scalar: 4
       minScalar: 5
       maxCurve:
         serializedVersion: 2
@@ -292,7 +292,7 @@ ParticleSystem:
     startSpeed:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 3.44
+      scalar: 3
       minScalar: 5
       maxCurve:
         serializedVersion: 2
@@ -928,7 +928,7 @@ ParticleSystem:
           m_RotationOrder: 4
     arc:
       value: 360
-      mode: 0
+      mode: 1
       spread: 0
       speed:
         serializedVersion: 2
@@ -1004,13 +1004,13 @@ ParticleSystem:
           inWeight: 0.33333334
           outWeight: 0.33333334
         - serializedVersion: 3
-          time: 0.4043274
-          value: 0.13513565
-          inSlope: -4.468031
-          outSlope: -4.468031
+          time: 0.6031883
+          value: 0.68919075
+          inSlope: 0.97335887
+          outSlope: 0.97335887
           tangentMode: 0
           weightedMode: 0
-          inWeight: 0.3066919
+          inWeight: 0.13810275
           outWeight: 0.33333334
         m_PreInfinity: 2
         m_PostInfinity: 2
@@ -4860,7 +4860,7 @@ ParticleSystemRenderer:
   m_MaxParticleSize: 0.5
   m_CameraVelocityScale: 0
   m_VelocityScale: 0
-  m_LengthScale: 2
+  m_LengthScale: 2.96
   m_SortingFudge: 0
   m_NormalDirection: 1
   m_ShadowBias: 0

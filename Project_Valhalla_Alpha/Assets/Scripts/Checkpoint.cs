@@ -34,7 +34,7 @@ public class Checkpoint : MonoBehaviour
             //float z = PlayerPrefs.GetFloat("spawnZ");
             //Debug.Log("Checkpoint::OnTriggerEnter(), PlayerPrefs spawn = " + x + ", " + y + ", " + z);
 
-            //other.GetComponent<Player_v5>().playerSpawn = newPlayerSpawn;
+            other.GetComponent<Player_v5>().playerSpawn = newPlayerSpawn;
         }
     }
 
