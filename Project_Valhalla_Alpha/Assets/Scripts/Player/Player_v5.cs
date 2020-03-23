@@ -142,11 +142,12 @@ public class Player_v5 : MonoBehaviour
 
     private void PlayerReset()
     {
-        //bPlayerFalling = false;
-        //rb.MovePosition(playerSpawn.position);
-        //playerHealth = 9;
-        //fallSpeed = 4.0f;
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        bPlayerFalling = false;
+        rb.MovePosition(playerSpawn.position);
+        playerHealth = 9;
+        fallSpeed = 4.0f;
+
+        //SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 
     public void SetPosition(Vector3 pos)

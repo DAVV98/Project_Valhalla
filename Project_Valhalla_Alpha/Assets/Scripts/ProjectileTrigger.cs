@@ -21,6 +21,6 @@ public class ProjectileTrigger : MonoBehaviour
 
     private void FixedUpdate()
     {
-        door.SetActive(!Active);
+        //door.SetActive(!Active);
     }
 }
