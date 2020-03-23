@@ -15,6 +15,7 @@ TagManager:
   - Invisable_Wall
   - Axe Enemy
   - Laser
+  - ProjectileTrigger
   layers:
   - Default
   - TransparentFX

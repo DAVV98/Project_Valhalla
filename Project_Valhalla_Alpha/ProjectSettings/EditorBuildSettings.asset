@@ -12,6 +12,9 @@ EditorBuildSettings:
     path: Assets/Scenes/Will Scenes/WillPlaytestScene4_Level1_Introduction.unity
     guid: 70f1ce8c6163db040901e5485e5cdfa6
   - enabled: 1
+    path: Assets/Scenes/Will Scenes/WillPlaytestScene6_Level2.unity
+    guid: 8631d20a1f3fffe469f2064a6df12e00
+  - enabled: 1
     path: Assets/Scenes/Will Scenes/WillPlaytestScene5_Level6_End.unity
     guid: 72cddc0590208bd4ca0c182d9e8445ac
   m_configObjects: {}

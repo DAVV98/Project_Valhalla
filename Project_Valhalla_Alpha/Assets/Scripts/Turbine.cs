@@ -26,12 +26,12 @@ public class Turbine : MonoBehaviour
 
             if (hit.transform.gameObject.layer == 8)
             {
-                Debug.Log("Turbine::FixedUpdate(), RaycastAll[] hit stone block");
+                //Debug.Log("Turbine::FixedUpdate(), RaycastAll[] hit stone block");
                 return;
             }
 
             if (hit.collider.GetComponent<MoveByWind>()) {
-                Debug.Log("Turbine::FixedUpdate(), RaycastAll[]");
+                //Debug.Log("Turbine::FixedUpdate(), RaycastAll[]");
                 windArea = hit.collider.gameObject;
                 windArea.GetComponent<Rigidbody>().AddForce(transform.forward * windForce);
                 //return;

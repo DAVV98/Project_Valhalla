@@ -14,14 +14,13 @@ public class ProjectileTrigger : MonoBehaviour
         {
             Debug.Log("trigger");
             Active = true;
-            //bActive = true;
             //door.SetActive(false);
             Destroy(other.gameObject);
         }
     }
 
-    //private void FixedUpdate()
-    //{
-    //    door.SetActive(!bActive);
-    //}
+    private void FixedUpdate()
+    {
+        //door.SetActive(!Active);
+    }
 }

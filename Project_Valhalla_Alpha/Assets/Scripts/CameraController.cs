@@ -72,7 +72,7 @@ public class CameraController : MonoBehaviour
         {
             if (hit.collider.gameObject.CompareTag("Island"))
             {
-                Debug.Log("player walked behind wall");
+                //Debug.Log("player walked behind wall");
                 hit.transform.gameObject.GetComponent<Island>().bFade = true;
             }
         }

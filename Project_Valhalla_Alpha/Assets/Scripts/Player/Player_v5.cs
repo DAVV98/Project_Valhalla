@@ -39,7 +39,7 @@ public class Player_v5 : MonoBehaviour
     private float resetTimerRate = 100;
     public Camera camera;
 
-    private Rigidbody rb;
+    public Rigidbody rb;
 
     private void Awake()
     {
@@ -51,20 +51,20 @@ public class Player_v5 : MonoBehaviour
         flashColor.a = 0.25f;
     }
 
-    private void Start()
-    {
-        // set player position
-        //if (PlayerPrefs.GetFloat("spawnX") != -99999)
-        //{
-        //    float x = PlayerPrefs.GetFloat("spawnX");
-        //    float y = PlayerPrefs.GetFloat("spawnY");
-        //    float z = PlayerPrefs.GetFloat("spawnZ");
+    //private void Start()
+    //{
+    //    // set player position
+    //    if (PlayerPrefs.GetFloat("spawnX") != -99999)
+    //    {
+    //        float x = PlayerPrefs.GetFloat("spawnX");
+    //        float y = PlayerPrefs.GetFloat("spawnY");
+    //        float z = PlayerPrefs.GetFloat("spawnZ");
 
-        //    Debug.Log("Player::Start(), set spawn = " + x + ", " + y + ", " + z);
-        //    rb.MovePosition(new Vector3(x, y, z));
-        //    transform.position = (new Vector3(x, y, z));
-        //}
-    }
+    //        Debug.Log("Player::Start(), set spawn = " + x + ", " + y + ", " + z);
+    //        rb.MovePosition(new Vector3(x, y, z));
+    //        //transform.position = (new Vector3(x, y, z));
+    //    }
+    //}
 
     private void Update()
     {
@@ -143,11 +143,18 @@ public class Player_v5 : MonoBehaviour
     private void PlayerReset()
     {
         bPlayerFalling = false;
+        //Debug.Log("PlayerReset : " + playerSpawn.position);
         rb.MovePosition(playerSpawn.position);
+        transform.position = playerSpawn.position;
         playerHealth = 9;
         fallSpeed = 4.0f;
-
         //SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+    }
+
+    public void SetPosition(Vector3 pos)
+    {
+        //Debug.Log("Player::SetPosition : pos = " + pos);
+        rb.MovePosition(pos);
     }
 
     private void OnTriggerEnter(Collider other)
@@ -271,6 +278,7 @@ public class Player_v5 : MonoBehaviour
         //transform.position = transform.position + newPosition;
 
         // use vector to move player
+        //SetPosition(transform.position + newPosition);
         rb.MovePosition(transform.position + newPosition);
         //rb.AddForce(newPosition);
         //rb.velocity = newPosition;

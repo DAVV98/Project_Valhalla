@@ -5,6 +5,7 @@ using UnityEngine;
 public class Checkpoint : MonoBehaviour
 {
     public Transform newPlayerSpawn;
+    private PlayerSpawnManager playerSpawnManager;
     public int currentCharge = 3;
 
     public int chargeTimer = 0;
@@ -12,19 +13,26 @@ public class Checkpoint : MonoBehaviour
     public bool bCanHeal = false;
     public bool bShouldHeal = false;
 
+    private void Awake()
+    {
+        playerSpawnManager = FindObjectOfType<PlayerSpawnManager>();
+    }
+
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Player"))
         {
-            PlayerPrefs.SetFloat("spawnX", newPlayerSpawn.position.x);
-            PlayerPrefs.SetFloat("spawnY", newPlayerSpawn.position.y);
-            PlayerPrefs.SetFloat("spawnZ", newPlayerSpawn.position.z);
-            Debug.Log("Checkpoint::OnTriggerEnter(), newPlayerSpawn = " + newPlayerSpawn.position.x + ", " + newPlayerSpawn.position.y + ", " + newPlayerSpawn.position.z);
+            Debug.Log("Checkpoint::OnTriggerEnter : new currentCheckpoint = " + newPlayerSpawn.position);
+            playerSpawnManager.currentCheckpoint = newPlayerSpawn;
+            //PlayerPrefs.SetFloat("spawnX", newPlayerSpawn.position.x);
+            //PlayerPrefs.SetFloat("spawnY", newPlayerSpawn.position.y);
+            //PlayerPrefs.SetFloat("spawnZ", newPlayerSpawn.position.z);
+            //Debug.Log("Checkpoint::OnTriggerEnter(), newPlayerSpawn = " + newPlayerSpawn.position.x + ", " + newPlayerSpawn.position.y + ", " + newPlayerSpawn.position.z);
 
-            float x = PlayerPrefs.GetFloat("spawnX");
-            float y = PlayerPrefs.GetFloat("spawnY");
-            float z = PlayerPrefs.GetFloat("spawnZ");
-            Debug.Log("Checkpoint::OnTriggerEnter(), PlayerPrefs spawn = " + x + ", " + y + ", " + z);
+            //float x = PlayerPrefs.GetFloat("spawnX");
+            //float y = PlayerPrefs.GetFloat("spawnY");
+            //float z = PlayerPrefs.GetFloat("spawnZ");
+            //Debug.Log("Checkpoint::OnTriggerEnter(), PlayerPrefs spawn = " + x + ", " + y + ", " + z);
 
             other.GetComponent<Player_v5>().playerSpawn = newPlayerSpawn;
         }

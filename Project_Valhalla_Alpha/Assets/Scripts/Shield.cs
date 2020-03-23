@@ -73,23 +73,20 @@ public class Shield : MonoBehaviour
     //  - player.shieldTimer should ideally be reset by the player with the use of Coroutines to continually evaluate newShield.bDidHit
     private void OnTriggerEnter(Collider other)
     {
+        bDidHit = true;
+        player.shieldTimer = 0;
 
         if (other.CompareTag("Projectile"))
         {
-            bDidHit = true;
-            player.shieldTimer = 0;
-            gameObject.GetComponent<MeshRenderer>().enabled = false;
-            age = lifetime - 10;
             ReflectArrowByVelocity(other);
         }
         else if (other.CompareTag("Enemy") || other.CompareTag("Pushable") || other.CompareTag("Axe Enemy"))
         {
-            bDidHit = true;
-            player.shieldTimer = 0;
-            gameObject.GetComponent<MeshRenderer>().enabled = false;
-            age = lifetime - 10;
             PushOther(other);
         }
+
+        gameObject.GetComponent<MeshRenderer>().enabled = false;
+        age = lifetime - 10;
     }
 
     private void ReflectArrowByVelocity(Collider other)

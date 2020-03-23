@@ -2116,6 +2116,12 @@ PrefabInstance:
       propertyPath: bArmed
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1627102125349451723, guid: 44bf9c287b9d41f488bba1a0e4a4fbca,
+        type: 3}
+      propertyPath: shieldPrefab
+      value: 
+      objectReference: {fileID: 8360783977189383095, guid: d5656efe67b8c3e4487ed44183cfedc1,
+        type: 3}
     - target: {fileID: 6541924606264444091, guid: 44bf9c287b9d41f488bba1a0e4a4fbca,
         type: 3}
       propertyPath: m_IsActive
