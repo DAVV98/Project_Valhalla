@@ -5,8 +5,13 @@ using UnityEngine;
 public class ProjectileTrigger : MonoBehaviour
 {
     //public bool bActive = false;
-    public GameObject door;
+    public GameObject activateObject;
     public bool Active;
+
+    private void Start()
+    {
+        activateObject.SetActive(false);
+    }
 
     private void OnTriggerEnter(Collider other)
     {
@@ -14,7 +19,7 @@ public class ProjectileTrigger : MonoBehaviour
         {
             Debug.Log("trigger");
             Active = true;
-            //door.SetActive(false);
+            activateObject.SetActive(true);
             Destroy(other.gameObject);
         }
     }
