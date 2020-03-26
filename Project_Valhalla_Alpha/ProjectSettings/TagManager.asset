@@ -16,6 +16,7 @@ TagManager:
   - Axe Enemy
   - Laser
   - ProjectileTrigger
+  - Enemy_Invisable_Wall
   layers:
   - Default
   - TransparentFX
@@ -30,7 +31,7 @@ TagManager:
   - IgnoreInvisibleWall
   - IgnoreLaserCollider
   - LaserEmitter
-  - 
+  - Enemy_Invisable_Wall
   - 
   - 
   - 

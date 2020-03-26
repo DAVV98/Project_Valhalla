@@ -80,7 +80,7 @@ public class Shield : MonoBehaviour
         {
             ReflectArrowByVelocity(other);
         }
-        else if (other.CompareTag("Enemy") || other.CompareTag("Pushable") || other.CompareTag("Axe Enemy"))
+        else if (other.CompareTag("Enemy") || other.CompareTag("Pushable"))
         {
             PushOther(other);
         }

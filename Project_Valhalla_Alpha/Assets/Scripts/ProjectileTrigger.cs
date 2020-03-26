@@ -18,8 +18,19 @@ public class ProjectileTrigger : MonoBehaviour
         if (other.CompareTag("Projectile"))
         {
             Debug.Log("trigger");
-            Active = true;
-            activateObject.SetActive(true);
+            Active = !Active;
+           // activateObject.SetActive(true);
+            
+
+            if (activateObject.activeSelf == true)
+            {
+                activateObject.SetActive(false);
+            }
+            else
+            {
+                activateObject.SetActive(true);
+            }
+
             Destroy(other.gameObject);
         }
     }

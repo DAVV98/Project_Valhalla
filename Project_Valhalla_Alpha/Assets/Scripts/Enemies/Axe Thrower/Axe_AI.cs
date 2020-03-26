@@ -154,7 +154,7 @@ public class Axe_AI : MonoBehaviour
           
         }
 
-        if (collision.tag == "Invisable_Wall")
+        if (collision.tag == "Enemy_Invisable_Wall")
         {
            if (canFall == false)
             {

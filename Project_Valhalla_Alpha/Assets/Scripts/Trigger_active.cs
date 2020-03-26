@@ -8,12 +8,10 @@ public class Trigger_active : MonoBehaviour
 
     [SerializeField] ProjectileTrigger trigger;
     [SerializeField] Material Active_mat;
+    [SerializeField] Material Inactive_mat;
 
     public GameObject Trigger;
-    void Start()
-    {
-        
-    }
+ 
 
     // Update is called once per frame
     void Update()
@@ -21,6 +19,10 @@ public class Trigger_active : MonoBehaviour
         if( trigger.Active == true)
         {
             Trigger.GetComponent<MeshRenderer>().material = Active_mat;
+        }
+        else
+        {
+            Trigger.GetComponent<MeshRenderer>().material = Inactive_mat;
         }
     }
 }
