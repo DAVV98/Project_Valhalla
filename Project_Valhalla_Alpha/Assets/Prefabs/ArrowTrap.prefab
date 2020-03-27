@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 770968152414978176}
   - component: {fileID: 770968152414978177}
   - component: {fileID: 770968152414978181}
+  - component: {fileID: 1973159271704710401}
   m_Layer: 0
   m_Name: ArrowTrap
   m_TagString: Untagged
@@ -112,3 +113,15 @@ MonoBehaviour:
   bMultiDirections: 0
   bRotate: 0
   rotateSpeed: 100
+--- !u!114 &1973159271704710401
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 770968152414978190}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5384b7127de35406f91baf2e9fa84ca2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
