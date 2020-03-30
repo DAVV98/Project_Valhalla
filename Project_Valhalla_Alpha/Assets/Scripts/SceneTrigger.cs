@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class SceneTrigger : MonoBehaviour
 {
+    // this script is for a unique (probably unused) moment where the player walks into a trap
+    // and the walls around them disappear.
     public GameObject invisibleWall;
 
     public ArrowTrap[] arrowTraps;

@@ -8,20 +8,28 @@ public class HealthSpiritManager : MonoBehaviour
     // see that script for source code references
 
     public GameObject player;
-    public Vector3 offset;
-    public float smoothSpeed = 2.0f;
+    [HideInInspector] public Vector3 offset;
+    [HideInInspector] public float smoothSpeed = 8.0f;
     public GameObject hSpirit1, hSpirit2, hSpirit3;
     private float waveAmplitude = 0.25f;
 
     private void Awake()
     {
-        offset = transform.position - player.transform.position;
+        // this is now set in Player_v5::Awake()
+        //offset = transform.position - player.transform.position;
+    }
+
+    private void Start()
+    {
+        // set smoothSpeed to high value initially so it can quickly reach player from its default Vector3.zero spawn
+        smoothSpeed = 2000.0f;
     }
 
     private void FixedUpdate()
     {
         UpdateSpirits();
         MoveManager();
+        smoothSpeed = 8.0f;
     }
 
     private void UpdateSpirits()
