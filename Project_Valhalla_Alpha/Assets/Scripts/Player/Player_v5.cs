@@ -51,6 +51,11 @@ public class Player_v5 : MonoBehaviour
         flashColor.a = 0.25f;
     }
 
+    private void Start()
+    {
+        transform.position = CheckpointManager.position;
+    }
+
     //private void Start()
     //{
     //    // set player position
@@ -142,13 +147,13 @@ public class Player_v5 : MonoBehaviour
 
     private void PlayerReset()
     {
-        bPlayerFalling = false;
-        //Debug.Log("PlayerReset : " + playerSpawn.position);
-        rb.MovePosition(playerSpawn.position);
-        transform.position = playerSpawn.position;
-        playerHealth = 9;
-        fallSpeed = 4.0f;
-        //SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        //bPlayerFalling = false;
+        ////Debug.Log("PlayerReset : " + playerSpawn.position);
+        //rb.MovePosition(playerSpawn.position);
+        //transform.position = playerSpawn.position;
+        //playerHealth = 9;
+        //fallSpeed = 4.0f;
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 
     public void SetPosition(Vector3 pos)
