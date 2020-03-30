@@ -17,6 +17,7 @@ TagManager:
   - Laser
   - ProjectileTrigger
   - Enemy_Invisable_Wall
+  - Door
   layers:
   - Default
   - TransparentFX

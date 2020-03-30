@@ -43,7 +43,7 @@ public class Arrow : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Island"))
+        if (other.CompareTag("Island") || other.CompareTag("Door"))
         {
             Destroy(gameObject);
         }
