@@ -140,7 +140,6 @@ MonoBehaviour:
   bPlayerFalling: 0
   moveSpeed: 5
   playerMinHeight: -4
-  playerSpawn: {fileID: 0}
   fallSpeed: 4
   playerHealth: 9
   bFlashing: 0
@@ -152,10 +151,11 @@ MonoBehaviour:
   bArmed: 1
   ArmedDisplay: {fileID: 6541924606264444091}
   shieldTimer: 0
-  shieldTimerRate: 120
+  shieldTimerRate: 180
   bResetting: 0
   bGoingToReset: 0
   camera: {fileID: 0}
+  rb: {fileID: 0}
 --- !u!1 &6541924605536195457
 GameObject:
   m_ObjectHideFlags: 0
