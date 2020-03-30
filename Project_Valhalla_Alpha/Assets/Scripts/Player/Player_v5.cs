@@ -167,7 +167,7 @@ public class Player_v5 : MonoBehaviour
         }
     }
 
-    private void DamagePlayer(int damageAmount) {
+    public void DamagePlayer(int damageAmount) {
         // flash player material
         bFlashing = true;
 
