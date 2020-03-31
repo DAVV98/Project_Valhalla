@@ -232,9 +232,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d48724501726a0e45b78ff8f360b878f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  target: {fileID: 872663228726616723, guid: 9cbc84b72e46ab44bae424f91d54471c, type: 3}
+  follow: {fileID: 0}
+  target: {fileID: 0}
   MovementSpeed: 2
-  Dist: 10
+  weight: 0
+  Dist: 0
+  minDist: 2
+  canFall: 0
 --- !u!95 &4035080264477787121
 Animator:
   serializedVersion: 3

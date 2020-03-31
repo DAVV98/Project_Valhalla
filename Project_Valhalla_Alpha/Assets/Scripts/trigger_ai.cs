@@ -6,9 +6,9 @@ public class trigger_ai : MonoBehaviour
 {
 
     // Start is called before the first frame update
-    [SerializeField] GameObject player;
+    [SerializeField] GameObject Player;
 
-    private bool follow;
+    public bool follow;
 
     void Start()
     {
@@ -20,13 +20,17 @@ public class trigger_ai : MonoBehaviour
     {
         
     }
-
     private void OnTriggerEnter(Collider other)
     {
-        if(CompareTag("Palyer") == true)
+        if (other.CompareTag("Player"))
         {
             follow = true;
         }
+        else
+        {
+
+        }
     }
+   
 
 }

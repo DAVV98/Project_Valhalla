@@ -51,7 +51,8 @@ public class MAttack : MonoBehaviour,IResiveHitRedirect
 
     public void hitredirect(Collider other, HitType hit)
     {
-        if (hit == HitType.attackarea )
+        
+        if (hit == HitType.attackarea & other.CompareTag("Player") )
         {
             anim.SetTrigger("attack");
             sword.SetActive(true);

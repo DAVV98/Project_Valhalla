@@ -4,12 +4,12 @@ using UnityEngine;
 
 public class S_movement : MonoBehaviour
 {
-    [SerializeField] trigger_ai follow;
+    [SerializeField] trigger_ai trigger;
     public Transform target;
     public float MovementSpeed = 3f;
     public float weight;
 
-    public float Dist;
+    public float minDist;
     public bool canFall;
     void Start()
     {
@@ -18,10 +18,22 @@ public class S_movement : MonoBehaviour
 
     void Update()
     {
-        if (follow == true)
+        if (trigger.follow == true)
         {
-            turn();
-            Move();
+
+            transform.LookAt(target);
+
+            transform.position += transform.forward * MovementSpeed * Time.deltaTime;
+
+            if (Vector3.Distance(transform.position, target.position) < minDist)
+            {
+                transform.position -= transform.forward * MovementSpeed * Time.fixedDeltaTime;
+            }
+
+        }
+        else
+        {
+
         }
         
     }
@@ -49,7 +61,7 @@ public class S_movement : MonoBehaviour
     void turn()
     {
 
-        transform.LookAt(target);
+        
 
         // Vector3 pos = target.position - transform.position;
         // Quaternion rotation = Quaternion.LookRotation(pos);
@@ -59,7 +71,7 @@ public class S_movement : MonoBehaviour
 
     void Move()
     {
-       transform.position += transform.forward * MovementSpeed * Time.deltaTime;
+       
     }
 
     void shieldPush()
