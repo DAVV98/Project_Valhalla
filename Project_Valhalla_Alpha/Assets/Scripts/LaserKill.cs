@@ -14,5 +14,10 @@ public class LaserKill : MonoBehaviour
         {
             other.GetComponent<ProjectileTrigger>().Active = true;
         }
+
+        if( other.tag == "Axe Enemy")
+        {
+            Destroy(other.gameObject);
+        }
     }
 }
