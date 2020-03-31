@@ -6,7 +6,7 @@ public class LaserKill : MonoBehaviour
 {
     private void OnParticleCollision(GameObject other)
     {
-        if (other.tag == "Player")
+        if (other.tag == "Player"||other.tag == "Axe Enemy")
         {
             Destroy(other.gameObject);
         }

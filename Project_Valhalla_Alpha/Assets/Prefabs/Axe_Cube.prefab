@@ -14,11 +14,11 @@ GameObject:
   - component: {fileID: 6988352104285954435}
   - component: {fileID: 2167858987527002792}
   - component: {fileID: 7953604849727605780}
-  - component: {fileID: -1557292678349614813}
   - component: {fileID: 613554801340120188}
+  - component: {fileID: -6957544565479690687}
   m_Layer: 10
   m_Name: Axe_Cube
-  m_TagString: Enemy
+  m_TagString: Projectile
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -30,7 +30,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8291421867862500384}
-  m_LocalRotation: {x: 0, y: 0.5514597, z: 0, w: 0.8342015}
+  m_LocalRotation: {x: 0, y: 0.58185774, z: 0, w: 0.81329066}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.2, y: 0.2, z: 0.2}
   m_Children: []
@@ -127,7 +127,20 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 0
---- !u!114 &-1557292678349614813
+--- !u!65 &613554801340120188
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8291421867862500384}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &-6957544565479690687
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -139,18 +152,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 26fa93131a6ed974da42b3ee8aa10a0f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 15
+  speed: 10
   deathTimerMax: 1
---- !u!65 &613554801340120188
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8291421867862500384}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}

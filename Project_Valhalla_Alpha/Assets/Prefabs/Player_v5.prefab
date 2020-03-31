@@ -156,6 +156,7 @@ MonoBehaviour:
   bResetting: 0
   bGoingToReset: 0
   camera: {fileID: 0}
+  rb: {fileID: 0}
 --- !u!1 &6541924605536195457
 GameObject:
   m_ObjectHideFlags: 0
