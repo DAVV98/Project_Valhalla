@@ -8,7 +8,7 @@ public class LaserKill : MonoBehaviour
     {
         if (other.tag == "Player"||other.tag == "Axe Enemy")
         {
-            Destroy(other.gameObject);
+            other.GetComponent<Player_v5>().DamagePlayer(9);
         }
         else if (other.tag == "ProjectileTrigger")
         {

@@ -8,6 +8,7 @@ public class SceneChange : MonoBehaviour {
     void OnTriggerEnter(Collider other) {
         // "if layer == 'Player'"
         if (other.gameObject.CompareTag("Player")) {
+            CheckpointManager.position = Vector3.zero;
             fadeObject.FadeToLevel();
         }
     }

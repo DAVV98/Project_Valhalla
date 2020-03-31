@@ -10,7 +10,6 @@ public class Player_v5 : MonoBehaviour
     public float moveSpeed = 250.0f;
     public float playerMinHeight = -4.0f;
     private int lookDirection = 0;
-    public Transform playerSpawn;
     public float fallSpeed = 4.0f;
 
     [Header("Health")]
@@ -49,22 +48,14 @@ public class Player_v5 : MonoBehaviour
         oldColor = gameObject.GetComponent<MeshRenderer>().material.color;
         flashColor = gameObject.GetComponent<MeshRenderer>().material.color;
         flashColor.a = 0.25f;
+
+        // initialise position
+        transform.position = CheckpointManager.position;
+        Vector3 cameraOffset = new Vector3(0.0f, 9.5f, -10.5f);
+        Vector3 healthSpiritsOffset = Vector3.zero;
+        FindObjectOfType<CameraController>().offset = cameraOffset;
+        FindObjectOfType<HealthSpiritManager>().offset = healthSpiritsOffset;
     }
-
-    //private void Start()
-    //{
-    //    // set player position
-    //    if (PlayerPrefs.GetFloat("spawnX") != -99999)
-    //    {
-    //        float x = PlayerPrefs.GetFloat("spawnX");
-    //        float y = PlayerPrefs.GetFloat("spawnY");
-    //        float z = PlayerPrefs.GetFloat("spawnZ");
-
-    //        Debug.Log("Player::Start(), set spawn = " + x + ", " + y + ", " + z);
-    //        rb.MovePosition(new Vector3(x, y, z));
-    //        //transform.position = (new Vector3(x, y, z));
-    //    }
-    //}
 
     private void Update()
     {
@@ -142,18 +133,11 @@ public class Player_v5 : MonoBehaviour
 
     private void PlayerReset()
     {
-        bPlayerFalling = false;
-        //Debug.Log("PlayerReset : " + playerSpawn.position);
-        rb.MovePosition(playerSpawn.position);
-        transform.position = playerSpawn.position;
-        playerHealth = 9;
-        fallSpeed = 4.0f;
-        //SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 
     public void SetPosition(Vector3 pos)
     {
-        //Debug.Log("Player::SetPosition : pos = " + pos);
         rb.MovePosition(pos);
     }
 
@@ -183,7 +167,7 @@ public class Player_v5 : MonoBehaviour
         }
     }
 
-    private void DamagePlayer(int damageAmount) {
+    public void DamagePlayer(int damageAmount) {
         // flash player material
         bFlashing = true;
 

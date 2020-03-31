@@ -5,13 +5,20 @@ using UnityEngine;
 public class CameraController : MonoBehaviour
 {
     public GameObject player;
-    private Vector3 offset;
-    public float smoothSpeed = 2.0f;
+    [HideInInspector] public Vector3 offset;
+    [HideInInspector] public float smoothSpeed = 2.0f;
     
 
     private void Awake() {
         // offset borrowed from: https://learn.unity.com/tutorial/movement-basics?projectId=5c514956edbc2a002069467c#5c7f8528edbc2a002053b711
-        offset = transform.position - player.transform.position;
+        // this is now set in Player_v5::Awake()
+        //offset = transform.position - player.transform.position;
+    }
+
+    private void Start()
+    {
+        // set smoothSpeed to high value initially so it can quickly reach player from its default Vector3.zero spawn
+        smoothSpeed = 2000.0f;
     }
 
     // research on LateUpdate() or FixedUpdate():
@@ -20,6 +27,7 @@ public class CameraController : MonoBehaviour
     // LateUpdate(), or FixedUpdate(), if moving player via Rigidbody physics
     private void FixedUpdate() {
         MoveCamera();
+        smoothSpeed = 2.0f;
     }
 
     private void LateUpdate()
