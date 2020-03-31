@@ -6,15 +6,18 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/Will Scenes/WillMenuScene3_Tutorial_NewFormat.unity
-    guid: 8445ba72318568f4bb3090f8253af7f5
+    path: Assets/Scenes/_BuildScenes/Beta/Menu wo tutorial.unity
+    guid: 04c4dcf8195e51c45b17f31ae80210ce
   - enabled: 1
-    path: Assets/Scenes/Will Scenes/WillPlaytestScene4_Level1_Introduction.unity
-    guid: 70f1ce8c6163db040901e5485e5cdfa6
+    path: Assets/Scenes/_BuildScenes/Beta/Intro + Tutorial merged.unity
+    guid: 9b4fc8bd23ef68045bbd2ebb5b484148
   - enabled: 1
-    path: Assets/Scenes/Will Scenes/WillPlaytestScene6_Level2_.unity
-    guid: 8631d20a1f3fffe469f2064a6df12e00
+    path: Assets/Scenes/_BuildScenes/Beta/Level 1.5.unity
+    guid: 1e13c058463a65d45b8c62164c272145
   - enabled: 1
-    path: Assets/Scenes/Will Scenes/WillPlaytestScene5_Level6_End.unity
-    guid: 72cddc0590208bd4ca0c182d9e8445ac
+    path: Assets/Scenes/_BuildScenes/Beta/Level 3 wo invisible walls.unity
+    guid: dcb1ad2181d2197419811f21a0fe393c
+  - enabled: 1
+    path: Assets/Scenes/_BuildScenes/Beta/Conclusion.unity
+    guid: e8feda2f68209b64eadc7a26b577059a
   m_configObjects: {}
