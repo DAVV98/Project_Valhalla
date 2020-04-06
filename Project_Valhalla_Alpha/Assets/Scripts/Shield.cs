@@ -116,7 +116,7 @@ public class Shield : MonoBehaviour
             gameObject.GetComponent<MeshRenderer>().enabled = false;
             age = lifetime - 10;
         }
-        // reset the shield if arrow trap or projectile trigger
+        // reset the shield if trigger is not an arrow trap
         else if (!other.CompareTag("ArrowTrap"))
         {
             Debug.Log("shield didn't hit arrow trap");
@@ -126,13 +126,6 @@ public class Shield : MonoBehaviour
             gameObject.GetComponent<MeshRenderer>().enabled = false;
             age = lifetime - 10;
         }
-        //else if (!other.CompareTag("ProjectileTrigger")) 
-        //{
-        //    bDidHit = true;
-        //    player.shieldTimer = 0;
-        //    gameObject.GetComponent<MeshRenderer>().enabled = false;
-        //    age = lifetime - 10;
-        //}
 
     }
 
