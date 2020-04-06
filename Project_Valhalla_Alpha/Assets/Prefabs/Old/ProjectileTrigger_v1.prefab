@@ -14,8 +14,8 @@ GameObject:
   - component: {fileID: 264336855142675886}
   - component: {fileID: -5024929630639195751}
   m_Layer: 0
-  m_Name: ProjectileTrigger_old
-  m_TagString: Untagged
+  m_Name: ProjectileTrigger_v1
+  m_TagString: ProjectileTrigger
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

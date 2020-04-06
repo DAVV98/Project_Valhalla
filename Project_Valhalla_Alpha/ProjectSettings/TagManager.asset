@@ -18,6 +18,7 @@ TagManager:
   - ProjectileTrigger
   - Enemy_Invisable_Wall
   - Door
+  - ArrowTrap
   layers:
   - Default
   - TransparentFX

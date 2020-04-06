@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 1973159271704710401}
   m_Layer: 2
   m_Name: ArrowTrap
-  m_TagString: Untagged
+  m_TagString: ArrowTrap
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -109,6 +109,7 @@ MonoBehaviour:
   bActive: 0
   arrowPrefab: {fileID: 6143703689584354109, guid: d803612daceccab4fad1b710bef167eb,
     type: 3}
+  shootTimer: 0
   shootInterval: 50
   bMultiDirections: 0
   bRotate: 0

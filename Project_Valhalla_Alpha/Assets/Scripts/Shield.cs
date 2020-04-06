@@ -107,7 +107,7 @@ public class Shield : MonoBehaviour
             gameObject.GetComponent<MeshRenderer>().enabled = false;
             age = lifetime - 10;
         }
-        else if (other.CompareTag("Player") || other.CompareTag("Island"))
+        else if (!other.CompareTag("ArrowTrap") || !other.CompareTag("ProjectileTrigger"))
         {
             bDidHit = true;
             player.shieldTimer = 0;
