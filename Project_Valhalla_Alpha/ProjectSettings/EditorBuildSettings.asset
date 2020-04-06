@@ -6,7 +6,7 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/_BuildScenes/Beta/00 Menu wo tutorial.unity
+    path: Assets/Scenes/_BuildScenes/Beta/00 Menu wo tutorial button.unity
     guid: 04c4dcf8195e51c45b17f31ae80210ce
   - enabled: 1
     path: Assets/Scenes/_BuildScenes/Beta/01 Intro + Tutorial merged.unity
