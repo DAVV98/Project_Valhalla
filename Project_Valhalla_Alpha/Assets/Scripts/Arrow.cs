@@ -11,10 +11,20 @@ public class Arrow : MonoBehaviour
     public Vector3 direction = Vector3.zero;
 
     public Rigidbody rb;
+    
+
+    public AudioSource audioSource_arrowShoot;
+    public AudioSource audioSource_arrowHit;
 
     private void Awake()
     {
         rb = GetComponent<Rigidbody>();
+    }
+
+    private void Start()
+    {
+        // play shoot sound
+        audioSource_arrowShoot.Play();
     }
 
     private void FixedUpdate()
@@ -45,6 +55,9 @@ public class Arrow : MonoBehaviour
     {
         if (other.CompareTag("Island") || other.CompareTag("Door"))
         {
+            // play collision sound
+            audioSource_arrowHit.Play();
+            
             Destroy(gameObject);
         }
     }

@@ -28,10 +28,13 @@ public class ArrowTrap : MonoBehaviour
 
     private void RotateTrap()
     {
-        float yAngle = rotateTimer * rotateSpeed;
-        Quaternion newRotation = Quaternion.Euler(0, yAngle, 0);
-        transform.rotation = newRotation;
-        rotateTimer++;
+        if (bActive)
+        {
+            float yAngle = rotateTimer * rotateSpeed;
+            Quaternion newRotation = Quaternion.Euler(0, yAngle, 0);
+            transform.rotation = newRotation;
+            rotateTimer++;
+        }
     }
 
     // improvements
@@ -79,6 +82,22 @@ public class ArrowTrap : MonoBehaviour
         else
         {
             transform.localScale = Vector3.one * 0.75f;
+        }
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("Player"))
+        {
+            bActive = true;
+        }
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.CompareTag("Player"))
+        {
+            bActive = false;
         }
     }
 }

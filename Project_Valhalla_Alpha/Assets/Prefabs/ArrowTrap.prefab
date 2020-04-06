@@ -89,10 +89,10 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 770968152414978190}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
+  m_Size: {x: 20, y: 5, z: 20}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &770968152414978181
 MonoBehaviour:
@@ -106,8 +106,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c8816a1ce8f1a704b9beef0fbf32ad78, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bActive: 1
-  arrowPrefab: {fileID: 6143703689584354109, guid: 71206c00b3c5dc0428f85685e7ee9278,
+  bActive: 0
+  arrowPrefab: {fileID: 6143703689584354109, guid: d803612daceccab4fad1b710bef167eb,
     type: 3}
   shootInterval: 50
   bMultiDirections: 0

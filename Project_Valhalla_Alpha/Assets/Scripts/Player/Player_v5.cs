@@ -46,6 +46,8 @@ public class Player_v5 : MonoBehaviour
     public AudioSource audioSource_playerHit;
     public AudioSource audioSource_playerFootsteps;
     private bool bShieldPickupSoundPlayed = true;
+    private int footstepTimer = 0;
+    private int footstepTimerRate = 20;
 
 
     private void Awake()
@@ -286,15 +288,23 @@ public class Player_v5 : MonoBehaviour
             Vector3 movement = new Vector3(input_hori, 0.0f, input_vert);
             rb.MoveRotation(Quaternion.LookRotation(movement));
         }
-
-        //transform.position = transform.position + newPosition;
-
-        // use vector to move player
-        //SetPosition(transform.position + newPosition);
+        
         rb.MovePosition(transform.position + newPosition);
-        //rb.AddForce(newPosition);
-        //rb.velocity = newPosition;
-        //rb.AddForce(newPosition);
+
+        // play random footstep sound
+        if (input_hori != 0 || input_vert != 0)
+        {
+            if (footstepTimer % footstepTimerRate == 0)
+            {
+                audioSource_playerFootsteps.Play();
+            }
+            // increment foostepTimer after check so that foostep plays on first frame of player movement
+            footstepTimer++;
+        } else
+        {
+            // reset footstepTimer so that footstep plays on first frame of player movement
+            footstepTimer = 0;
+        }
     }
 
     // function taken from post #4: https://forum.unity.com/threads/mapping-or-scaling-values-to-a-new-range.180090/
