@@ -107,13 +107,32 @@ public class Shield : MonoBehaviour
             gameObject.GetComponent<MeshRenderer>().enabled = false;
             age = lifetime - 10;
         }
-        else if (!other.CompareTag("ArrowTrap") || !other.CompareTag("ProjectileTrigger"))
+        // reset shield if hit player or island
+        else if (other.CompareTag("Player") || other.CompareTag("Island"))
         {
+            Debug.Log("shield hit player or island");
             bDidHit = true;
             player.shieldTimer = 0;
             gameObject.GetComponent<MeshRenderer>().enabled = false;
             age = lifetime - 10;
         }
+        // reset the shield if arrow trap or projectile trigger
+        else if (!other.CompareTag("ArrowTrap"))
+        {
+            Debug.Log("shield didn't hit arrow trap");
+
+            bDidHit = true;
+            player.shieldTimer = 0;
+            gameObject.GetComponent<MeshRenderer>().enabled = false;
+            age = lifetime - 10;
+        }
+        //else if (!other.CompareTag("ProjectileTrigger")) 
+        //{
+        //    bDidHit = true;
+        //    player.shieldTimer = 0;
+        //    gameObject.GetComponent<MeshRenderer>().enabled = false;
+        //    age = lifetime - 10;
+        //}
 
     }
 

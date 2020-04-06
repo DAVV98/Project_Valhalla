@@ -8,13 +8,19 @@ public class ProjectileTrigger_old : MonoBehaviour
     public bool bActive = false;
     public Material activeMaterial;
 
+    public AudioSource audioSource_activate;
+    public AudioSource audioSource_doorOpen;
+
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Projectile"))
+        if (other.CompareTag("Projectile") && bActive == false)
         {
             bActive = true;
             door.SetActive(false);
             Destroy(other.gameObject);
+
+            audioSource_activate.Play();
+            audioSource_doorOpen.Play();
         }
     }
 
