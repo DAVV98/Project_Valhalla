@@ -40,7 +40,6 @@ public class Player_v5 : MonoBehaviour
     [HideInInspector]  public Rigidbody rb;
 
     [Header("Sound")]
-    public AudioSource audioSource_shieldThrow;
     public AudioSource audioSource_shieldPickup;
     public AudioSource audioSource_healthPickup;
     public AudioSource audioSource_playerHit;
@@ -240,8 +239,7 @@ public class Player_v5 : MonoBehaviour
 
     private void ShieldThrow()
     {
-        // play sound
-        audioSource_shieldThrow.Play();
+        // set shield pickup sound to false
         bShieldPickupSoundPlayed = false;
 
         // instantiate shield

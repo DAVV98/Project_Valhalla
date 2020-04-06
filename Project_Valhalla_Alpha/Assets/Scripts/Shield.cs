@@ -26,6 +26,10 @@ public class Shield : MonoBehaviour
     public Player_v5 player;
     private Rigidbody rb;
 
+    [Header("Sound")]
+    public AudioSource audioSource_shieldThrow;
+    public AudioSource audioSource_shieldHit;
+
     private void Awake()
     {
         rb = GetComponent<Rigidbody>();
@@ -35,6 +39,12 @@ public class Shield : MonoBehaviour
         oldColor = gameObject.GetComponent<MeshRenderer>().material.color;
         fadeColor = gameObject.GetComponent<MeshRenderer>().material.color;
         fadeColor.a = 0.0f;
+    }
+
+    private void Start()
+    {
+        // play throw sound
+        audioSource_shieldThrow.Play();
     }
 
     private void FixedUpdate()
@@ -73,6 +83,9 @@ public class Shield : MonoBehaviour
     //  - player.shieldTimer should ideally be reset by the player with the use of Coroutines to continually evaluate newShield.bDidHit
     private void OnTriggerEnter(Collider other)
     {
+        // play hit sound
+        audioSource_shieldHit.Play();
+
         if (other.CompareTag("Projectile"))
         {
             bDidHit = true;
@@ -94,7 +107,7 @@ public class Shield : MonoBehaviour
             gameObject.GetComponent<MeshRenderer>().enabled = false;
             age = lifetime - 10;
         }
-        else if (other.CompareTag("Player"))
+        else if (other.CompareTag("Player") || other.CompareTag("Island"))
         {
             bDidHit = true;
             player.shieldTimer = 0;
