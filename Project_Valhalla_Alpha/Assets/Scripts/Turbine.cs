@@ -11,10 +11,15 @@ public class Turbine : MonoBehaviour
     private void FixedUpdate()
     {
         RaycastHit windRay;
-        if (Physics.Raycast(transform.position, transform.forward, out windRay, 100.0f)) {
-            if (windRay.collider.GetComponent<MoveByWind>()) {
-                windArea = windRay.collider.gameObject;
-                windArea.GetComponent<Rigidbody>().AddForce(transform.forward * windForce);
+        if (Physics.Raycast(transform.position, transform.forward, out windRay, 100.0f))
+        {
+            if (windRay.collider.attachedRigidbody != null)
+            {
+                if (windRay.collider.GetComponent<MoveByWind>())
+                {
+                    windArea = windRay.collider.gameObject;
+                    windArea.GetComponent<Rigidbody>().AddForce(transform.forward * windForce);
+                }
             }
         }
 

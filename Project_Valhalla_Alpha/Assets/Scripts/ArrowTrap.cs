@@ -6,7 +6,7 @@ public class ArrowTrap : MonoBehaviour
 {
     public bool bActive = false;
     public Arrow arrowPrefab;
-    private int shootTimer = 0;
+    public int shootTimer = 0;
     public int shootInterval = 50;
 
     public bool bMultiDirections = false;
@@ -85,6 +85,7 @@ public class ArrowTrap : MonoBehaviour
         }
     }
 
+    // set active if player near
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Player"))
@@ -93,6 +94,7 @@ public class ArrowTrap : MonoBehaviour
         }
     }
 
+    // set inactive if player near
     private void OnTriggerExit(Collider other)
     {
         if (other.CompareTag("Player"))

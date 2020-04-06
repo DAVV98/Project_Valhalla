@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 770968152414978177}
   - component: {fileID: 770968152414978181}
   - component: {fileID: 1973159271704710401}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: ArrowTrap
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -92,7 +92,7 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 20, y: 5, z: 20}
+  m_Size: {x: 25, y: 5, z: 25}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &770968152414978181
 MonoBehaviour:
