@@ -41,7 +41,8 @@ public class Checkpoint : MonoBehaviour
 
             if (bShouldHeal && bCanHeal && currentCharge > 0)
             {
-                other.GetComponent<Player_v5>().playerHealth += 3;
+                other.GetComponent<Player_v5>().HealPlayer();
+                //other.GetComponent<Player_v5>().playerHealth += 3;
                 currentCharge--;
                 chargeTimer = chargeTimerRate;
                 bCanHeal = false;

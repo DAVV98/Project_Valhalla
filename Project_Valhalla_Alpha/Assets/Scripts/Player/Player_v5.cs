@@ -37,8 +37,16 @@ public class Player_v5 : MonoBehaviour
     private float resetTimer = 0;
     private float resetTimerRate = 100;
     public Camera camera;
+    [HideInInspector]  public Rigidbody rb;
 
-    public Rigidbody rb;
+    [Header("Sound")]
+    public AudioSource audioSource_shieldThrow;
+    public AudioSource audioSource_shieldPickup;
+    public AudioSource audioSource_healthPickup;
+    public AudioSource audioSource_playerHit;
+    public AudioSource audioSource_playerFootsteps;
+    private bool bShieldPickupSoundPlayed = true;
+
 
     private void Awake()
     {
@@ -57,7 +65,7 @@ public class Player_v5 : MonoBehaviour
         FindObjectOfType<HealthSpiritManager>().offset = healthSpiritsOffset;
     }
 
-    private void Update()
+    private void FixedUpdate()
     {
         if (bArmed && bSpacePressed())
         {
@@ -65,9 +73,6 @@ public class Player_v5 : MonoBehaviour
             bArmed = false;
             shieldTimer = shieldTimerRate;
         }
-    }
-    private void FixedUpdate()
-    {
 
         if (!bPlayerFalling)
         {
@@ -103,6 +108,13 @@ public class Player_v5 : MonoBehaviour
         }
         else if (shieldTimer <= 0)
         {
+            if (!bShieldPickupSoundPlayed)
+            {
+                // play sound
+                audioSource_shieldPickup.Play();
+                bShieldPickupSoundPlayed = true;
+            }
+
             bArmed = true;
         }
 
@@ -168,11 +180,23 @@ public class Player_v5 : MonoBehaviour
     }
 
     public void DamagePlayer(int damageAmount) {
+        // play sound
+        audioSource_playerHit.Play();
+
         // flash player material
         bFlashing = true;
 
         // decrease health
         playerHealth -= damageAmount;
+    }
+
+    public void HealPlayer(int healAmount = 3)
+    {
+        // play sound
+        audioSource_healthPickup.Play();
+
+        // increase health
+        playerHealth += healAmount;
     }
 
     // flash player material when hit
@@ -214,6 +238,10 @@ public class Player_v5 : MonoBehaviour
 
     private void ShieldThrow()
     {
+        // play sound
+        audioSource_shieldThrow.Play();
+        bShieldPickupSoundPlayed = false;
+
         // instantiate shield
         Shield newShield = Instantiate(shieldPrefab, shieldSpawn.position, shieldSpawn.rotation);
         newShield.direction = shieldSpawn.forward;
