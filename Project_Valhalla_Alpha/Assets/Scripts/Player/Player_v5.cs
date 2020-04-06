@@ -45,8 +45,8 @@ public class Player_v5 : MonoBehaviour
     public AudioSource audioSource_playerHit;
     public AudioSource audioSource_playerFootsteps;
     private bool bShieldPickupSoundPlayed = true;
-    private int footstepTimer = 0;
-    private int footstepTimerRate = 20;
+    public int footstepTimer = 0;
+    public int footstepTimerRate = 20;
 
 
     private void Awake()
@@ -294,6 +294,7 @@ public class Player_v5 : MonoBehaviour
         {
             if (footstepTimer % footstepTimerRate == 0)
             {
+                Debug.Log("playing footstep sound");
                 audioSource_playerFootsteps.Play();
             }
             // increment foostepTimer after check so that foostep plays on first frame of player movement

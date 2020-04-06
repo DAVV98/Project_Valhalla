@@ -164,6 +164,8 @@ MonoBehaviour:
   audioSource_healthPickup: {fileID: 1525707942}
   audioSource_playerHit: {fileID: 1525707944}
   audioSource_playerFootsteps: {fileID: 1525707943}
+  footstepTimer: 0
+  footstepTimerRate: 20
 --- !u!82 &1525707945
 AudioSource:
   m_ObjectHideFlags: 0
