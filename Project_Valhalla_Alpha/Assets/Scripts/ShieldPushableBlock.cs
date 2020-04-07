@@ -4,11 +4,24 @@ using UnityEngine;
 
 public class ShieldPushableBlock : MonoBehaviour
 {
-    public float minHeight = -4.0f;
+    public float seaLevel = -3.0f;
+    public AudioSource audioSource_waterSplash;
+    private bool bSplashSoundPlayed = false;
 
     private void Update()
     {
-        if (transform.position.y <= minHeight)
+        if (transform.position.y <= seaLevel)
+        {
+            if (!bSplashSoundPlayed)
+            {
+                Debug.Log("ShieldPushableBlock::Update(), playing splash sound");
+                audioSource_waterSplash.Play();
+                bSplashSoundPlayed = true;
+            }
+        }
+
+        // don't destroy immediately otherwise the sound won't play
+        if (transform.position.y <= -100.0f)
         {
             Destroy(this.gameObject);
         }

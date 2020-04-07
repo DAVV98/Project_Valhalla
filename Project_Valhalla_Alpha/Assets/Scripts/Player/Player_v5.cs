@@ -204,10 +204,8 @@ public class Player_v5 : MonoBehaviour
     private void FlashTimer() {
         if (flashTimer % 5 == 0) {
             gameObject.GetComponent<MeshRenderer>().material.color = flashColor;
-            Debug.Log("flash color");
         } else {
             gameObject.GetComponent<MeshRenderer>().material.color = oldColor;
-            Debug.Log("normal color");
         }
 
         if (flashTimer >= flashTimerRate) {
@@ -217,8 +215,6 @@ public class Player_v5 : MonoBehaviour
         }
         
         flashTimer += 1;
-
-        //Debug.Log(flashTimerCounter);
     }
 
     // falling could be improved:
@@ -260,7 +256,7 @@ public class Player_v5 : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            Debug.Log("Player pressed SPACE");
+            Debug.Log("Player::bSpacePressed(), Player pressed SPACE");
         }
         return Input.GetKeyDown(KeyCode.Space);
     }
@@ -294,7 +290,6 @@ public class Player_v5 : MonoBehaviour
         {
             if (footstepTimer % footstepTimerRate == 0)
             {
-                Debug.Log("playing footstep sound");
                 audioSource_playerFootsteps.Play();
             }
             // increment foostepTimer after check so that foostep plays on first frame of player movement

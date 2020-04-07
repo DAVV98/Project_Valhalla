@@ -639,7 +639,7 @@ MonoBehaviour:
   sounds:
   - name: Wind
     clip: {fileID: 8300000, guid: d72521deb8136694a88e9bbe991216b4, type: 3}
-    volume: 1
+    volume: 0.15
     loop: 1
     source: {fileID: 0}
 --- !u!4 &1836259321
