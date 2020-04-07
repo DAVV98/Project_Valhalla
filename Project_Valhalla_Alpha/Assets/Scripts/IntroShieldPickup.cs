@@ -5,6 +5,8 @@ using UnityEngine;
 public class IntroShieldPickup : MonoBehaviour
 {
     public GameObject invisibleWall;
+    public AudioSource audioSource_shieldPickup;
+    private bool bActivateSoundPlayed = false;
 
     // when player triggers this object:
     //  1. enable shield
@@ -15,9 +17,16 @@ public class IntroShieldPickup : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
+            if (bActivateSoundPlayed == false)
+            {
+                audioSource_shieldPickup.Play();
+                bActivateSoundPlayed = true;
+            }
+
             other.gameObject.GetComponent<Player_v5>().shieldTimer = 0;
             invisibleWall.SetActive(false);
-            gameObject.SetActive(false);
+            gameObject.GetComponent<MeshRenderer>().enabled = false;
+            //gameObject.SetActive(false);
         }
     }
 }

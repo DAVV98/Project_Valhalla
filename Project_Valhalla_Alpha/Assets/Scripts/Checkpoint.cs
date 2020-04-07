@@ -12,11 +12,20 @@ public class Checkpoint : MonoBehaviour
     public bool bCanHeal = false;
     public bool bShouldHeal = false;
 
+    public AudioSource audioSource_checkpointActive;
+    private bool bActivateSoundPlayed = false;
+
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Player"))
         {
             CheckpointManager.position = newPlayerSpawn.position;
+
+            if (bActivateSoundPlayed == false)
+            {
+                audioSource_checkpointActive.Play();
+                bActivateSoundPlayed = true;
+            }
         }
     }
 
