@@ -117,7 +117,7 @@ public class Shield : MonoBehaviour
             age = lifetime - 10;
         }
         // reset the shield if trigger is not an arrow trap
-        else if (!other.CompareTag("ArrowTrap") || !other.CompareTag("SoundTrigger"))
+        else if (!other.CompareTag("SoundTrigger"))
         {
             Debug.Log("shield didn't hit arrow trap");
 
