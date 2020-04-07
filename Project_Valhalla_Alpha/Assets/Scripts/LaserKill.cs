@@ -6,16 +6,17 @@ public class LaserKill : MonoBehaviour
 {
     private void OnParticleCollision(GameObject other)
     {
-        if (other.tag == "Player")
+        if (other.CompareTag("Player"))
         {
+            Debug.Log("LaserKill::OnParticleCollision, player killed");
             other.GetComponent<Player_v5>().DamagePlayer(9);
         }
-        else if (other.tag == "ProjectileTrigger")
+        else if (other.CompareTag("ProjectileTrigger"))
         {
             other.GetComponent<ProjectileTrigger>().Active = true;
         }
 
-        if( other.tag == "Axe Enemy")
+        if (other.CompareTag("Axe Enemy"))
         {
             Destroy(other.gameObject);
         }
