@@ -285,15 +285,15 @@ public class Player_v5 : MonoBehaviour
         
         rb.MovePosition(transform.position + newPosition);
 
-        // play random footstep sound
+        // play footstep sound
         if (input_hori != 0 || input_vert != 0)
         {
-            if (footstepTimer % footstepTimerRate == 0)
+            if ((footstepTimer % footstepTimerRate == 0) && !audioSource_playerFootsteps.isPlaying)
             {
                 audioSource_playerFootsteps.Play();
             }
             // increment foostepTimer after check so that foostep plays on first frame of player movement
-            footstepTimer++;
+            ++footstepTimer;
         } else
         {
             // reset footstepTimer so that footstep plays on first frame of player movement

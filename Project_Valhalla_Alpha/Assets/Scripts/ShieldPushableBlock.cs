@@ -21,9 +21,9 @@ public class ShieldPushableBlock : MonoBehaviour
         }
 
         // don't destroy immediately otherwise the sound won't play
-        if (transform.position.y <= -100.0f)
+        if (transform.position.y <= -60.0f)
         {
-            Destroy(this.gameObject);
+            Destroy(gameObject);
         }
     }
 
