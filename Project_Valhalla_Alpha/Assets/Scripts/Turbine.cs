@@ -10,6 +10,9 @@ public class Turbine : MonoBehaviour
     public bool bActive = false;
 
     public AudioSource audioSource_turbineBlow;
+    public float fadeSpeed = 1.5f;
+    public float maxVolume = 0.3f;
+    public float minVolume = 0.0f;
 
     private void Start()
     {
@@ -23,12 +26,20 @@ public class Turbine : MonoBehaviour
             ShootRay();
         }
 
-        audioSource_turbineBlow.mute = !bActive;
-        //else
-        //{
-        //    audioSource_turbineBlow.Stop();
-        //}
+        PlaySound();
+    }
 
+    void PlaySound()
+    {
+        float currentVolume = audioSource_turbineBlow.volume;
+        if (bActive == true)
+        {
+            audioSource_turbineBlow.volume = Mathf.Lerp(currentVolume, maxVolume, fadeSpeed * Time.deltaTime);
+        }
+        else
+        {
+            audioSource_turbineBlow.volume = Mathf.Lerp(currentVolume, minVolume, fadeSpeed * Time.deltaTime);
+        }
     }
     
     // set active if player near

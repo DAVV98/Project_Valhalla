@@ -9,6 +9,7 @@ public class ProjectileTrigger : MonoBehaviour
     public bool Active;
 
     public AudioSource audioSource_activate;
+    public AudioSource audioSource_deactivate;
 
     private void Start()
     {
@@ -23,15 +24,19 @@ public class ProjectileTrigger : MonoBehaviour
             Active = !Active;
             // activateObject.SetActive(true);
 
-            // play sound
-            audioSource_activate.Play();
 
             if (activateObject.activeSelf == true)
             {
+                // play sound
+                audioSource_activate.Play();
+
                 activateObject.SetActive(false);
             }
             else
             {
+                // play sound
+                audioSource_deactivate.Play();
+
                 activateObject.SetActive(true);
             }
 
