@@ -4890,7 +4890,7 @@ GameObject:
   - component: {fileID: 1870961540512158677}
   m_Layer: 0
   m_Name: PlayerColliderForSound
-  m_TagString: Untagged
+  m_TagString: SoundTrigger
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4935,6 +4935,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   audioSource_laserWhirr: {fileID: 1870961540512158677}
+  fadeSpeed: 1.5
+  maxVolume: 0.3
+  minVolume: 0
 --- !u!82 &1870961540512158677
 AudioSource:
   m_ObjectHideFlags: 0

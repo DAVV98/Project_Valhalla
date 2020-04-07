@@ -19,6 +19,7 @@ TagManager:
   - Enemy_Invisable_Wall
   - Door
   - ArrowTrap
+  - SoundTrigger
   layers:
   - Default
   - TransparentFX
