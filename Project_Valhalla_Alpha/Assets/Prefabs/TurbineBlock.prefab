@@ -124,7 +124,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 42c642dc3e2f346caa1cfed33d6fe95d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  windForce: 35
+  windForce: 50
   bActive: 0
   audioSource_turbineBlow: {fileID: 987407727}
   fadeSpeed: 1.5
