@@ -15,8 +15,8 @@ EditorBuildSettings:
     path: Assets/Scenes/_BuildScenes/Beta/03 Level 1.5.unity
     guid: 1e13c058463a65d45b8c62164c272145
   - enabled: 1
-    path: Assets/Scenes/_BuildScenes/Beta/05 Level 3 wo invisible walls.unity
-    guid: dcb1ad2181d2197419811f21a0fe393c
+    path: Assets/Scenes/_BuildScenes/Beta/05 Level 3.unity
+    guid: 2e047d32c64676841b495c9ea57df6e2
   - enabled: 1
     path: Assets/Scenes/_BuildScenes/Beta/06 Finale.unity
     guid: e8feda2f68209b64eadc7a26b577059a
