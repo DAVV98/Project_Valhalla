@@ -8,6 +8,8 @@ public class ProjectileTrigger : MonoBehaviour
     public GameObject activateObject;
     public bool Active;
 
+    public AudioSource audioSource_activate;
+
     private void Start()
     {
         activateObject.SetActive(false);
@@ -19,8 +21,10 @@ public class ProjectileTrigger : MonoBehaviour
         {
             Debug.Log("trigger");
             Active = !Active;
-           // activateObject.SetActive(true);
-            
+            // activateObject.SetActive(true);
+
+            // play sound
+            audioSource_activate.Play();
 
             if (activateObject.activeSelf == true)
             {
