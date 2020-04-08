@@ -20,6 +20,7 @@ TagManager:
   - Door
   - ArrowTrap
   - SoundTrigger
+  - Bee Enemy
   layers:
   - Default
   - TransparentFX

@@ -65,6 +65,10 @@ public class Turbine : MonoBehaviour
         RaycastHit windRay;
         if (Physics.Raycast(transform.position, transform.forward, out windRay, 100.0f))
         {
+            if(windRay.collider.tag == "Bee Enemy")
+            {
+                Destroy(windRay.collider.gameObject);
+            }
             if (windRay.collider.attachedRigidbody != null)
             {
                 if (windRay.collider.GetComponent<MoveByWind>())
