@@ -17,7 +17,7 @@ GameObject:
   - component: {fileID: 987407727}
   m_Layer: 0
   m_Name: TurbineBlock
-  m_TagString: Untagged
+  m_TagString: SoundTrigger
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
