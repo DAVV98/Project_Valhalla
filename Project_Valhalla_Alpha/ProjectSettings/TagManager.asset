@@ -21,6 +21,7 @@ TagManager:
   - ArrowTrap
   - SoundTrigger
   - Bee Enemy
+  - Shiled Ignore
   layers:
   - Default
   - TransparentFX
@@ -37,7 +38,7 @@ TagManager:
   - LaserEmitter
   - Enemy_Invisable_Wall
   - Enemies
-  - 
+  - Shiled Ignore
   - 
   - 
   - 

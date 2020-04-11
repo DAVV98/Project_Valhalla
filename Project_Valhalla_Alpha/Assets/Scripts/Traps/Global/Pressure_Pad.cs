@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Pressure_Pad : MonoBehaviour
 {
-    [Header("Object_To_Hide")]
+    [Header("Object_To_Show")]
     public GameObject hiddenObject;
 
     //Private variables
@@ -15,6 +15,8 @@ public class Pressure_Pad : MonoBehaviour
     {
        //gets mesh renderer of this gameobject.
        hider = this.gameObject.GetComponent<MeshRenderer>();
+
+        hiddenObject.SetActive(false);
     }
 
     /// <summary>
@@ -25,10 +27,10 @@ public class Pressure_Pad : MonoBehaviour
     /// <param name="padEnter"> creates collider between this obecjc and player</param>
     void OnTriggerEnter(Collider padEnter)
     {
-        if(padEnter.tag == "Pushable")
+        if(padEnter.tag == "Player")
         {
             hider.enabled = false;
-            hiddenObject.SetActive(false);
+            hiddenObject.SetActive(true);
           
         }
         

@@ -66,7 +66,7 @@ public class Player_v5 : MonoBehaviour
         FindObjectOfType<HealthSpiritManager>().offset = healthSpiritsOffset;
     }
 
-    private void FixedUpdate()
+    private void Update()
     {
         if (bArmed && bSpacePressed())
         {
@@ -74,6 +74,10 @@ public class Player_v5 : MonoBehaviour
             bArmed = false;
             shieldTimer = shieldTimerRate;
         }
+    }
+
+    private void FixedUpdate()
+    {
 
         if (!bPlayerFalling)
         {
