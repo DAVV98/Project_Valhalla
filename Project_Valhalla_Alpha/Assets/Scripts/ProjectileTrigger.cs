@@ -46,7 +46,7 @@ public class ProjectileTrigger : MonoBehaviour
 
                 if(activate == true)
                 {
-                    activateObject.SetActive(true);
+                    activateObject.SetActive(false);
                    
 
                     Debug.Log(1);
@@ -60,12 +60,12 @@ public class ProjectileTrigger : MonoBehaviour
             }
             else
             {
-                // play sound
+                // play soundq
                 audioSource_deactivate.Play();
 
                 if (activate == true)
                 {
-                    activateObject.SetActive(false);
+                    activateObject.SetActive(true);
                 
                 }
                 else

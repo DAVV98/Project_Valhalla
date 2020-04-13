@@ -3397,7 +3397,7 @@ GameObject:
   - component: {fileID: 534697546}
   m_Layer: 0
   m_Name: Barrier
-  m_TagString: Untagged
+  m_TagString: Island
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -7910,6 +7910,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6807485533282873320, guid: 15a5ccaa48a7c2c4aa908f450aaf9cc1,
+        type: 3}
+      propertyPath: windForce
+      value: 100
+      objectReference: {fileID: 0}
     - target: {fileID: 6807485533282873323, guid: 15a5ccaa48a7c2c4aa908f450aaf9cc1,
         type: 3}
       propertyPath: m_Name
@@ -11375,6 +11380,11 @@ PrefabInstance:
       propertyPath: activateObject
       value: 
       objectReference: {fileID: 905154402}
+    - target: {fileID: 264336855142675874, guid: 2b382dbd77622234981b829354c11300,
+        type: 3}
+      propertyPath: activate
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 264336855142675885, guid: 2b382dbd77622234981b829354c11300,
         type: 3}
       propertyPath: m_Name
@@ -11405,10 +11415,25 @@ PrefabInstance:
       propertyPath: enemy
       value: 
       objectReference: {fileID: 689106620}
+    - target: {fileID: 1909643222755840489, guid: d8cda61305503514a8ed6cd1ee8b19ef,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1909643222755840494, guid: d8cda61305503514a8ed6cd1ee8b19ef,
         type: 3}
       propertyPath: m_Name
       value: Enemy Wake Up
+      objectReference: {fileID: 0}
+    - target: {fileID: 1909643222755840494, guid: d8cda61305503514a8ed6cd1ee8b19ef,
+        type: 3}
+      propertyPath: m_TagString
+      value: Invisable_Wall
+      objectReference: {fileID: 0}
+    - target: {fileID: 1909643222755840494, guid: d8cda61305503514a8ed6cd1ee8b19ef,
+        type: 3}
+      propertyPath: m_Layer
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 1909643222755840495, guid: d8cda61305503514a8ed6cd1ee8b19ef,
         type: 3}
