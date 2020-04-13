@@ -11,9 +11,23 @@ public class ProjectileTrigger : MonoBehaviour
     public AudioSource audioSource_activate;
     public AudioSource audioSource_deactivate;
 
+    public bool activate;
+
+   
+
+   
     private void Start()
     {
-        activateObject.SetActive(false);
+        if(activate == true)
+        {
+            activateObject.SetActive(false);
+        }
+        else
+        {
+            activateObject.SetActive(true);
+        }
+
+        
     }
 
     private void OnTriggerEnter(Collider other)
@@ -30,14 +44,35 @@ public class ProjectileTrigger : MonoBehaviour
                 // play sound
                 audioSource_activate.Play();
 
-                activateObject.SetActive(false);
+                if(activate == true)
+                {
+                    activateObject.SetActive(true);
+                   
+
+                    Debug.Log(1);
+                }
+                else
+                {
+                    activateObject.SetActive(false);
+
+              
+                }
             }
             else
             {
                 // play sound
                 audioSource_deactivate.Play();
 
-                activateObject.SetActive(true);
+                if (activate == true)
+                {
+                    activateObject.SetActive(false);
+                
+                }
+                else
+                {
+                    activateObject.SetActive(true);
+              
+                }
             }
 
             Destroy(other.gameObject);
@@ -47,5 +82,8 @@ public class ProjectileTrigger : MonoBehaviour
     private void FixedUpdate()
     {
         //door.SetActive(!Active);
+
+    
+
     }
 }

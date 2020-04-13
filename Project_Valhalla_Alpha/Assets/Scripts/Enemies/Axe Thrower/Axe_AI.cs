@@ -10,7 +10,7 @@ public class Axe_AI : MonoBehaviour
     public float escapeSpeed;
     public float stopPos;
     public float retreatDistance;
-    public enum Axe_State { Approach, Throw, Retreat, Dont_Fall, Fall  };
+    public enum Axe_State { Approach, Throw, Retreat, Dont_Fall, Fall, Dont_Move };
     public Axe_State currentState;
     public float weight;
     private GameObject Player;
@@ -29,6 +29,7 @@ public class Axe_AI : MonoBehaviour
 
     private bool canFall;
 
+
     // Start is called before the first frame update
     void Start()
     {
@@ -39,7 +40,7 @@ public class Axe_AI : MonoBehaviour
         //Start with approach state.
         currentState = Axe_State.Approach;
 
-         //Set up timer.
+        //Set up timer.
         time_between_shots = start_time_between_shots - 0.8f;
 
         thrown_axes = 0;
@@ -65,9 +66,10 @@ public class Axe_AI : MonoBehaviour
             case Axe_State.Dont_Fall:
                 Dont_Fall();
                 break;
+          
         }
 
-      
+       
     }
 
     void Approach()
@@ -75,7 +77,12 @@ public class Axe_AI : MonoBehaviour
         //look at player
         transform.LookAt(Player_Pos);
         //move towards players
-        transform.position += transform.forward * moveSpeed * Time.fixedDeltaTime;
+      
+        
+         transform.position += transform.forward * moveSpeed * Time.fixedDeltaTime;
+        
+       
+   
 
         //if at stop pos changes state.
         if (Vector3.Distance(Player_Pos.position, this.transform.position) <= stopPos)
@@ -95,7 +102,7 @@ public class Axe_AI : MonoBehaviour
         axeObject.transform.LookAt(Player_Pos);
 
         //Debug.Log(thrown_axes);
-        
+
         //Change state to retreat.
         if (thrown_axes == max_Axes)
         {
@@ -123,8 +130,7 @@ public class Axe_AI : MonoBehaviour
         currentState = Axe_State.Approach;
     }
 
-
-
+ 
 
     void Attack_Timer()
     {
@@ -136,35 +142,36 @@ public class Axe_AI : MonoBehaviour
         }
         else
         {
+           
             time_between_shots -= Time.fixedDeltaTime;
         }
     }
 
-   void OnTriggerEnter(Collider collision)
+    void OnTriggerEnter(Collider collision)
     {
         if (collision.tag == "Shield")
         {
             shieldPush();
             canFall = true;
 
-            if(this.transform.position.y >= 0)
+            if (this.transform.position.y >= 0)
             {
                 canFall = false;
             }
-          
+
         }
 
         if (collision.tag == "Enemy_Invisable_Wall")
         {
-           if (canFall == false)
+            if (canFall == false)
             {
                 currentState = Axe_State.Approach;
             }
-           else
+            else
             {
                 Physics.IgnoreCollision(this.GetComponent<Collider>(), collision.GetComponent<Collider>());
             }
-            
+
         }
 
     }
@@ -176,5 +183,6 @@ public class Axe_AI : MonoBehaviour
 
         rb.AddForce(-(forceDirection * weight));
     }
-  
+    
+   
 }
