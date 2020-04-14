@@ -88,6 +88,7 @@ public class Bee_Enemy : MonoBehaviour
         {
             currentState = Bee_State.retreat;
 
+            // damage player
             collision.GetComponent<Player_v5>().DamagePlayer(3);
         }
 
