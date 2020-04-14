@@ -174,6 +174,11 @@ public class Axe_AI : MonoBehaviour
 
         }
 
+        if(collision.tag == "laser")
+        {
+            Destroy(this.gameObject);
+        }
+
     }
 
     void shieldPush()

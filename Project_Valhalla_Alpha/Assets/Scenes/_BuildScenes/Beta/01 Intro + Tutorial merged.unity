@@ -2713,6 +2713,36 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1650996087}
     m_Modifications:
+    - target: {fileID: 617807245, guid: 34044bc7cceaea848b63dd0476042485, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 617807246, guid: 34044bc7cceaea848b63dd0476042485, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.11
+      objectReference: {fileID: 0}
+    - target: {fileID: 617807246, guid: 34044bc7cceaea848b63dd0476042485, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0.45
+      objectReference: {fileID: 0}
+    - target: {fileID: 617807247, guid: 34044bc7cceaea848b63dd0476042485, type: 3}
+      propertyPath: m_Size.z
+      value: 12.827891
+      objectReference: {fileID: 0}
+    - target: {fileID: 617807247, guid: 34044bc7cceaea848b63dd0476042485, type: 3}
+      propertyPath: m_Center.z
+      value: -0.36582398
+      objectReference: {fileID: 0}
+    - target: {fileID: 2553394538980594300, guid: 34044bc7cceaea848b63dd0476042485,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2553394538980594300, guid: 34044bc7cceaea848b63dd0476042485,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 12.39
+      objectReference: {fileID: 0}
     - target: {fileID: 2553394539989860998, guid: 34044bc7cceaea848b63dd0476042485,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -2772,6 +2802,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Laser_Trap V2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2553394540998091370, guid: 34044bc7cceaea848b63dd0476042485,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.05
+      objectReference: {fileID: 0}
+    - target: {fileID: 2553394540998091370, guid: 34044bc7cceaea848b63dd0476042485,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 5.99
       objectReference: {fileID: 0}
     - target: {fileID: 4685099886098077421, guid: 34044bc7cceaea848b63dd0476042485,
         type: 3}
@@ -4792,6 +4832,11 @@ PrefabInstance:
         type: 3}
       propertyPath: throwSpeed
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4994561122271522198, guid: eb2d23e450f7f1740890f486faacde39,
+        type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4994561122271522201, guid: eb2d23e450f7f1740890f486faacde39,
         type: 3}
