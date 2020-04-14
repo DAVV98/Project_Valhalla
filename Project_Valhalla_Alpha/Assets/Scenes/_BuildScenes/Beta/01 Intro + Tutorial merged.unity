@@ -2743,6 +2743,11 @@ PrefabInstance:
       propertyPath: m_LocalPosition.z
       value: 12.39
       objectReference: {fileID: 0}
+    - target: {fileID: 2553394538980594301, guid: 34044bc7cceaea848b63dd0476042485,
+        type: 3}
+      propertyPath: CollisionModule.collidesWith.m_Bits
+      value: 87351
+      objectReference: {fileID: 0}
     - target: {fileID: 2553394539989860998, guid: 34044bc7cceaea848b63dd0476042485,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -4836,7 +4841,7 @@ PrefabInstance:
     - target: {fileID: 4994561122271522198, guid: eb2d23e450f7f1740890f486faacde39,
         type: 3}
       propertyPath: m_IsTrigger
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4994561122271522201, guid: eb2d23e450f7f1740890f486faacde39,
         type: 3}
