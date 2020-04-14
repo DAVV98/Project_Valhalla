@@ -47,6 +47,13 @@ public class Bee_Enemy : MonoBehaviour
             break;
             
         }
+
+        float dist = Vector3.Distance(Player.transform.position, transform.position);
+
+        if(dist > 25)
+        {
+            Destroy(this.gameObject);
+        }
     }
 
     //Make enemy move towards player
