@@ -8,11 +8,14 @@ public class ProjectileTrigger : MonoBehaviour
     public GameObject activateObject;
     public bool Active;
 
+    public GameObject bothActivate;
+
     public AudioSource audioSource_activate;
     public AudioSource audioSource_deactivate;
 
     public bool activate;
 
+    public bool doBoth;
    
 
    
@@ -46,16 +49,18 @@ public class ProjectileTrigger : MonoBehaviour
 
                 if(activate == true)
                 {
+                    //Deactivates Object for Activate 
                     activateObject.SetActive(false);
-                   
 
-                    Debug.Log(1);
+                    if(doBoth == true)
+                    {
+                        bothActivate.SetActive(true);
+                    }
                 }
                 else
                 {
                     activateObject.SetActive(false);
 
-              
                 }
             }
             else
@@ -65,8 +70,14 @@ public class ProjectileTrigger : MonoBehaviour
 
                 if (activate == true)
                 {
+                    //Activate object for activate.
                     activateObject.SetActive(true);
-                
+
+
+                    if (doBoth == true)
+                    {
+                        bothActivate.SetActive(false);
+                    }
                 }
                 else
                 {
