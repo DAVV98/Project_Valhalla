@@ -87,6 +87,9 @@ public class Bee_Enemy : MonoBehaviour
         if (collision.tag == "Player")
         {
             currentState = Bee_State.retreat;
+
+            // damage player
+            collision.GetComponent<Player_v5>().DamagePlayer(3);
         }
 
         if (collision.tag == "Shield")
