@@ -12,8 +12,9 @@ public class Enemy_Wake : MonoBehaviour
     }
     private void OnTriggerEnter(Collider other)
     {
-        if(other.tag == "Player")
+        if(other.CompareTag("Player"))
         {
+            Debug.Log("Enemy_Wake::OnTriggerEnter");
             enemy.SetActive(true);
         }
     }

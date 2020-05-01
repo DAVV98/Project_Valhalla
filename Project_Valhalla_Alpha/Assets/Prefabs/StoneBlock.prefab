@@ -124,7 +124,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   seaLevel: -3
-  audioSource_waterSplash: {fileID: 0}
+  audioSource_waterSplash: {fileID: 5573334064119048443}
 --- !u!82 &5573334064119048443
 AudioSource:
   m_ObjectHideFlags: 0
