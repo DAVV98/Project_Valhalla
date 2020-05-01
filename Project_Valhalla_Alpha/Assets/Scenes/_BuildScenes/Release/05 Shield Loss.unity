@@ -7717,6 +7717,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: DirectionalLight_Night
       objectReference: {fileID: 0}
+    - target: {fileID: 360020474917824090, guid: d3f805fbd6dbeac4f90a3d7ac9df6da4,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 360020474917824092, guid: d3f805fbd6dbeac4f90a3d7ac9df6da4,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -8754,6 +8759,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 6198844860303937841, guid: 8323ad449c676ac4097bc69e309fef17,
+        type: 3}
+      propertyPath: m_Shadows.m_Strength
+      value: 0.5
+      objectReference: {fileID: 0}
     - target: {fileID: 6198844860303937842, guid: 8323ad449c676ac4097bc69e309fef17,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -8813,6 +8823,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: DirectionalLight_Day
+      objectReference: {fileID: 0}
+    - target: {fileID: 6198844860303937843, guid: 8323ad449c676ac4097bc69e309fef17,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8323ad449c676ac4097bc69e309fef17, type: 3}
