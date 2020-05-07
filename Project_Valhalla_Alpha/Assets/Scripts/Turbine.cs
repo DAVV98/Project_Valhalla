@@ -62,15 +62,18 @@ public class Turbine : MonoBehaviour
 
     private void ShootRay()
     {
+        Debug.DrawRay(transform.position, transform.forward * 10.0f, Color.green);
+        //Debug.DrawRay(transform.position + new Vector3(0.0f, 0.0f, 0.25f), transform.forward * 10.0f, Color.green);
+        //Debug.DrawRay(transform.position + new Vector3(0.0f, 0.0f, -0.25f), transform.forward * 10.0f, Color.green);
+        
         RaycastHit windRay;
+        // does this work to get multiple rays?
         if (Physics.Raycast(transform.position, transform.forward, out windRay, 100.0f))
         {
-            if(windRay.collider.tag == "Bee Enemy")
-            {
+            if(windRay.collider.CompareTag("Bee Enemy")) {
                 Destroy(windRay.collider.gameObject);
             }
-            if (windRay.collider.attachedRigidbody != null)
-            {
+            if (windRay.collider.attachedRigidbody != null) {
                 if (windRay.collider.GetComponent<MoveByWind>())
                 {
                     windArea = windRay.collider.gameObject;
@@ -81,7 +84,7 @@ public class Turbine : MonoBehaviour
                         Player_v5 player = windRay.collider.GetComponent<Player_v5>();
 
                         // limit movement speed
-                        player.moveSpeed = 2;
+                        player.moveSpeed = 0.0f;
 
                         // set player falling
                         //player.bPlayerFalling = true;
