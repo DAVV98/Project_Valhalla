@@ -75,6 +75,20 @@ public class Turbine : MonoBehaviour
                 {
                     windArea = windRay.collider.gameObject;
                     windArea.GetComponent<Rigidbody>().AddForce(transform.forward * windForce);
+
+                    if (windRay.collider.GetComponent<Player_v5>())
+                    {
+                        Player_v5 player = windRay.collider.GetComponent<Player_v5>();
+
+                        // limit movement speed
+                        player.moveSpeed = 2;
+
+                        // set player falling
+                        //player.bPlayerFalling = true;
+
+                        // turn off collision with invisible wall
+                        player.gameObject.layer = 10;
+                    }
                 }
             }
         }
