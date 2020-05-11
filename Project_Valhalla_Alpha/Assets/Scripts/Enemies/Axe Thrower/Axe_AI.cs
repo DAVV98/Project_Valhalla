@@ -29,8 +29,6 @@ public class Axe_AI : MonoBehaviour
 
     private bool canFall;
 
-
-    // Start is called before the first frame update
     void Start()
     {
         //Makes Player useable and gets its transfroms.
@@ -43,12 +41,13 @@ public class Axe_AI : MonoBehaviour
         //Set up timer.
         time_between_shots = start_time_between_shots - 0.8f;
 
+        // set axes thrown to 0
         thrown_axes = 0;
 
+        //sets so player can't fall at start
         canFall = false;
     }
 
-    // Update is called once per frame
     void Update()
     {
         //Switches between states and calles respective functions.
@@ -66,23 +65,21 @@ public class Axe_AI : MonoBehaviour
             case Axe_State.Dont_Fall:
                 Dont_Fall();
                 break;
-          
+
         }
 
-       
     }
 
     void Approach()
     {
+        //set so player cannot fall approaching
+        canFall = false; //change
+
         //look at player
         transform.LookAt(Player_Pos);
-        //move towards players
-      
         
-         transform.position += transform.forward * moveSpeed * Time.fixedDeltaTime;
-        
-       
-   
+        //move towards player
+        transform.position += transform.forward * moveSpeed * Time.fixedDeltaTime;
 
         //if at stop pos changes state.
         if (Vector3.Distance(Player_Pos.position, this.transform.position) <= stopPos)
@@ -96,12 +93,12 @@ public class Axe_AI : MonoBehaviour
     {
         //look at players
         transform.LookAt(Player_Pos);
-        //start throw.
+       
+        //start timer.
         Attack_Timer();
+        
         //thrown axe goes towareds player.
         axeObject.transform.LookAt(Player_Pos);
-
-        //Debug.Log(thrown_axes);
 
         //Change state to retreat.
         if (thrown_axes == max_Axes)
@@ -112,10 +109,13 @@ public class Axe_AI : MonoBehaviour
 
     void Retreat()
     {
-        Debug.Log(canFall);
+        //set canfall to false
+        canFall = false;
+
         //look at player
         transform.LookAt(Player_Pos);
-        //move towards players
+        
+        //move away from player
         transform.position -= transform.forward * (moveSpeed + escapeSpeed) * Time.fixedDeltaTime;
 
         //Stop at escape distance and start approach again.
@@ -130,34 +130,40 @@ public class Axe_AI : MonoBehaviour
         currentState = Axe_State.Approach;
     }
 
- 
-
     void Attack_Timer()
     {
         if (time_between_shots <= 0)
         {
+            //instantiate new axe
             Instantiate(axeObject, axeSpawn.position, axeSpawn.rotation);
+            //Increase axe counter
             thrown_axes++;
             time_between_shots = start_time_between_shots;
         }
         else
         {
-           
+
             time_between_shots -= Time.fixedDeltaTime;
         }
     }
 
+    void shieldPush()
+    {
+        //set direction of push
+        Vector3 forceDirection = transform.TransformDirection(Vector3.forward);
+        Rigidbody rb = this.GetComponent<Rigidbody>();
+
+        //add force
+        rb.AddForce(-(forceDirection * weight));
+    }
+
     void OnTriggerEnter(Collider collision)
     {
+
         if (collision.tag == "Shield")
         {
             shieldPush();
             canFall = true;
-
-            if (this.transform.position.y >= 0)
-            {
-                canFall = false;
-            }
 
         }
 
@@ -167,27 +173,27 @@ public class Axe_AI : MonoBehaviour
             {
                 currentState = Axe_State.Approach;
             }
-            else
+            else if (canFall == true)
             {
                 Physics.IgnoreCollision(this.GetComponent<Collider>(), collision.GetComponent<Collider>());
             }
 
         }
 
-        if(collision.tag == "laser")
+        if (collision.tag == "laser")
         {
             Destroy(this.gameObject);
         }
 
     }
 
-    void shieldPush()
+    void OnTriggerExit(Collider collision)
     {
-        Vector3 forceDirection = transform.TransformDirection(Vector3.forward);
-        Rigidbody rb = this.GetComponent<Rigidbody>();
+        if (collision.tag == "Shield")
+        {
+            canFall = false;
 
-        rb.AddForce(-(forceDirection * weight));
+        }
     }
     
-   
 }
