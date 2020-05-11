@@ -22,6 +22,7 @@ TagManager:
   - SoundTrigger
   - Bee Enemy
   - Shiled Ignore
+  - Decor
   layers:
   - Default
   - TransparentFX
