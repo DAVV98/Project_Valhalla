@@ -16,6 +16,7 @@ public class Enemy_Wake : MonoBehaviour
         {
             Debug.Log("Enemy_Wake::OnTriggerEnter");
             enemy.SetActive(true);
+            this.gameObject.SetActive(false);
         }
     }
 }
